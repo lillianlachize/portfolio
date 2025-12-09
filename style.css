@@ -1,0 +1,484 @@
+/* Fichier : style.css - VERSION FINALE (COMPLETE) */
+
+:root {
+    --primary-color: #00d4ff; /* Bleu Tech / Cyan (Héros) */
+    --secondary-color: #1e1e2f; /* Fond sombre global */
+    --text-color: #e0e0e0;
+    --card-bg: #2a2a40;
+    --section-bg: #232336;
+    --enemy-color: #ff0055; /* Rouge Néon (Adversaire Échecs) */
+}
+
+/* --- 1. ANIMATIONS --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+    50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.5; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+}
+
+/* --- 2. STYLE GÉNÉRAL (CV) --- */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    animation: fadeIn 0.8s ease-out;
+}
+
+header {
+    background: linear-gradient(135deg, #161625 0%, #2a2a40 100%);
+    padding: 4rem 2rem;
+    text-align: center;
+    border-bottom: 3px solid var(--primary-color);
+    animation: fadeIn 1s ease-out;
+}
+
+.profile-photo {
+    width: 150px; 
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; 
+    border: 4px solid var(--primary-color); 
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4); 
+    margin-bottom: 1.5rem; 
+    animation: fadeInUp 1s ease-out backwards; 
+}
+
+h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    word-wrap: break-word;
+}
+
+h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-top: 30px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.alert-box {
+    background-color: rgba(0, 212, 255, 0.1);
+    border: 1px solid var(--primary-color);
+    color: #fff;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 600px;
+    border-radius: 8px;
+    font-weight: bold;
+    animation: fadeInUp 1s ease-out 0.3s backwards;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- SECTIONS (Cartes) --- */
+.section {
+    background-color: var(--section-bg);
+    margin-bottom: 20px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.8s ease-out backwards;
+}
+
+/* Délais d'animation pour effet cascade */
+.section:nth-child(1) { animation-delay: 0.2s; }
+.section:nth-child(2) { animation-delay: 0.4s; }
+.section:nth-child(3) { animation-delay: 0.6s; }
+.section:nth-child(4) { animation-delay: 0.8s; }
+.section:nth-child(5) { animation-delay: 1.0s; }
+.section:nth-child(6) { animation-delay: 1.2s; } /* Calculatrice */
+.section:nth-child(7) { animation-delay: 1.4s; } /* Echecs */
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 212, 255, 0.1);
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    font-size: 1.1rem;
+    animation: fadeIn 1s ease-out 0.5s backwards;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* --- TAGS & TIMELINE --- */
+.skill-tag {
+    background-color: var(--primary-color);
+    color: #000;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    display: inline-block;
+    margin: 3px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: default;
+}
+
+.skill-tag:hover {
+    background-color: #fff;
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 5px 10px rgba(0, 212, 255, 0.3);
+}
+
+.timeline-item {
+    border-left: 2px solid var(--primary-color);
+    padding-left: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding-left: 25px;
+    border-radius: 0 8px 8px 0;
+}
+
+.timeline-item::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    left: -7px;
+    top: 5px;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover::before {
+    transform: scale(1.5);
+    background-color: #fff;
+    box-shadow: 0 0 10px var(--primary-color);
+}
+
+.date { color: #aaa; font-style: italic; font-size: 0.9rem; }
+.job-title { font-size: 1.2rem; font-weight: bold; color: #fff; }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #161625;
+    font-size: 0.9rem;
+    color: #888;
+}
+
+a { color: var(--primary-color); text-decoration: none; transition: color 0.3s ease; }
+a:hover { text-decoration: underline; }
+
+/* --- 3. STYLE CALCULATRICE --- */
+
+table.calculatrice {
+    background-color: #161625;
+    border: 2px solid var(--primary-color);
+    border-radius: 15px;
+    border-spacing: 8px;
+    padding: 15px;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+    margin: 0 auto;
+    width: auto;
+}
+
+table.calculatrice td {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text-color);
+    background-color: var(--card-bg);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+table.calculatrice td:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 10px var(--primary-color);
+    border-color: var(--primary-color);
+    color: #fff;
+}
+
+table.calculatrice td:active { transform: scale(0.95); }
+
+.ecran {
+    background-color: #0a0a12;
+    color: var(--primary-color);
+    text-align: right;
+    padding-right: 15px;
+    border: 1px solid #333 !important;
+    font-family: 'Courier New', monospace;
+    font-size: 28px !important;
+    text-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
+    pointer-events: none;
+}
+
+.chiffre { background-color: #232336; }
+.operateur { color: var(--primary-color); font-size: 26px !important; }
+.autre { color: #888; }
+.autre:hover { color: #fff; }
+
+.egal { 
+    background-color: var(--primary-color) !important;
+    color: #161625 !important;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+}
+.egal:hover {
+    background-color: #fff !important;
+    box-shadow: 0 0 20px #fff;
+}
+
+/* --- 4. STYLE JEU D'ÉCHECS (VERSION CYBER / TECH) --- */
+
+/* Indicateur de tour (Bandeau) */
+.info-tour {
+    background-color: rgba(0, 212, 255, 0.1);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 20px;
+    border: 1px solid var(--primary-color);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.info-tour span {
+    color: var(--primary-color);
+    text-shadow: 0 0 5px var(--primary-color);
+}
+
+/* Le Plateau (Cadre Néon) */
+.echiquier {
+    border-collapse: collapse;
+    border: 3px solid var(--primary-color);
+    margin: 0 auto;
+    box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+    background-color: #000;
+}
+
+/* Les cases */
+.echiquier td {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Grille discrète */
+}
+
+/* Couleurs du damier (Tech sombre) */
+.echiquier tr:nth-child(odd) td:nth-child(even),
+.echiquier tr:nth-child(even) td:nth-child(odd) {
+    background-color: #11111a; /* Noir profond */
+}
+
+.echiquier tr:nth-child(odd) td:nth-child(odd),
+.echiquier tr:nth-child(even) td:nth-child(even) {
+    background-color: #1e1e2f; /* Gris bleuté */
+}
+
+/* --- DESIGN DES PIÈCES (HOLOGRAMME) --- */
+.piece {
+    width: 100%;
+    height: 100%;
+    background-image: url('chess_pieces.png');
+    background-repeat: no-repeat;
+    background-size: 600% 200%;
+    cursor: grab;
+    transition: transform 0.2s ease-out, filter 0.2s;
+    position: relative;
+    z-index: 5;
+}
+
+.piece:hover {
+    transform: scale(1.15);
+}
+.piece:active {
+    cursor: grabbing;
+}
+
+/* Équipe BLANCS -> Devient CYAN */
+.piece.blanc {
+    background-position-y: 0%;
+    filter: drop-shadow(0 0 3px var(--primary-color)); 
+}
+
+/* Équipe NOIRS -> Devient ROUGE/ROSE (Inversion + Lueur) */
+.piece.noir {
+    background-position-y: 100%;
+    filter: invert(1) drop-shadow(0 0 3px var(--enemy-color));
+}
+
+/* Positions sprites */
+.roi      { background-position-x: 0%; }
+.reine    { background-position-x: 20%; }
+.fou      { background-position-x: 40%; }
+.cavalier { background-position-x: 60%; }
+.tour     { background-position-x: 80%; }
+.pion     { background-position-x: 100%; }
+
+/* --- INTERACTIVITÉ ECHECS --- */
+
+/* Case sélectionnée (Verre bleu) */
+.case-selected {
+    background-color: rgba(0, 212, 255, 0.2) !important;
+    box-shadow: inset 0 0 15px rgba(0, 212, 255, 0.4);
+    border: 1px solid var(--primary-color) !important;
+}
+
+/* Indicateurs de déplacement (Points rouges pulsants) */
+.coup-possible {
+    cursor: pointer;
+}
+
+.coup-possible::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background-color: var(--enemy-color);
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--enemy-color);
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.8;
+    animation: pulse 1.5s infinite;
+}
+
+.coup-possible:hover::after {
+    background-color: #fff;
+    box-shadow: 0 0 15px #fff;
+    transform: translate(-50%, -50%) scale(1.5);
+}
+
+/* Style de prise (Cadre rouge) */
+.coup-possible:not(:empty)::after {
+    background-color: transparent;
+    border: 2px solid var(--enemy-color);
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    box-shadow: inset 0 0 10px var(--enemy-color);
+    opacity: 1;
+    animation: none;
+}
+
+/* --- 5. MODAL DE VICTOIRE --- */
+.modal-victoire {
+    display: none; /* Caché par défaut */
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fond très sombre */
+    justify-content: center; align-items: center; z-index: 1000;
+    backdrop-filter: blur(8px);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.contenu-victoire {
+    background: #161625; padding: 40px; border-radius: 15px;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+    text-align: center; max-width: 90%;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.contenu-victoire h2 {
+    font-size: 2.5rem; margin: 0 0 20px 0;
+    text-shadow: 0 0 15px currentColor;
+    border: none;
+}
+
+.bouton-rejouer {
+    background-color: var(--primary-color); color: #000;
+    border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold;
+    border-radius: 50px; cursor: pointer; margin-top: 20px;
+    transition: all 0.3s; text-transform: uppercase;
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+}
+
+.bouton-rejouer:hover {
+    background-color: #fff; transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
+}
+
+/* --- 6. RESPONSIVE MOBILE --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; line-height: 1.2; }
+    .subtitle { font-size: 1.1rem; }
+    header { padding: 2rem 1rem; }
+    .contact-info { flex-direction: column; align-items: center; gap: 10px; }
+    .grid-2 { grid-template-columns: 1fr; }
+    .section { padding: 15px; }
+    .timeline-item:hover { padding-left: 15px; background-color: transparent; }
+    .skill-tag:hover { transform: none; }
+}
+
+@media (max-width: 600px) {
+    /* Adaptation Calculatrice */
+    table.calculatrice td {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+    }
+    table.calculatrice { padding: 5px; border-spacing: 5px; }
+
+    /* Adaptation Échecs */
+    .echiquier td {
+        width: 38px;
+        height: 38px;
+    }
+    .echiquier { border-width: 2px; }
+    
+    /* Points rouges plus petits */
+    .coup-possible::after { width: 8px; height: 8px; }
+}
