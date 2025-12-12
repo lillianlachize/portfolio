@@ -1,0 +1,44 @@
+name: Deploy Website with Secret Key
+
+on:
+  push:
+    branches:
+      - main  # Vérifie si ta branche s'appelle "main" ou "master"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupération du code (Checkout)
+        uses: actions/checkout@v4
+
+      # C'est ICI que la magie opère !
+      # On cherche le texte "CLE_SECCRETE_A_REMPLACER_PAR_GITHUB" dans index.html
+      # Et on le remplace par la vraie clé stockée dans tes secrets GitHub
+      - name: Injection de la Clé API Secrète
+        run: |
+          sed -i 's/CLE_SECCRETE_A_REMPLACER_PAR_GITHUB/${{ secrets.GEMINI_API_KEY }}/g' index.html
+
+      - name: Configuration de GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload des fichiers du site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+
+      - name: Déploiement final
+        id: deployment
+        uses: actions/deploy-pages@v4
