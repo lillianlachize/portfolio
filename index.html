@@ -6,20 +6,45 @@
     <link rel="shortcut icon" type="image/x-icon" href="iconne.ico" />
     <title>CV - Lillian Lachize | BTS SIO</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .difficulty-selector {
+            margin-bottom: 15px;
+            display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
+        }
+        .btn-diff {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 15px; border-radius: 20px;
+            cursor: pointer; font-family: 'Segoe UI', sans-serif;
+            font-size: 0.9rem; transition: all 0.3s ease;
+            text-transform: uppercase; font-weight: bold;
+        }
+        .btn-diff:hover { background-color: rgba(0, 212, 255, 0.1); transform: translateY(-2px); }
+        
+        .btn-diff.selected {
+            background-color: var(--primary-color);
+            color: #1e1e2f; box-shadow: 0 0 10px var(--primary-color);
+        }
+        /* Style spécifique Extreme */
+        .btn-diff[data-level="extreme"].selected {
+            background-color: #ff0055; border-color: #ff0055; color: white; box-shadow: 0 0 15px #ff0055;
+        }
+        /* Style spécifique 1 vs 1 */
+        .btn-diff[data-level="pvp"].selected {
+            background-color: #fff; border-color: #fff; color: #000; box-shadow: 0 0 15px #fff;
+        }
+    </style>
 </head>
 <body>
 
     <header>
         <img src="photo-LillianV2.png" alt="Photo de Lillian Lachize" class="profile-photo">
-        
         <h1>Lillian Lachize</h1>
         <div class="subtitle">Étudiant en BTS SIO - Réseaux & Cybersécurité</div>
-        
         <div class="alert-box">
-            🚀 À la recherche d'un stage en Réseaux Informatiques<br>
-            Du 25 mai au 26 juin 2026
+            🚀 À la recherche de connaissances, <br> principalement dans le milieu informatique afin d'étoffer mes compétences.
         </div>
-
         <div class="contact-info">
             <span>📍 Montmerle sur Saône (01090)</span>
             <span>📧 <a href="mailto:lillianlachize.fr@gmail.com">lillianlachize.fr@gmail.com</a></span>
@@ -38,10 +63,10 @@
                     <p>
                         <span class="skill-tag">Windows Server</span>
                         <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Virtual code / sublimetext </span>
                         <span class="skill-tag">Microsoft 365</span>
                         <span class="skill-tag">VPN (Ipfire)</span>
-                        <span class="skill-tag">Virtualisation (VM)</span>
-                        <span class="skill-tag">Cybersécurité</span>
+                        <span class="skill-tag">Virtualisation (VMware)</span>
                     </p>
                 </div>
                 <div>
@@ -74,32 +99,26 @@
             <div class="timeline-item">
                 <div class="job-title">Autodidacte & Certifications</div>
                 <div class="date">2024</div>
-                <p>
-                    • <strong>Diplôme PIX :</strong> Compétences numériques<br>
-                    • <strong>OpenClassrooms :</strong> Formation base HTML/CSS, PHP, Python, Git.
-                </p>
+                <p>• <strong>Diplôme PIX</strong> • <strong>OpenClassrooms</strong> (HTML/CSS, PHP, Python, Git).</p>
             </div>
         </section>
 
         <section class="section">
             <h2>💼 Expériences Professionnelles</h2>
-            
             <div class="timeline-item">
                 <div class="job-title">Employé Polyvalent (Boucherie/Rayon)</div>
                 <div class="date">16/04/2025 au 31/08/2025 | Intermarché</div>
                 <p>Gestion des stocks, mise en rayon.</p>
             </div>
-
             <div class="timeline-item">
                 <div class="job-title">Employé Polyvalent (Bricolage)</div>
                 <div class="date">24/02/2025 au 15/03/2025 | Bricomarché</div>
                 <p>Mise en rayon, gestion des stocks, relation client.</p>
             </div>
-
             <div class="timeline-item">
                 <div class="job-title">Stage Découverte Web & Sécurité</div>
                 <div class="date">Février 2021 | PMP Concept</div>
-                <p>Programmation et sécurisation web (HTML/CSS/PHP), découverte de l'entreprise.</p>
+                <p>Programmation et sécurisation web (HTML/CSS/PHP).</p>
             </div>
         </section>
 
@@ -109,60 +128,46 @@
                 <div>
                     <h3>Projets Personnels</h3>
                     <ul>
-                        <li>Développement de jeux vidéo (Histoire & Design graphique).</li>
+                        <li>Développement de jeux vidéo.</li>
                         <li>Création et animation en Pixel Art.</li>
                         <li>Chiffrement de fichiers.</li>
-                        <li>Création d'interface homme-machine.</li>
                     </ul>
                 </div>
                 <div>
                     <h3>Loisirs & Sports</h3>
                     <ul>
-                        <li><strong>Arts Martiaux (Kali, AITO) :</strong> Objectif ceinture noire 1er Dan et diplôme d'instructeur (DAF/DIF).</li>
-                        <li>Veille technologique via mini-projets.</li>
+                        <li><strong>Arts Martiaux (Kali, AITO) :</strong> Objectif ceinture noire.</li>
+                        <li>Veille technologique.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
         <section class="section" style="text-align: center;">
-            <h3>🌍 Langues & Permis</h3>
-            <p><strong>Anglais :</strong> Niveau A1 | <strong>Espagnol :</strong> Niveau A1</p>
-            <p><strong>Permis B :</strong> En cours de formation</p>
-        </section>
-
-        <section class="section" style="text-align: center;">
             <h2>🧮 Projet TP : La Calculatrice</h2>
             <p style="margin-bottom: 20px;">Réalisation d'une calculatrice graphique via un tableau HTML.</p>
-            
             <table class="calculatrice">
                 <tr><td colspan="4" class="ecran">0</td></tr>
-                
-                <tr>
-                    <td class="chiffre">1</td><td class="chiffre">2</td><td class="chiffre">3</td><td class="operateur">+</td>
-                </tr>
-                <tr>
-                    <td class="chiffre">4</td><td class="chiffre">5</td><td class="chiffre">6</td><td class="operateur">-</td>
-                </tr>
-                <tr>
-                    <td class="chiffre">7</td><td class="chiffre">8</td><td class="chiffre">9</td><td class="operateur">&times;</td>
-                </tr>
-                <tr>
-                    <td class="chiffre">0</td><td class="autre">(</td><td class="autre">)</td><td class="operateur">&divide;</td>
-                </tr>
-                <tr>
-                    <td class="autre">&larr;</td><td class="autre">.</td><td colspan="2" class="egal">=</td>
-                </tr>
+                <tr><td class="chiffre">1</td><td class="chiffre">2</td><td class="chiffre">3</td><td class="operateur">+</td></tr>
+                <tr><td class="chiffre">4</td><td class="chiffre">5</td><td class="chiffre">6</td><td class="operateur">-</td></tr>
+                <tr><td class="chiffre">7</td><td class="chiffre">8</td><td class="chiffre">9</td><td class="operateur">&times;</td></tr>
+                <tr><td class="chiffre">0</td><td class="autre">(</td><td class="autre">)</td><td class="operateur">&divide;</td></tr>
+                <tr><td class="autre">&larr;</td><td class="autre">.</td><td colspan="2" class="egal">=</td></tr>
             </table>
         </section>
 
         <section class="section" style="text-align: center; position: relative;">
-            <h2>♞ Projet TP : Jeu d'Échecs</h2>
-            <p style="margin-bottom: 20px;">
-                Moteur de jeu complet : Déplacements, Tours et Victoire.<br>
-                <em style="font-size: 0.9em; color: #888;">(Cliquez sur une pièce pour voir les coups possibles)</em>
-            </p>
+            <h2>♞ Projet TP : Jeu d'Échecs vs IA</h2>
+            <p style="margin-bottom: 10px;">Choisissez votre niveau de difficulté ou jouez à deux :</p>
             
+            <div class="difficulty-selector">
+                <button class="btn-diff" data-level="pvp" title="Jouer sans IA (Humain vs Humain)">1 vs 1</button>
+                <button class="btn-diff" data-level="facile">Facile</button>
+                <button class="btn-diff selected" data-level="normal">Normal</button>
+                <button class="btn-diff" data-level="difficile">Difficile</button>
+                <button class="btn-diff" data-level="extreme">Extrême</button>
+            </div>
+
             <div class="info-tour">Tour actuel : <span id="tour-indicateur">BLANCS</span></div>
 
             <table class="echiquier" id="plateau">
@@ -186,12 +191,10 @@
                     <td><div class="piece noir pion" data-type="pion" data-couleur="noir"></div></td>
                     <td><div class="piece noir pion" data-type="pion" data-couleur="noir"></div></td>
                 </tr>
-                
                 <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
                 <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
                 <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
                 <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-
                 <tr>
                     <td><div class="piece blanc pion" data-type="pion" data-couleur="blanc"></div></td>
                     <td><div class="piece blanc pion" data-type="pion" data-couleur="blanc"></div></td>
@@ -225,7 +228,7 @@
     <div id="ecran-victoire" class="modal-victoire">
         <div class="contenu-victoire">
             <h2 id="texte-victoire">VICTOIRE !</h2>
-            <p>Le Roi ennemi a été éliminé.</p>
+            <p>La partie est terminée.</p>
             <button class="bouton-rejouer" onclick="location.reload()">REJOUER</button>
         </div>
     </div>
@@ -233,6 +236,25 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
+            // --- CONFIGURATION GEMINI ---
+            const GEMINI_API_KEY = "AIzaSyCsyKj4g5YjSp5kXtkrSKhuR2Ypi5Blv_A"; 
+            const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+
+            /* =========================================
+               0. GESTION DE LA DIFFICULTÉ
+               ========================================= */
+            let niveauDifficulte = 'normal';
+            
+            const boutonsDifficulte = document.querySelectorAll('.btn-diff');
+            boutonsDifficulte.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    boutonsDifficulte.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    niveauDifficulte = this.getAttribute('data-level');
+                    console.log("Mode choisi : " + niveauDifficulte);
+                });
+            });
+
             /* =========================================
                1. LOGIQUE DE LA CALCULATRICE
                ========================================= */
@@ -241,11 +263,9 @@
                 touche.addEventListener('click', function() {
                     if (this.classList.contains('ecran')) return;
                     const val = this.innerText;
-                    
                     if (this.classList.contains('egal')) {
-                        try {
-                            ecran.innerText = eval(ecran.innerText.replace(/×/g, '*').replace(/÷/g, '/'));
-                        } catch { ecran.innerText = "Erreur"; }
+                        try { ecran.innerText = eval(ecran.innerText.replace(/×/g, '*').replace(/÷/g, '/')); } 
+                        catch { ecran.innerText = "Erreur"; }
                     } else if (val === '←') {
                         ecran.innerText = ecran.innerText.slice(0, -1) || '0';
                     } else {
@@ -255,12 +275,13 @@
             });
 
             /* =========================================
-               2. LOGIQUE DU JEU D'ÉCHECS (CYBER + RÈGLES)
+               2. LOGIQUE JEU D'ÉCHECS (CORE)
                ========================================= */
             
             let tourActuel = 'blanc'; 
             let caseSelectionnee = null;
             let jeuFini = false;
+            let iaReflechit = false; 
             
             const indicateurTour = document.getElementById('tour-indicateur');
             const cases = Array.from(document.querySelectorAll('.echiquier td')); 
@@ -278,6 +299,14 @@
                 return cases[y * 8 + x];
             }
 
+            function getNotation(index) {
+                const x = index % 8;
+                const y = Math.floor(index / 8);
+                const col = String.fromCharCode(97 + x); 
+                const row = 8 - y; 
+                return col + row;
+            }
+
             function checkCheminLibre(pos1, pos2) {
                 const stepX = Math.sign(pos2.x - pos1.x);
                 const stepY = Math.sign(pos2.y - pos1.y);
@@ -291,41 +320,85 @@
                 return true;
             }
 
+            // --- FEN Generator (Pour la Vision IA) ---
+            function genererFEN() {
+                let fen = "";
+                for (let y = 0; y < 8; y++) {
+                    let emptyCount = 0;
+                    for (let x = 0; x < 8; x++) {
+                        const td = getCaseAt(x, y);
+                        const piece = td.querySelector('.piece');
+                        if (!piece) {
+                            emptyCount++;
+                        } else {
+                            if (emptyCount > 0) { fen += emptyCount; emptyCount = 0; }
+                            const type = piece.getAttribute('data-type');
+                            const color = piece.getAttribute('data-couleur');
+                            let char = '';
+                            switch(type) {
+                                case 'tour': char = 'r'; break;
+                                case 'cavalier': char = 'n'; break;
+                                case 'fou': char = 'b'; break;
+                                case 'reine': char = 'q'; break;
+                                case 'roi': char = 'k'; break;
+                                case 'pion': char = 'p'; break;
+                            }
+                            if (color === 'blanc') char = char.toUpperCase();
+                            fen += char;
+                        }
+                    }
+                    if (emptyCount > 0) fen += emptyCount;
+                    if (y < 7) fen += "/";
+                }
+                fen += " b - - 0 1";
+                return fen;
+            }
+
             // --- Gestionnaire de Clics ---
             cases.forEach(td => {
                 td.addEventListener('click', function() {
-                    if (jeuFini) return; 
+                    // Si le jeu est fini ou si l'IA réfléchit, on bloque
+                    if (jeuFini || iaReflechit) return;
+
+                    // Si c'est aux Noirs de jouer, on bloque SAUF si on est en mode "PvP"
+                    if (tourActuel === 'noir' && niveauDifficulte !== 'pvp') return;
 
                     const pieceSurCase = this.querySelector('.piece');
                     
-                    // Sélection
+                    // SÉLECTION
                     if (!caseSelectionnee) {
+                        // On doit pouvoir sélectionner une pièce de SA couleur actuelle
                         if (pieceSurCase && pieceSurCase.getAttribute('data-couleur') === tourActuel) {
                             selectionnerCase(this);
                         }
                     } 
-                    // Action
+                    // ACTION (Déplacement ou Changement sélection)
                     else {
                         if (caseSelectionnee === this) { resetSelection(); return; }
                         
-                        // Changement de pièce
+                        // Si on clique sur une autre pièce de SA couleur -> Changement de sélection
                         if (pieceSurCase && pieceSurCase.getAttribute('data-couleur') === tourActuel) {
                             resetSelection();
                             selectionnerCase(this);
                             return;
                         }
 
-                        // Déplacement
+                        // Déplacement valide
                         if (estCoupValide(caseSelectionnee, this)) {
                             effectuerDeplacement(caseSelectionnee, this);
-                            if (!jeuFini) changerTour(); 
+                            if (!jeuFini) {
+                                changerTour(); 
+                                // On ne déclenche l'IA que si on n'est PAS en mode PvP
+                                if (niveauDifficulte !== 'pvp') {
+                                    setTimeout(jouerIA_Manager, 100); 
+                                }
+                            }
                         }
                         resetSelection();
                     }
                 });
             });
 
-            // --- Fonctions Visuelles ---
             function selectionnerCase(td) {
                 caseSelectionnee = td;
                 td.classList.add('case-selected');
@@ -348,43 +421,47 @@
             function changerTour() {
                 tourActuel = (tourActuel === 'blanc') ? 'noir' : 'blanc';
                 indicateurTour.innerText = tourActuel.toUpperCase() + "S";
-                // Couleur dynamique selon le tour
                 indicateurTour.style.color = (tourActuel === 'blanc') ? '#00d4ff' : '#ff0055';
+                
+                // On affiche "IA Réfléchit" seulement si ce n'est pas du PvP
+                if(tourActuel === 'noir' && niveauDifficulte !== 'pvp') {
+                    indicateurTour.innerHTML += " <small>(IA Réfléchit...)</small>";
+                }
             }
 
-            // --- Moteur de Jeu ---
             function effectuerDeplacement(depart, arrivee) {
                 const piece = depart.querySelector('.piece');
                 const cible = arrivee.querySelector('.piece');
                 
-                // GESTION VICTOIRE : Si on capture un Roi
                 if (cible && cible.getAttribute('data-type') === 'roi') {
                     declencherVictoire();
-                    arrivee.innerHTML = ''; // Enlever le roi mort
-                    arrivee.appendChild(piece); // Placer le tueur
+                    arrivee.innerHTML = ''; 
+                    arrivee.appendChild(piece); 
                     return;
                 }
 
-                if (arrivee.firstChild) arrivee.innerHTML = ''; // Manger pièce normale
+                if (arrivee.firstChild) arrivee.innerHTML = ''; 
                 arrivee.appendChild(piece);
+                
+                arrivee.animate([ { transform: 'scale(1.2)' }, { transform: 'scale(1)' } ], { duration: 200 });
             }
 
             function declencherVictoire() {
                 jeuFini = true;
-                ecranVictoire.style.display = 'flex'; // Afficher la pop-up
-                
+                ecranVictoire.style.display = 'flex'; 
                 if (tourActuel === 'blanc') {
                     texteVictoire.innerText = "LES BLANCS GAGNENT !";
                     texteVictoire.style.color = "#00d4ff"; 
                 } else {
-                    texteVictoire.innerText = "LES NOIRS GAGNENT !";
+                    texteVictoire.innerText = (niveauDifficulte === 'pvp') ? "LES NOIRS GAGNENT !" : "GEMINI A GAGNÉ !";
                     texteVictoire.style.color = "#ff0055"; 
                 }
             }
 
-            // --- Moteur de Règles ---
             function estCoupValide(depart, arrivee) {
                 const pieceDiv = depart.querySelector('.piece');
+                if (!pieceDiv) return false;
+                
                 const type = pieceDiv.getAttribute('data-type');
                 const couleur = pieceDiv.getAttribute('data-couleur');
                 const pos1 = getCoords(depart);
@@ -393,17 +470,13 @@
                 const absDx = Math.abs(dx); const absDy = Math.abs(dy);
                 const ciblePiece = arrivee.querySelector('.piece');
 
-                // On ne mange pas ses amis
                 if (ciblePiece && ciblePiece.getAttribute('data-couleur') === couleur) return false;
 
                 if (type === 'pion') {
                     const dir = (couleur === 'blanc') ? -1 : 1; 
                     const startRow = (couleur === 'blanc') ? 6 : 1;
-                    // Avance 1
                     if (dx === 0 && dy === dir && !ciblePiece) return true;
-                    // Avance 2
                     if (dx === 0 && dy === 2 * dir && pos1.y === startRow && !ciblePiece && !getCaseAt(pos1.x, pos1.y + dir).querySelector('.piece')) return true;
-                    // Mange Diagonale
                     if (absDx === 1 && dy === dir && ciblePiece) return true;
                     return false;
                 }
@@ -413,6 +486,131 @@
                 if (type === 'cavalier') return (absDx === 2 && absDy === 1) || (absDx === 1 && absDy === 2);
                 if (type === 'roi') return absDx <= 1 && absDy <= 1;
                 return false;
+            }
+
+            /* =========================================
+               3. MANAGER D'IA
+               ========================================= */
+
+            function jouerIA_Manager() {
+                if (jeuFini) return;
+                iaReflechit = true;
+
+                // Heuristique simple pour le mode Normal/Difficile (tri des coups)
+                let tousLesCoups = [];
+                
+                cases.forEach((tdDepart, indexDepart) => {
+                    const piece = tdDepart.querySelector('.piece');
+                    if (piece && piece.getAttribute('data-couleur') === 'noir') {
+                        cases.forEach((tdArrivee, indexArrivee) => {
+                            if (estCoupValide(tdDepart, tdArrivee)) {
+                                let valeurPrise = 0;
+                                const cible = tdArrivee.querySelector('.piece');
+                                if (cible) {
+                                    const t = cible.getAttribute('data-type');
+                                    if (t === 'reine') valeurPrise = 9;
+                                    else if (t === 'tour') valeurPrise = 5;
+                                    else if (t === 'fou' || t === 'cavalier') valeurPrise = 3;
+                                    else if (t === 'pion') valeurPrise = 1;
+                                    else if (t === 'roi') valeurPrise = 1000;
+                                }
+                                tousLesCoups.push({
+                                    id: tousLesCoups.length,
+                                    departIndex: indexDepart,
+                                    arriveeIndex: indexArrivee,
+                                    notation: `${getNotation(indexDepart)}${getNotation(indexArrivee)}`,
+                                    valeur: valeurPrise
+                                });
+                            }
+                        });
+                    }
+                });
+
+                if (tousLesCoups.length === 0) {
+                    console.log("Aucun coup possible (Pat/Mat)");
+                    iaReflechit = false;
+                    return;
+                }
+
+                // DÉCISION
+                const fenActuel = genererFEN();
+
+                if (niveauDifficulte === 'facile') {
+                    jouerCoupAuHasard(tousLesCoups);
+                } 
+                else if (niveauDifficulte === 'normal') {
+                    const coupsInteressants = tousLesCoups.filter(c => c.valeur > 0);
+                    if (coupsInteressants.length > 0 && Math.random() > 0.3) {
+                        coupsInteressants.sort((a,b) => b.valeur - a.valeur);
+                        executerCoup(coupsInteressants[0]);
+                    } else {
+                        jouerCoupAuHasard(tousLesCoups);
+                    }
+                } 
+                else {
+                    // Difficile & Extrême
+                    jouerIA_Gemini_Pro(tousLesCoups, fenActuel);
+                }
+            }
+
+            async function jouerIA_Gemini_Pro(moves, fen) {
+                const moveListString = moves.map((m, i) => `${i}:${m.notation}`).join(", ");
+                let promptSystem = "";
+                
+                if (niveauDifficulte === 'difficile') {
+                    promptSystem = `Tu es un moteur d'échecs intermédiaire. FEN: ${fen}.
+                    Coups possibles (ID:Notation) : [${moveListString}].
+                    Joue positionnel. Évite les blunders.
+                    Réponds UNIQUEMENT l'ID du coup (chiffre).`;
+                } else {
+                    promptSystem = `Tu es un moteur Grand Maître (Stockfish). FEN: ${fen}.
+                    Coups possibles (ID:Notation) : [${moveListString}].
+                    Sois agressif, cherche le mat.
+                    Réponds UNIQUEMENT l'ID du coup (chiffre).`;
+                }
+
+                try {
+                    const response = await fetch(GEMINI_URL, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ contents: [{ parts: [{ text: promptSystem }] }] })
+                    });
+                    const data = await response.json();
+                    let idChoisi = -1;
+                    if (data.candidates && data.candidates[0].content) {
+                        const text = data.candidates[0].content.parts[0].text.trim();
+                        const match = text.match(/\d+/);
+                        if (match) idChoisi = parseInt(match[0]);
+                    }
+                    if (idChoisi !== -1 && idChoisi < moves.length) {
+                        executerCoup(moves[idChoisi]);
+                    } else {
+                        moves.sort((a,b) => b.valeur - a.valeur);
+                        executerCoup(moves[0]);
+                    }
+                } catch (e) {
+                    console.error(e);
+                    jouerCoupAuHasard(moves);
+                }
+            }
+
+            function jouerCoupAuHasard(coups) {
+                const randomCoup = coups[Math.floor(Math.random() * coups.length)];
+                executerCoup(randomCoup);
+            }
+
+            function executerCoup(coup) {
+                const caseD = cases[coup.departIndex];
+                const caseA = cases[coup.arriveeIndex];
+                caseD.style.backgroundColor = "rgba(255, 0, 85, 0.6)";
+                caseA.style.backgroundColor = "rgba(255, 0, 85, 0.6)";
+                setTimeout(() => {
+                    caseD.style.backgroundColor = "";
+                    caseA.style.backgroundColor = "";
+                    effectuerDeplacement(caseD, caseA);
+                    changerTour();
+                    iaReflechit = false;
+                }, 600);
             }
         });
     </script>
