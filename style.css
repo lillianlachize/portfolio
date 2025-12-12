@@ -1,32 +1,43 @@
-/* Fichier : style.css - VERSION FINALE (COMPLETE) */
+/* ==========================================================================
+   FICHIER : style.css
+   DESCRIPTION : Feuille de style principale pour le CV Interactif
+   THÈME : Cyber / Tech (Sombre avec accents Néon Cyan & Rouge)
+   AUTEUR : Lillian Lachize
+   ========================================================================== */
 
+/* --- 1. VARIABLES GLOBALES (PALETTE DE COULEURS) --- */
 :root {
-    --primary-color: #00d4ff; /* Bleu Tech / Cyan (Héros) */
+    --primary-color: #00d4ff;   /* Cyan Néon (Couleur principale / Joueur) */
     --secondary-color: #1e1e2f; /* Fond sombre global */
-    --text-color: #e0e0e0;
-    --card-bg: #2a2a40;
-    --section-bg: #232336;
-    --enemy-color: #ff0055; /* Rouge Néon (Adversaire Échecs) */
+    --text-color: #e0e0e0;      /* Texte gris clair (lisibilité) */
+    --card-bg: #2a2a40;         /* Fond des cartes/sections */
+    --section-bg: #232336;      /* Fond alternatif */
+    --enemy-color: #ff0055;     /* Rouge Néon (Adversaire / Erreur / Extrême) */
+    --highlight-bg: rgba(0, 212, 255, 0.1); /* Fond léger pour les survols */
 }
 
-/* --- 1. ANIMATIONS --- */
+/* --- 2. ANIMATIONS (KEYFRAMES) --- */
+
+/* Apparition en fondu simple */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
+/* Apparition avec léger mouvement vers le haut */
 @keyframes fadeInUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
+/* Effet de pulsation (pour les points de déplacement) */
 @keyframes pulse {
     0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
     50% { transform: translate(-50%, -50%) scale(1.3); opacity: 0.5; }
     100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
 }
 
-/* --- 2. STYLE GÉNÉRAL (CV) --- */
+/* --- 3. STYLE GÉNÉRAL (BASE) --- */
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
@@ -34,25 +45,38 @@ body {
     background-color: var(--secondary-color);
     color: var(--text-color);
     line-height: 1.6;
-    overflow-x: hidden;
-    animation: fadeIn 0.8s ease-out;
+    overflow-x: hidden; /* Évite le scroll horizontal indésirable */
+    animation: fadeIn 0.8s ease-out; /* Animation d'entrée du site */
 }
 
+a { 
+    color: var(--primary-color); 
+    text-decoration: none; 
+    transition: color 0.3s ease; 
+}
+
+a:hover { 
+    text-decoration: underline; 
+    text-shadow: 0 0 5px var(--primary-color);
+}
+
+/* --- 4. EN-TÊTE (HEADER) --- */
 header {
     background: linear-gradient(135deg, #161625 0%, #2a2a40 100%);
     padding: 4rem 2rem;
     text-align: center;
     border-bottom: 3px solid var(--primary-color);
     animation: fadeIn 1s ease-out;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
 }
 
 .profile-photo {
     width: 150px; 
     height: 150px;
-    border-radius: 50%;
+    border-radius: 50%; /* Cercle parfait */
     object-fit: cover; 
     border: 4px solid var(--primary-color); 
-    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4); 
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.4); /* Lueur néon */
     margin-bottom: 1.5rem; 
     animation: fadeInUp 1s ease-out backwards; 
 }
@@ -63,7 +87,7 @@ h1 {
     color: #fff;
     text-transform: uppercase;
     letter-spacing: 2px;
-    word-wrap: break-word;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
@@ -72,6 +96,8 @@ h2 {
     display: inline-block;
     padding-bottom: 5px;
     margin-top: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .subtitle {
@@ -81,8 +107,9 @@ h2 {
     margin-top: 10px;
 }
 
+/* Boîte d'alerte / intro sous le titre */
 .alert-box {
-    background-color: rgba(0, 212, 255, 0.1);
+    background-color: var(--highlight-bg);
     border: 1px solid var(--primary-color);
     color: #fff;
     padding: 15px;
@@ -93,13 +120,25 @@ h2 {
     animation: fadeInUp 1s ease-out 0.3s backwards;
 }
 
+/* Informations de contact (Flexbox) */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Revient à la ligne sur mobile */
+    margin-top: 20px;
+    font-size: 1.1rem;
+    animation: fadeIn 1s ease-out 0.5s backwards;
+}
+
+/* --- 5. STRUCTURE ET SECTIONS --- */
 .container {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* --- SECTIONS (Cartes) --- */
+/* Style "Carte" pour chaque section */
 .section {
     background-color: var(--section-bg);
     margin-bottom: 20px;
@@ -108,30 +147,22 @@ h2 {
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     animation: fadeInUp 0.8s ease-out backwards;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Délais d'animation pour effet cascade */
+/* Délais d'animation pour l'effet "cascade" à l'ouverture */
 .section:nth-child(1) { animation-delay: 0.2s; }
 .section:nth-child(2) { animation-delay: 0.4s; }
 .section:nth-child(3) { animation-delay: 0.6s; }
 .section:nth-child(4) { animation-delay: 0.8s; }
 .section:nth-child(5) { animation-delay: 1.0s; }
-.section:nth-child(6) { animation-delay: 1.2s; } /* Calculatrice */
-.section:nth-child(7) { animation-delay: 1.4s; } /* Echecs */
+.section:nth-child(6) { animation-delay: 1.2s; }
 
+/* Effet de survol sur les cartes */
 .section:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 212, 255, 0.1);
-}
-
-.contact-info {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    font-size: 1.1rem;
-    animation: fadeIn 1s ease-out 0.5s backwards;
+    box-shadow: 0 10px 20px rgba(0, 212, 255, 0.15);
+    border-color: rgba(0, 212, 255, 0.3);
 }
 
 .grid-2 {
@@ -140,7 +171,9 @@ h2 {
     gap: 20px;
 }
 
-/* --- TAGS & TIMELINE --- */
+/* --- 6. ÉLÉMENTS DU CV (TAGS & TIMELINE) --- */
+
+/* Tags de compétences (Pilules) */
 .skill-tag {
     background-color: var(--primary-color);
     color: #000;
@@ -158,9 +191,10 @@ h2 {
 .skill-tag:hover {
     background-color: #fff;
     transform: scale(1.1) rotate(-2deg);
-    box-shadow: 0 5px 10px rgba(0, 212, 255, 0.3);
+    box-shadow: 0 0 10px var(--primary-color);
 }
 
+/* Ligne de temps (Formations/Expériences) */
 .timeline-item {
     border-left: 2px solid var(--primary-color);
     padding-left: 20px;
@@ -175,6 +209,7 @@ h2 {
     border-radius: 0 8px 8px 0;
 }
 
+/* Petit point sur la timeline */
 .timeline-item::before {
     content: '';
     width: 12px;
@@ -196,19 +231,7 @@ h2 {
 .date { color: #aaa; font-style: italic; font-size: 0.9rem; }
 .job-title { font-size: 1.2rem; font-weight: bold; color: #fff; }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #161625;
-    font-size: 0.9rem;
-    color: #888;
-}
-
-a { color: var(--primary-color); text-decoration: none; transition: color 0.3s ease; }
-a:hover { text-decoration: underline; }
-
-/* --- 3. STYLE CALCULATRICE --- */
-
+/* --- 7. CALCULATRICE --- */
 table.calculatrice {
     background-color: #161625;
     border: 2px solid var(--primary-color);
@@ -229,11 +252,10 @@ table.calculatrice td {
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.2s;
     font-family: 'Segoe UI', sans-serif;
     color: var(--text-color);
     background-color: var(--card-bg);
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
 table.calculatrice td:hover {
@@ -245,6 +267,7 @@ table.calculatrice td:hover {
 
 table.calculatrice td:active { transform: scale(0.95); }
 
+/* Écran de la calculatrice */
 .ecran {
     background-color: #0a0a12;
     color: var(--primary-color);
@@ -272,11 +295,62 @@ table.calculatrice td:active { transform: scale(0.95); }
     box-shadow: 0 0 20px #fff;
 }
 
-/* --- 4. STYLE JEU D'ÉCHECS (VERSION CYBER / TECH) --- */
+/* --- 8. JEU D'ÉCHECS --- */
 
-/* Indicateur de tour (Bandeau) */
-.info-tour {
+/* Sélecteurs de Difficulté */
+.difficulty-selector {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-diff {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn-diff:hover {
     background-color: rgba(0, 212, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* État actif (Sélectionné) */
+.btn-diff.selected {
+    background-color: var(--primary-color);
+    color: #1e1e2f;
+    box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* Style spécial pour le mode Extrême (Rouge) */
+.btn-diff[data-level="extreme"].selected {
+    background-color: var(--enemy-color);
+    border-color: var(--enemy-color);
+    color: white;
+    box-shadow: 0 0 15px var(--enemy-color);
+}
+
+/* Style spécial pour le mode PvP (Blanc) */
+.btn-diff[data-level="pvp"].selected {
+    background-color: #fff;
+    border-color: #fff;
+    color: #000;
+    box-shadow: 0 0 15px #fff;
+}
+
+/* Indicateur de tour */
+.info-tour {
+    background-color: var(--highlight-bg);
     color: #fff;
     padding: 10px 20px;
     border-radius: 5px;
@@ -291,30 +365,24 @@ table.calculatrice td:active { transform: scale(0.95); }
     backdrop-filter: blur(5px);
 }
 
-.info-tour span {
-    color: var(--primary-color);
-    text-shadow: 0 0 5px var(--primary-color);
-}
-
-/* Le Plateau (Cadre Néon) */
+/* Le Plateau */
 .echiquier {
     border-collapse: collapse;
     border: 3px solid var(--primary-color);
     margin: 0 auto;
-    box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
     background-color: #000;
 }
 
-/* Les cases */
 .echiquier td {
     width: 60px;
     height: 60px;
     padding: 0;
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.05); /* Grille discrète */
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Couleurs du damier (Tech sombre) */
+/* Damier (Couleurs cases) */
 .echiquier tr:nth-child(odd) td:nth-child(even),
 .echiquier tr:nth-child(even) td:nth-child(odd) {
     background-color: #11111a; /* Noir profond */
@@ -322,42 +390,37 @@ table.calculatrice td:active { transform: scale(0.95); }
 
 .echiquier tr:nth-child(odd) td:nth-child(odd),
 .echiquier tr:nth-child(even) td:nth-child(even) {
-    background-color: #1e1e2f; /* Gris bleuté */
+    background-color: #2a2a40; /* Gris bleuté */
 }
 
-/* --- DESIGN DES PIÈCES (HOLOGRAMME) --- */
+/* Styles des Pièces (Sprite) */
 .piece {
     width: 100%;
     height: 100%;
-    background-image: url('chess_pieces.png');
+    background-image: url('chess_pieces.png'); /* Assurez-vous d'avoir cette image */
     background-repeat: no-repeat;
     background-size: 600% 200%;
-    cursor: grab;
+    cursor: pointer;
     transition: transform 0.2s ease-out, filter 0.2s;
     position: relative;
     z-index: 5;
 }
 
-.piece:hover {
-    transform: scale(1.15);
-}
-.piece:active {
-    cursor: grabbing;
-}
+.piece:hover { transform: scale(1.15); }
 
-/* Équipe BLANCS -> Devient CYAN */
+/* Équipe BLANCS (Cyan) */
 .piece.blanc {
     background-position-y: 0%;
     filter: drop-shadow(0 0 3px var(--primary-color)); 
 }
 
-/* Équipe NOIRS -> Devient ROUGE/ROSE (Inversion + Lueur) */
+/* Équipe NOIRS (Rouge/Original selon image, ici inversé pour effet sombre) */
 .piece.noir {
     background-position-y: 100%;
     filter: invert(1) drop-shadow(0 0 3px var(--enemy-color));
 }
 
-/* Positions sprites */
+/* Positions dans le Sprite */
 .roi      { background-position-x: 0%; }
 .reine    { background-position-x: 20%; }
 .fou      { background-position-x: 40%; }
@@ -365,20 +428,19 @@ table.calculatrice td:active { transform: scale(0.95); }
 .tour     { background-position-x: 80%; }
 .pion     { background-position-x: 100%; }
 
-/* --- INTERACTIVITÉ ECHECS --- */
-
-/* Case sélectionnée (Verre bleu) */
+/* États Interactifs (Sélection et Déplacement) */
 .case-selected {
-    background-color: rgba(0, 212, 255, 0.2) !important;
+    background-color: rgba(0, 212, 255, 0.25) !important;
     box-shadow: inset 0 0 15px rgba(0, 212, 255, 0.4);
     border: 1px solid var(--primary-color) !important;
 }
 
-/* Indicateurs de déplacement (Points rouges pulsants) */
 .coup-possible {
     cursor: pointer;
+    position: relative;
 }
 
+/* Petit point indicateur pour les coups possibles */
 .coup-possible::after {
     content: '';
     position: absolute;
@@ -387,98 +449,154 @@ table.calculatrice td:active { transform: scale(0.95); }
     transform: translate(-50%, -50%);
     width: 12px;
     height: 12px;
-    background-color: var(--enemy-color);
-    border-radius: 2px;
-    box-shadow: 0 0 10px var(--enemy-color);
+    background-color: rgba(0, 255, 100, 0.6); /* Vert discret */
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 255, 100, 0.8);
     pointer-events: none;
     z-index: 2;
-    opacity: 0.8;
-    animation: pulse 1.5s infinite;
+    animation: pulse 2s infinite;
 }
 
-.coup-possible:hover::after {
-    background-color: #fff;
-    box-shadow: 0 0 15px #fff;
-    transform: translate(-50%, -50%) scale(1.5);
-}
-
-/* Style de prise (Cadre rouge) */
+/* Si on peut manger une pièce (Cible rouge) */
 .coup-possible:not(:empty)::after {
     background-color: transparent;
     border: 2px solid var(--enemy-color);
+    border-radius: 0;
     width: 100%;
     height: 100%;
-    border-radius: 0;
-    box-shadow: inset 0 0 10px var(--enemy-color);
-    opacity: 1;
     animation: none;
+    box-shadow: inset 0 0 10px var(--enemy-color);
 }
 
-/* --- 5. MODAL DE VICTOIRE --- */
+/* --- 9. MODAL DE VICTOIRE --- */
 .modal-victoire {
     display: none; /* Caché par défaut */
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.85); /* Fond très sombre */
-    justify-content: center; align-items: center; z-index: 1000;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center; 
+    align-items: center; 
+    z-index: 1000;
     backdrop-filter: blur(8px);
     animation: fadeIn 0.5s ease-out;
 }
 
 .contenu-victoire {
-    background: #161625; padding: 40px; border-radius: 15px;
+    background: #161625; 
+    padding: 40px; 
+    border-radius: 15px;
     border: 2px solid var(--primary-color);
     box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
-    text-align: center; max-width: 90%;
+    text-align: center; 
+    max-width: 90%;
     animation: fadeInUp 0.5s ease-out;
 }
 
 .contenu-victoire h2 {
-    font-size: 2.5rem; margin: 0 0 20px 0;
+    font-size: 2.5rem; 
+    margin: 0 0 20px 0;
     text-shadow: 0 0 15px currentColor;
     border: none;
 }
 
 .bouton-rejouer {
-    background-color: var(--primary-color); color: #000;
-    border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold;
-    border-radius: 50px; cursor: pointer; margin-top: 20px;
-    transition: all 0.3s; text-transform: uppercase;
+    background-color: var(--primary-color); 
+    color: #000;
+    border: none; 
+    padding: 15px 30px; 
+    font-size: 1.2rem; 
+    font-weight: bold;
+    border-radius: 50px; 
+    cursor: pointer; 
+    margin-top: 20px;
+    transition: all 0.3s; 
+    text-transform: uppercase;
     box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
 }
 
 .bouton-rejouer:hover {
-    background-color: #fff; transform: scale(1.1);
+    background-color: #fff; 
+    transform: scale(1.1);
     box-shadow: 0 0 25px rgba(255, 255, 255, 0.8);
 }
 
-/* --- 6. RESPONSIVE MOBILE --- */
+/* --- 10. PIED DE PAGE (FOOTER) --- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #161625;
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+}
+.difficulty-selector {
+            margin-bottom: 15px;
+            display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
+        }
+        
+        /* Style de base des boutons */
+        .btn-diff {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 15px; border-radius: 20px;
+            cursor: pointer; font-family: 'Segoe UI', sans-serif;
+            font-size: 0.9rem; transition: all 0.3s ease;
+            text-transform: uppercase; font-weight: bold;
+        }
+        
+        /* Effet au survol */
+        .btn-diff:hover { 
+            background-color: rgba(0, 212, 255, 0.1); 
+            transform: translateY(-2px); 
+        }
+        
+        /* Bouton sélectionné (Actif) */
+        .btn-diff.selected {
+            background-color: var(--primary-color);
+            color: #1e1e2f; /* Texte sombre sur fond cyan */
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+        
+        /* Style spécial pour le mode Extrême (Rouge) */
+        .btn-diff[data-level="extreme"].selected {
+            background-color: #ff0055; 
+            border-color: #ff0055; 
+            color: white; 
+            box-shadow: 0 0 15px #ff0055;
+        }
+        
+        /* Style spécial pour le mode 1 vs 1 (Blanc/Neutre) */
+        .btn-diff[data-level="pvp"].selected {
+            background-color: #fff; 
+            border-color: #fff; 
+            color: #000; 
+            box-shadow: 0 0 15px #fff;
+        }
+
+/* --- 11. RESPONSIVE MOBILE --- */
 @media (max-width: 768px) {
-    h1 { font-size: 2rem; line-height: 1.2; }
+    h1 { font-size: 2rem; }
     .subtitle { font-size: 1.1rem; }
     header { padding: 2rem 1rem; }
     .contact-info { flex-direction: column; align-items: center; gap: 10px; }
     .grid-2 { grid-template-columns: 1fr; }
     .section { padding: 15px; }
-    .timeline-item:hover { padding-left: 15px; background-color: transparent; }
-    .skill-tag:hover { transform: none; }
+    
+    /* Adaptation Échecs Mobile */
+    .echiquier td { width: 40px; height: 40px; }
+    .btn-diff { padding: 6px 10px; font-size: 0.8rem; }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
     /* Adaptation Calculatrice */
-    table.calculatrice td {
-        width: 50px;
-        height: 50px;
-        font-size: 18px;
-    }
-    table.calculatrice { padding: 5px; border-spacing: 5px; }
-
-    /* Adaptation Échecs */
-    .echiquier td {
-        width: 38px;
-        height: 38px;
-    }
-    .echiquier { border-width: 2px; }
+    table.calculatrice td { width: 50px; height: 50px; font-size: 18px; }
     
-    /* Points rouges plus petits */
-    .coup-possible::after { width: 8px; height: 8px; }
+    /* Adaptation Échecs très petit écran */
+    .echiquier td { width: 34px; height: 34px; }
+    .piece:hover { transform: none; } /* Désactive zoom sur mobile */
 }

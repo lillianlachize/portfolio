@@ -5,35 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="iconne.ico" />
     <title>CV - Lillian Lachize | BTS SIO</title>
+    
     <link rel="stylesheet" href="style.css">
+
     <style>
-        .difficulty-selector {
-            margin-bottom: 15px;
-            display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
-        }
-        .btn-diff {
-            background-color: transparent;
-            border: 1px solid var(--primary-color);
-            color: var(--primary-color);
-            padding: 8px 15px; border-radius: 20px;
-            cursor: pointer; font-family: 'Segoe UI', sans-serif;
-            font-size: 0.9rem; transition: all 0.3s ease;
-            text-transform: uppercase; font-weight: bold;
-        }
-        .btn-diff:hover { background-color: rgba(0, 212, 255, 0.1); transform: translateY(-2px); }
         
-        .btn-diff.selected {
-            background-color: var(--primary-color);
-            color: #1e1e2f; box-shadow: 0 0 10px var(--primary-color);
-        }
-        /* Style spécifique Extreme */
-        .btn-diff[data-level="extreme"].selected {
-            background-color: #ff0055; border-color: #ff0055; color: white; box-shadow: 0 0 15px #ff0055;
-        }
-        /* Style spécifique 1 vs 1 */
-        .btn-diff[data-level="pvp"].selected {
-            background-color: #fff; border-color: #fff; color: #000; box-shadow: 0 0 15px #fff;
-        }
     </style>
 </head>
 <body>
@@ -42,9 +18,11 @@
         <img src="photo-LillianV2.png" alt="Photo de Lillian Lachize" class="profile-photo">
         <h1>Lillian Lachize</h1>
         <div class="subtitle">Étudiant en BTS SIO - Réseaux & Cybersécurité</div>
+        
         <div class="alert-box">
             🚀 À la recherche de connaissances, <br> principalement dans le milieu informatique afin d'étoffer mes compétences.
         </div>
+
         <div class="contact-info">
             <span>📍 Montmerle sur Saône (01090)</span>
             <span>📧 <a href="mailto:lillianlachize.fr@gmail.com">lillianlachize.fr@gmail.com</a></span>
@@ -191,10 +169,12 @@
                     <td><div class="piece noir pion" data-type="pion" data-couleur="noir"></div></td>
                     <td><div class="piece noir pion" data-type="pion" data-couleur="noir"></div></td>
                 </tr>
+                
                 <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
                 <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
                 <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
                 <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
                 <tr>
                     <td><div class="piece blanc pion" data-type="pion" data-couleur="blanc"></div></td>
                     <td><div class="piece blanc pion" data-type="pion" data-couleur="blanc"></div></td>
@@ -218,7 +198,9 @@
             </table>
         </section>
 
-    </div> <footer>
+    </div> 
+
+    <footer>
         <p>
             &copy; 2025 Lillian Lachize - 
             <a href="https://www.linkedin.com/in/lillian-lachize/" target="_blank">Me retrouver sur LinkedIn</a>
@@ -236,20 +218,25 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
-            // --- CONFIGURATION GEMINI ---
+            // --- CONFIGURATION GEMINI (API) ---
+            // Clé API pour connecter Google Gemini 1.5 Flash
             const GEMINI_API_KEY = "AIzaSyCsyKj4g5YjSp5kXtkrSKhuR2Ypi5Blv_A"; 
             const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
             /* =========================================
-               0. GESTION DE LA DIFFICULTÉ
+               0. GESTION DE LA DIFFICULTÉ ET MODES
                ========================================= */
-            let niveauDifficulte = 'normal';
+            let niveauDifficulte = 'normal'; // Par défaut
             
+            // Sélection des boutons
             const boutonsDifficulte = document.querySelectorAll('.btn-diff');
             boutonsDifficulte.forEach(btn => {
                 btn.addEventListener('click', function() {
+                    // Retire la classe 'selected' de tous les boutons
                     boutonsDifficulte.forEach(b => b.classList.remove('selected'));
+                    // Ajoute la classe 'selected' au bouton cliqué
                     this.classList.add('selected');
+                    // Met à jour la variable globale de difficulté
                     niveauDifficulte = this.getAttribute('data-level');
                     console.log("Mode choisi : " + niveauDifficulte);
                 });
@@ -263,19 +250,25 @@
                 touche.addEventListener('click', function() {
                     if (this.classList.contains('ecran')) return;
                     const val = this.innerText;
+                    
+                    // Si touche "="
                     if (this.classList.contains('egal')) {
                         try { ecran.innerText = eval(ecran.innerText.replace(/×/g, '*').replace(/÷/g, '/')); } 
                         catch { ecran.innerText = "Erreur"; }
-                    } else if (val === '←') {
+                    } 
+                    // Si touche Effacer (Flèche)
+                    else if (val === '←') {
                         ecran.innerText = ecran.innerText.slice(0, -1) || '0';
-                    } else {
+                    } 
+                    // Autres touches (Chiffres/Opérateurs)
+                    else {
                         ecran.innerText = (ecran.innerText === '0' || ecran.innerText === 'Erreur') ? val : ecran.innerText + val;
                     }
                 });
             });
 
             /* =========================================
-               2. LOGIQUE JEU D'ÉCHECS (CORE)
+               2. LOGIQUE JEU D'ÉCHECS (MOTEUR)
                ========================================= */
             
             let tourActuel = 'blanc'; 
@@ -288,25 +281,30 @@
             const ecranVictoire = document.getElementById('ecran-victoire');
             const texteVictoire = document.getElementById('texte-victoire');
 
-            // --- Utilitaires ---
+            // --- Fonctions Utilitaires (Coordonnées) ---
+            
+            // Retourne X,Y depuis un élément TD
             function getCoords(td) {
                 const index = cases.indexOf(td);
                 return { x: index % 8, y: Math.floor(index / 8) };
             }
 
+            // Retourne l'élément TD depuis X,Y
             function getCaseAt(x, y) {
                 if (x < 0 || x > 7 || y < 0 || y > 7) return null;
                 return cases[y * 8 + x];
             }
 
+            // Convertit un index en notation échecs (ex: 0 -> a8, 63 -> h1)
             function getNotation(index) {
                 const x = index % 8;
                 const y = Math.floor(index / 8);
-                const col = String.fromCharCode(97 + x); 
+                const col = String.fromCharCode(97 + x); // a,b,c...
                 const row = 8 - y; 
                 return col + row;
             }
 
+            // Vérifie si la voie est libre pour les Tours, Fous, Reines
             function checkCheminLibre(pos1, pos2) {
                 const stepX = Math.sign(pos2.x - pos1.x);
                 const stepY = Math.sign(pos2.y - pos1.y);
@@ -320,7 +318,9 @@
                 return true;
             }
 
-            // --- FEN Generator (Pour la Vision IA) ---
+            // --- GÉNÉRATEUR FEN (VISION POUR L'IA) ---
+            // Cette fonction "lit" le tableau HTML et crée une chaine de caractères que l'IA comprend
+            // Exemple : "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR"
             function genererFEN() {
                 let fen = "";
                 for (let y = 0; y < 8; y++) {
@@ -335,6 +335,7 @@
                             const type = piece.getAttribute('data-type');
                             const color = piece.getAttribute('data-couleur');
                             let char = '';
+                            // Mapping type -> Lettre
                             switch(type) {
                                 case 'tour': char = 'r'; break;
                                 case 'cavalier': char = 'n'; break;
@@ -343,6 +344,7 @@
                                 case 'roi': char = 'k'; break;
                                 case 'pion': char = 'p'; break;
                             }
+                            // Majuscule = Blanc, Minuscule = Noir
                             if (color === 'blanc') char = char.toUpperCase();
                             fen += char;
                         }
@@ -350,45 +352,49 @@
                     if (emptyCount > 0) fen += emptyCount;
                     if (y < 7) fen += "/";
                 }
+                // Métadonnées standards (Tour aux noirs, etc)
                 fen += " b - - 0 1";
                 return fen;
             }
 
-            // --- Gestionnaire de Clics ---
+            // --- GESTIONNAIRE DE CLICS (Cœur du jeu) ---
             cases.forEach(td => {
                 td.addEventListener('click', function() {
-                    // Si le jeu est fini ou si l'IA réfléchit, on bloque
+                    // Sécurité : Si le jeu est fini ou si l'IA réfléchit, on bloque tout
                     if (jeuFini || iaReflechit) return;
 
-                    // Si c'est aux Noirs de jouer, on bloque SAUF si on est en mode "PvP"
+                    // Sécurité : Si c'est aux Noirs de jouer, on bloque le joueur
+                    // SAUF si on est en mode "PvP" (1 vs 1)
                     if (tourActuel === 'noir' && niveauDifficulte !== 'pvp') return;
 
                     const pieceSurCase = this.querySelector('.piece');
                     
-                    // SÉLECTION
+                    // --- CAS 1 : Aucune case n'est sélectionnée ---
                     if (!caseSelectionnee) {
-                        // On doit pouvoir sélectionner une pièce de SA couleur actuelle
+                        // On ne peut sélectionner qu'une pièce de SA couleur
                         if (pieceSurCase && pieceSurCase.getAttribute('data-couleur') === tourActuel) {
                             selectionnerCase(this);
                         }
                     } 
-                    // ACTION (Déplacement ou Changement sélection)
+                    // --- CAS 2 : Une case est déjà sélectionnée ---
                     else {
+                        // Si on clique sur la même case -> Désélectionner
                         if (caseSelectionnee === this) { resetSelection(); return; }
                         
-                        // Si on clique sur une autre pièce de SA couleur -> Changement de sélection
+                        // Si on clique sur une autre pièce amie -> Changer la sélection
                         if (pieceSurCase && pieceSurCase.getAttribute('data-couleur') === tourActuel) {
                             resetSelection();
                             selectionnerCase(this);
                             return;
                         }
 
-                        // Déplacement valide
+                        // Si le coup est valide vers la case cible
                         if (estCoupValide(caseSelectionnee, this)) {
                             effectuerDeplacement(caseSelectionnee, this);
+                            
                             if (!jeuFini) {
                                 changerTour(); 
-                                // On ne déclenche l'IA que si on n'est PAS en mode PvP
+                                // IMPORTANT : On ne déclenche l'IA que si on n'est PAS en mode PvP
                                 if (niveauDifficulte !== 'pvp') {
                                     setTimeout(jouerIA_Manager, 100); 
                                 }
@@ -399,6 +405,7 @@
                 });
             });
 
+            // Fonctions visuelles de sélection
             function selectionnerCase(td) {
                 caseSelectionnee = td;
                 td.classList.add('case-selected');
@@ -418,6 +425,7 @@
                 });
             }
 
+            // Gestion du changement de tour
             function changerTour() {
                 tourActuel = (tourActuel === 'blanc') ? 'noir' : 'blanc';
                 indicateurTour.innerText = tourActuel.toUpperCase() + "S";
@@ -429,10 +437,12 @@
                 }
             }
 
+            // Exécution du mouvement physique (DOM)
             function effectuerDeplacement(depart, arrivee) {
                 const piece = depart.querySelector('.piece');
                 const cible = arrivee.querySelector('.piece');
                 
+                // Si on mange le Roi -> VICTOIRE
                 if (cible && cible.getAttribute('data-type') === 'roi') {
                     declencherVictoire();
                     arrivee.innerHTML = ''; 
@@ -440,12 +450,15 @@
                     return;
                 }
 
+                // Manger une pièce normale
                 if (arrivee.firstChild) arrivee.innerHTML = ''; 
                 arrivee.appendChild(piece);
                 
+                // Petite animation CSS
                 arrivee.animate([ { transform: 'scale(1.2)' }, { transform: 'scale(1)' } ], { duration: 200 });
             }
 
+            // Affichage Modal Victoire
             function declencherVictoire() {
                 jeuFini = true;
                 ecranVictoire.style.display = 'flex'; 
@@ -458,6 +471,7 @@
                 }
             }
 
+            // --- RÈGLES DE DÉPLACEMENT ---
             function estCoupValide(depart, arrivee) {
                 const pieceDiv = depart.querySelector('.piece');
                 if (!pieceDiv) return false;
@@ -470,13 +484,18 @@
                 const absDx = Math.abs(dx); const absDy = Math.abs(dy);
                 const ciblePiece = arrivee.querySelector('.piece');
 
+                // Règle de base : On ne mange pas ses amis
                 if (ciblePiece && ciblePiece.getAttribute('data-couleur') === couleur) return false;
 
+                // Logique par pièce
                 if (type === 'pion') {
                     const dir = (couleur === 'blanc') ? -1 : 1; 
                     const startRow = (couleur === 'blanc') ? 6 : 1;
+                    // Avance 1 case
                     if (dx === 0 && dy === dir && !ciblePiece) return true;
+                    // Avance 2 cases (si départ)
                     if (dx === 0 && dy === 2 * dir && pos1.y === startRow && !ciblePiece && !getCaseAt(pos1.x, pos1.y + dir).querySelector('.piece')) return true;
+                    // Mange en diagonale
                     if (absDx === 1 && dy === dir && ciblePiece) return true;
                     return false;
                 }
@@ -489,14 +508,14 @@
             }
 
             /* =========================================
-               3. MANAGER D'IA
+               3. MANAGER D'IA (Le Cerveau)
                ========================================= */
 
             function jouerIA_Manager() {
                 if (jeuFini) return;
                 iaReflechit = true;
 
-                // Heuristique simple pour le mode Normal/Difficile (tri des coups)
+                // 1. On liste TOUS les coups possibles pour les Noirs
                 let tousLesCoups = [];
                 
                 cases.forEach((tdDepart, indexDepart) => {
@@ -504,6 +523,7 @@
                     if (piece && piece.getAttribute('data-couleur') === 'noir') {
                         cases.forEach((tdArrivee, indexArrivee) => {
                             if (estCoupValide(tdDepart, tdArrivee)) {
+                                // Heuristique simple : on note la valeur de la pièce mangée
                                 let valeurPrise = 0;
                                 const cible = tdArrivee.querySelector('.piece');
                                 if (cible) {
@@ -518,7 +538,7 @@
                                     id: tousLesCoups.length,
                                     departIndex: indexDepart,
                                     arriveeIndex: indexArrivee,
-                                    notation: `${getNotation(indexDepart)}${getNotation(indexArrivee)}`,
+                                    notation: `${getNotation(indexDepart)}${getNotation(indexArrivee)}`, // ex: e7e5
                                     valeur: valeurPrise
                                 });
                             }
@@ -526,20 +546,24 @@
                     }
                 });
 
+                // Si aucun coup possible -> Pat ou Mat
                 if (tousLesCoups.length === 0) {
                     console.log("Aucun coup possible (Pat/Mat)");
                     iaReflechit = false;
                     return;
                 }
 
-                // DÉCISION
+                // 2. Décision selon le niveau de difficulté
                 const fenActuel = genererFEN();
 
+                // MODE FACILE : Hasard total
                 if (niveauDifficulte === 'facile') {
                     jouerCoupAuHasard(tousLesCoups);
                 } 
+                // MODE NORMAL : Hasard + un peu d'intelligence (si prise possible)
                 else if (niveauDifficulte === 'normal') {
                     const coupsInteressants = tousLesCoups.filter(c => c.valeur > 0);
+                    // 30% de chance de rater une prise évidente (pour rester humain)
                     if (coupsInteressants.length > 0 && Math.random() > 0.3) {
                         coupsInteressants.sort((a,b) => b.valeur - a.valeur);
                         executerCoup(coupsInteressants[0]);
@@ -547,63 +571,82 @@
                         jouerCoupAuHasard(tousLesCoups);
                     }
                 } 
+                // MODE DIFFICILE & EXTREME : Utilisation de Gemini (IA)
                 else {
-                    // Difficile & Extrême
                     jouerIA_Gemini_Pro(tousLesCoups, fenActuel);
                 }
             }
 
+            // --- APPEL API GEMINI ---
             async function jouerIA_Gemini_Pro(moves, fen) {
+                // Création de la liste lisible pour l'IA
                 const moveListString = moves.map((m, i) => `${i}:${m.notation}`).join(", ");
                 let promptSystem = "";
                 
+                // Prompt Différent selon le niveau
                 if (niveauDifficulte === 'difficile') {
-                    promptSystem = `Tu es un moteur d'échecs intermédiaire. FEN: ${fen}.
-                    Coups possibles (ID:Notation) : [${moveListString}].
-                    Joue positionnel. Évite les blunders.
-                    Réponds UNIQUEMENT l'ID du coup (chiffre).`;
+                    promptSystem = `Tu es un moteur d'échecs intermédiaire. 
+                    État du plateau (FEN): ${fen}.
+                    Voici les coups légaux possibles (ID:Notation) : [${moveListString}].
+                    Joue un coup solide et positionnel. Évite de donner tes pièces gratuitement.
+                    IMPORTANT: Réponds UNIQUEMENT par le chiffre de l'ID du coup choisi (ex: 4).`;
                 } else {
-                    promptSystem = `Tu es un moteur Grand Maître (Stockfish). FEN: ${fen}.
-                    Coups possibles (ID:Notation) : [${moveListString}].
-                    Sois agressif, cherche le mat.
-                    Réponds UNIQUEMENT l'ID du coup (chiffre).`;
+                    // EXTREME
+                    promptSystem = `Tu es STOCKFISH, un moteur d'échecs Grand Maître imbattable. 
+                    État du plateau (FEN): ${fen}.
+                    Voici les coups légaux possibles (ID:Notation) : [${moveListString}].
+                    Ton objectif est d'écraser l'adversaire. Cherche le Mat ou le gain matériel immédiat.
+                    IMPORTANT: Réponds UNIQUEMENT par le chiffre de l'ID du coup choisi (ex: 4).`;
                 }
 
                 try {
+                    // Appel Fetch vers Google
                     const response = await fetch(GEMINI_URL, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ contents: [{ parts: [{ text: promptSystem }] }] })
                     });
+                    
                     const data = await response.json();
                     let idChoisi = -1;
+                    
+                    // Parsing de la réponse (recherche d'un chiffre)
                     if (data.candidates && data.candidates[0].content) {
                         const text = data.candidates[0].content.parts[0].text.trim();
                         const match = text.match(/\d+/);
                         if (match) idChoisi = parseInt(match[0]);
                     }
+
+                    // Exécution si ID valide
                     if (idChoisi !== -1 && idChoisi < moves.length) {
                         executerCoup(moves[idChoisi]);
                     } else {
+                        console.warn("IA confuse, coup par défaut.");
+                        // Fallback : On joue le coup qui mange le plus de points
                         moves.sort((a,b) => b.valeur - a.valeur);
                         executerCoup(moves[0]);
                     }
                 } catch (e) {
-                    console.error(e);
+                    console.error("Erreur API Gemini :", e);
                     jouerCoupAuHasard(moves);
                 }
             }
 
+            // Joue un coup au pif
             function jouerCoupAuHasard(coups) {
                 const randomCoup = coups[Math.floor(Math.random() * coups.length)];
                 executerCoup(randomCoup);
             }
 
+            // Fonction finale qui déplace la pièce pour l'IA
             function executerCoup(coup) {
                 const caseD = cases[coup.departIndex];
                 const caseA = cases[coup.arriveeIndex];
+                
+                // Feedback visuel (Case rouge pour montrer ce que l'IA a joué)
                 caseD.style.backgroundColor = "rgba(255, 0, 85, 0.6)";
                 caseA.style.backgroundColor = "rgba(255, 0, 85, 0.6)";
+                
                 setTimeout(() => {
                     caseD.style.backgroundColor = "";
                     caseA.style.backgroundColor = "";
