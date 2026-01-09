@@ -43,6 +43,9 @@
                     else if (val === '←') {
                         ecran.innerText = ecran.innerText.slice(0, -1) || '0';
                     } 
+                    else if(val == 'c') {
+                        ecran.innerText = '0';
+                    }
                     // Autres touches (Chiffres/Opérateurs)
                     else {
                         ecran.innerText = (ecran.innerText === '0' || ecran.innerText === 'Erreur') ? val : ecran.innerText + val;
