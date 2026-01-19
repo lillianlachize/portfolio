@@ -250,6 +250,71 @@
                 </div>
             </div>
         </section>
+        <section class="section">
+            <div class="geometridash-game-wrapper">
+                <div class="geometridash-header">
+                    <h2>🔷 Flybird 🔷</h2>
+                    <div class="geometridash-stats">
+                        <div>Score: <span id="geo-score">0</span></div>
+                        <div>Meilleur: <span id="geo-bestScore">0</span></div>
+                        <div>Niveau: <span id="geo-level">1</span></div>
+                    </div>
+                </div>
+
+                <div class="geometridash-game-container">
+                    <canvas id="geometridashCanvas" class="geometridash-canvas" width="800" height="400"></canvas>
+                </div>
+
+                <div class="geometridash-controls">
+                    <button id="geo-startBtn" class="geometridash-btn geometridash-btn-primary">Démarrer</button>
+                    <button id="geo-pauseBtn" class="geometridash-btn geometridash-btn-secondary" disabled>Pause</button>
+                    <button id="geo-resetBtn" class="geometridash-btn geometridash-btn-danger">Réinitialiser</button>
+                    <button id="geo-leaderboardBtn" class="geometridash-btn geometridash-btn-info">🏆 Classement</button>
+                </div>
+
+                <div class="geometridash-instructions">
+                    <h3>Instructions:</h3>
+                    <p>🎮 Appuyez sur <strong>ESPACE</strong> ou <strong>CLIC SOURIS</strong> pour sauter</p>
+                    <p>⚫ Évitez les obstacles</p>
+                    <p>✨ Chaque obstacle évité augmente votre score</p>
+                    <p>📈 Plus vous survivez, plus le jeu s'accélère!</p>
+                </div>
+
+                <div id="geo-gameOverScreen" class="game-over-screen hidden">
+                    <div class="game-over-content">
+                        <h2>Game Over!</h2>
+                        <div class="final-stats">
+                            <p>Score Final: <span id="geo-finalScore">0</span></p>
+                            <p>Niveau Atteint: <span id="geo-finalLevel">1</span></p>
+                        </div>
+                        <button id="geo-restartBtn" class="geometridash-btn geometridash-btn-primary">Recommencer</button>
+                    </div>
+                </div>
+
+                <div id="geo-leaderboardScreen" class="leaderboard-screen hidden">
+                    <div class="leaderboard-content">
+                        <div class="leaderboard-header">
+                            <h2>🏆 Top 10 Classement</h2>
+                            <button id="geo-closeLeaderboardBtn" class="geometridash-btn-close">✕</button>
+                        </div>
+                        <table class="leaderboard-table">
+                            <thead>
+                                <tr>
+                                    <th>Rang</th>
+                                    <th>Joueur</th>
+                                    <th>Score</th>
+                                    <th>Niveau</th>
+                                </tr>
+                            </thead>
+                            <tbody id="geo-leaderboardList">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="game-geometridash.js"></script>
 
     </div>
 
@@ -269,7 +334,7 @@
     </div>
 
     </div>
-    <script src="script.js"></script>
 
+  
 </body>
 </html>

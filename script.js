@@ -743,3 +743,4 @@ uiBtn.addEventListener('click', () => {
 // Afficher le menu au départ
 uiLayer.style.display = 'flex';
 requestAnimationFrame(gameLoop);
+/*

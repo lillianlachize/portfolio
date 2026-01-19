@@ -605,3 +605,376 @@ footer {
     table.calculatrice td { width: 50px; height: 50px; font-size: 18px; }
     .echiquier td { width: 34px; height: 34px; }
 }
+/* --- 14. Géométridash --- */
+
+/* Classes spécifiques à Géométridash pour éviter les conflits */
+
+.geometridash-game-wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.geometridash-page {
+    background: var(--secondary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.geometridash-container {
+    background-color: var(--section-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    max-width: 900px;
+    width: 100%;
+    padding: 30px;
+}
+
+.geometridash-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.geometridash-header h1,
+.geometridash-header h2 {
+    color: var(--primary-color);
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    font-weight: bold;
+}
+
+.geometridash-header h2 {
+    font-size: 2em;
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.geometridash-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--text-color);
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.geometridash-stats div {
+    background: var(--card-bg);
+    padding: 10px 20px;
+    border-radius: 10px;
+    min-width: 150px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.geometridash-stats span {
+    color: var(--primary-color);
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
+}
+
+.geometridash-game-container {
+    background: #0a0a14;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+    border: 2px solid var(--primary-color);
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.geometridash-canvas {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    background: #0a0a14;
+}
+
+.geometridash-controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.geometridash-btn {
+    padding: 12px 25px;
+    font-size: 1em;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.geometridash-btn-primary {
+    background: transparent;
+    color: var(--primary-color);
+}
+
+.geometridash-btn-primary:hover:not(:disabled) {
+    background: var(--primary-color);
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.6);
+}
+
+.geometridash-btn-secondary {
+    background: transparent;
+    color: #ff9500;
+    border-color: #ff9500;
+}
+
+.geometridash-btn-secondary:hover:not(:disabled) {
+    background: #ff9500;
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 149, 0, 0.6);
+}
+
+.geometridash-btn-danger {
+    background: transparent;
+    color: var(--enemy-color);
+    border-color: var(--enemy-color);
+}
+
+.geometridash-btn-danger:hover:not(:disabled) {
+    background: var(--enemy-color);
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.6);
+}
+
+.geometridash-btn-info {
+    background: transparent;
+    color: #00bfff;
+    border-color: #00bfff;
+}
+
+.geometridash-btn-info:hover:not(:disabled) {
+    background: #00bfff;
+    color: #000;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.6);
+}
+
+.geometridash-instructions {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.geometridash-instructions h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.geometridash-instructions p {
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.game-over-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.game-over-screen.hidden {
+    display: none;
+}
+
+.game-over-content {
+    background: var(--section-bg);
+    padding: 50px;
+    border-radius: 10px;
+    text-align: center;
+    animation: popIn 0.5s ease;
+    border: 2px solid var(--primary-color);
+}
+
+.game-over-content h2 {
+    color: var(--enemy-color);
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
+}
+
+.final-stats {
+    margin: 30px 0;
+    font-size: 1.3em;
+}
+
+.final-stats p {
+    color: var(--text-color);
+    margin: 10px 0;
+}
+
+.final-stats span {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.leaderboard-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.leaderboard-screen.hidden {
+    display: none;
+}
+
+.leaderboard-content {
+    background: var(--section-bg);
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    animation: popIn 0.5s ease;
+    border: 2px solid var(--primary-color);
+}
+
+.leaderboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.leaderboard-header h2 {
+    color: var(--primary-color);
+    font-size: 1.8em;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.geometridash-btn-close {
+    background: transparent;
+    color: var(--enemy-color);
+    border: 2px solid var(--enemy-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.geometridash-btn-close:hover {
+    background: var(--enemy-color);
+    color: white;
+    transform: rotate(90deg);
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.leaderboard-table thead {
+    background: transparent;
+}
+
+.leaderboard-table th {
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.leaderboard-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+    color: var(--text-color);
+}
+
+.leaderboard-table tbody tr:hover {
+    background: rgba(0, 212, 255, 0.1);
+}
+
+.leaderboard-table .rank {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.1em;
+}
+
+.leaderboard-table .score {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.leaderboard-table .level {
+    color: var(--primary-color);
+}
+
+@media (max-width: 600px) {
+    .geometridash-container {
+        padding: 20px;
+    }
+
+    .geometridash-header h1 {
+        font-size: 2em;
+    }
+
+    .geometridash-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .geometridash-stats div {
+        min-width: auto;
+    }
+
+    .geometridash-instructions {
+        font-size: 0.9em;
+    }
+}
