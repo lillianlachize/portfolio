@@ -8,7 +8,7 @@ Je suis un développeur en pleine ascension, animé par l'envie de comprendre co
 
 ### 🛠 Mon Arsenal Technique
 
-Pour développer, j'utilise principalement **Sublime Text**, **Google** et toutes les ressources en ligne disponibles. Mais l'outil le plus précieux à mon sence c'est**mon cerveau**.
+Pour développer, j'utilise principalement **Sublime Text**, **Google** et toutes les ressources en ligne disponibles. Mais l'outil le plus précieux à mon sence c'est **mon cerveau**.
 
 ---
 
