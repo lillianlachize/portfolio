@@ -6,13 +6,13 @@ Je suis un développeur en pleine ascension, animé par l'envie de comprendre co
 
 ---
 
-### 🛠 Mon Arsenal Technique
+### 🛠 Mon Arsenal Technique :
 
 Pour développer, j'utilise principalement **Sublime Text**, **Google** et toutes les ressources en ligne disponibles. Mais l'outil le plus précieux à mon sence c'est **mon cerveau**.
 
 ---
 
-### 📈 Mes Objectifs
+### 📈 Mes Objectifs :
 
 * 🔍 **Développement informatique :** Toujours à la recherche d'informations et d'expérimentations pour m'améliorer et repousser mes limites techniques.
 * 🌱 **Développement personnel :** En quête constante d'évolution. Je suis convaincu que toute critique constructive est un moteur pour progresser.
@@ -20,7 +20,7 @@ Pour développer, j'utilise principalement **Sublime Text**, **Google** et toute
 
 ---
 
-### 📂 Projets Phares
+### 📂 Projets Phares :
 
 * **📄 [Mon CV Digital]** : Une vitrine que je mets à jour régulièrement pour illustrer ma progression.
 * **🔢 [Calculatrice Web]** : Un outil interactif développé en HTML/CSS.
@@ -29,7 +29,14 @@ Pour développer, j'utilise principalement **Sublime Text**, **Google** et toute
 
 ---
 
-### 📊 Mes GitHub
+### 📊 Mes GitHub :
 
 * 👤 **Profil Personnel** : [@lillianlachize](https://github.com/lillianlachize)
 * 🤖 **Projets Plugin** : [@Zephiell-bot](https://github.com/Zephiell-bot)
+
+---
+
+### ℹ️ Mes endroit d'information préférer :
+
+* **Youtube** : [HugoDécrypte](https://www.youtube.com/@hugodecrypteactus) pour de l'actualiter. [Bazar de Léo - TechMaker](https://www.youtube.com/@BazarTechMakers) pour de l'actualiter informatique. [Techno](https://www.youtube.com/@LaTechnos) / [Darkone Linux](https://www.youtube.com/@DarkoneLinuxs) / [overfl0w](https://www.youtube.com/@overfl-0-w) [Dovacre](https://www.youtube.com/@Dovacre) pour de la cybersécuriter et des dépendance linux. [Fuzay²](https://www.youtube.com/@FuzayAuCarre) pour de l'entreprenarial avec un côté amusant.[Doc Seven](https://www.youtube.com/@DocSeven) pour la connaissance historique et loufoque. [V2F](https://www.youtube.com/@V2F) pour la mise en lumière de projet totalement loufique. 
+* **Blog** [korben.info](https://korben.info) sur de l'informatique : developpement /IA / Cybersécurité / info geek ...
