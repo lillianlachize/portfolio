@@ -1,1 +1,35 @@
-CV Lachize Lillian 
+# 🚀 Hello, moi c'est Lillian Lachize !
+
+## ⚡ "Curiosité insatiable, codeur passionné."
+
+Je suis un développeur en pleine ascension, animé par l'envie de comprendre comment tout fonctionne. Pour moi, le code n'est pas juste un métier, c'est un terrain de jeu sans limites.
+
+---
+
+### 🛠 Mon Arsenal Technique
+
+Pour développer, j'utilise principalement **Sublime Text**, **Google** et toutes les ressources en ligne disponibles. Mais l'outil le plus précieux à mon sence **mon cerveau**.
+
+---
+
+### 📈 Mes Objectifs
+
+* 🔍 **Développement informatique :** Toujours à la recherche d'informations et d'expérimentations pour m'améliorer et repousser mes limites techniques.
+* 🌱 **Développement personnel :** En quête constante d'évolution. Je suis convaincu que toute critique constructive est un moteur pour progresser.
+* 🥋 **Développement sportif :** Je m'entraîne avec rigueur pour l'obtention de ma **ceinture noire** et de mes diplômes d'enseignement (**AFA / DAF / DIF**). Je prévois également une formation de la **FFK** pour l'enseignement du karaté adapté aux personnes en situation de handicap.
+
+---
+
+### 📂 Projets Phares
+
+* **📄 [Mon CV Digital]** : Une vitrine que je mets à jour régulièrement pour illustrer ma progression.
+* **🔢 [Calculatrice Web]** : Un outil interactif développé en HTML/CSS.
+* **👾 [Pacman Lite]** : Un classique revisité, initialement conçu en Python et porté sur navigateur en JavaScript.
+* **🤫 [Projet Secret]** : Un projet d'envergure en développement depuis plus de 3 ans (JavaScript, Game Design, Scénarisation).
+
+---
+
+### 📊 Mes GitHub
+
+* 👤 **Profil Personnel** : [@lillianlachize](https://github.com/lillianlachize)
+* 🤖 **Projets & Bots** : [@Zephiell-bot](https://github.com/Zephiell-bot)
