@@ -32,4 +32,4 @@ Pour développer, j'utilise principalement **Sublime Text**, **Google** et toute
 ### 📊 Mes GitHub
 
 * 👤 **Profil Personnel** : [@lillianlachize](https://github.com/lillianlachize)
-* 🤖 **Projets & Bots** : [@Zephiell-bot](https://github.com/Zephiell-bot)
+* 🤖 **Projets De Plugin mis a disposition** : [@Zephiell-bot](https://github.com/Zephiell-bot)
