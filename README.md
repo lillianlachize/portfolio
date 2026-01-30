@@ -50,4 +50,4 @@ Pour développer, j'utilise principalement **Sublime Text**, **Google** et toute
     * [Korben.info](https://korben.info) – Une référence pour le développement, l'IA, la cybersécurité et la culture geek.
     * [Réseau Certa](https://www.reseaucerta.org) – Il s'agit d'une référence pour le BTS SIO / BAC STMG / CS SNO sois principalement développement, réseaux et cybersécuriter.
 
-* **Plateformes :** [OpenClassrooms](https://openclassrooms.com) pour leurs formations complètes en développement et intelligence artificielle.
+* **Plateformes :** [OpenClassrooms](https://openclassrooms.com) / [Fun mooc](https://www.fun-mooc.fr/fr/) / [It-connect](https://www.it-connect.fr) pour leurs formations complètes en développement et intelligence artificielle.
