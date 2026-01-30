@@ -332,6 +332,28 @@ table.calculatrice td:hover {
     box-shadow: 0 0 15px var(--enemy-color);
 }
 
+.btn {
+    background-color: var(--primary-color) ;
+    color: var(--text-color);
+    border: var(--secondary-color);
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow:  0 0 15px var(--secondary-color);
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+    color: var(--enemy-color);
+    transform: scale(1.1);
+    box-shadow:  0 0 15px var(--enemy-color);
+    text-decoration:none;
+}
+
 .info-tour {
     background-color: var(--highlight-bg);
     padding: 10px 20px;
@@ -500,25 +522,7 @@ table.calculatrice td:hover {
 .cmt { color: var(--code-comment); font-style: italic; }
 .dec { color: #9cdcfe; }
 
-.btn-action {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 25px;
-    background-color: #238636; /* Vert GitHub */
-    color: white;
-    border-radius: 6px;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    transition: background 0.3s, transform 0.2s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
 
-.btn-action:hover {
-    background-color: #2ea043;
-    transform: translateY(-2px);
-    text-decoration: none;
-}
 
 /* --- 11. STYLE SPÉCIFIQUE ZOMBIMAN (FOREST SURVIVAL) --- */
 
@@ -569,7 +573,7 @@ table.calculatrice td:hover {
 }
 
 /* Bouton du jeu */
-.btn {
+.btnjeu {
     background-color: #285028;
     color: #fff;
     border: 2px solid #c8ff00;
@@ -583,12 +587,14 @@ table.calculatrice td:hover {
     box-shadow: 0 0 15px rgba(200, 255, 0, 0.2);
 }
 
-.btn:hover {
+.btnjeu:hover {
     background-color: #c8ff00;
     color: #000;
     transform: scale(1.1);
     box-shadow: 0 0 25px rgba(200, 255, 0, 0.6);
 }
+
+
 
 /* --- 12. PIED DE PAGE --- */
 footer {
