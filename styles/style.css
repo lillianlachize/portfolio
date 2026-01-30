@@ -15,7 +15,7 @@
     --enemy-color: #ff0055;     /* Rouge Néon (Adversaire / Erreur) */
     --highlight-bg: rgba(0, 212, 255, 0.1); /* Fond léger pour les survols */
     
-    /* Couleurs Syntaxe Python (Style VS Code) */
+    /* Couleurs Syntaxe Python  */
     --code-bg: #1e1e1e;
     --code-header: #252526;
     --code-keyword: #569cd6;
@@ -356,7 +356,7 @@ table.calculatrice td:hover {
 .piece {
     width: 100%;
     height: 100%;
-    background-image: url('chess_pieces.png'); /* Vérifier le nom de l'image */
+    background-image: url('../img/chess_pieces.png'); /* Vérifier le nom de l'image */
     background-repeat: no-repeat;
     background-size: 600% 200%;
     cursor: pointer;
