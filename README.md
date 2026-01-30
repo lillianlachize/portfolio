@@ -41,7 +41,7 @@ Pour développer, j'utilise principalement **Sublime Text**, **Google** et toute
 * **YouTube :**
     * 🌍 [HugoDécrypte](https://www.youtube.com/@hugodecrypteactus) pour l'actualité générale.
     * 💻 [Bazar de Léo - TechMaker](https://www.youtube.com/@BazarTechMakers) pour l'actualité informatique.
-    * 🛡️ [Technos](https://www.youtube.com/@LaTechnos), [Darkone Linux](https://www.youtube.com/@DarkoneLinuxs), [overfl0w](https://www.youtube.com/@overfl-0-w) et [Dovacre](https://www.youtube.com/@Dovacre) pour la cybersécurité et l'écosystème Linux.
+    * 🛡️ [Technos](https://www.youtube.com/@LaTechnos) / [Darkone Linux](https://www.youtube.com/@DarkoneLinuxs) / [overfl0w](https://www.youtube.com/@overfl-0-w) / [Dovacre](https://www.youtube.com/@Dovacre) pour la cybersécurité et l'écosystème Linux.
     * 🚀 [Fuzay²](https://www.youtube.com/@FuzayAuCarre) pour l'entrepreneuriat abordé avec humour.
     * 📜 [Doc Seven](https://www.youtube.com/@DocSeven) pour la culture générale et historique.
     * 🧪 [V2F](https://www.youtube.com/@V2F) pour la mise en lumière de projets techniques insolites.
