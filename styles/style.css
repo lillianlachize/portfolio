@@ -171,7 +171,24 @@ h2 {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
+/* Style général du tableau */
+.antivirus-table {
+    border-collapse: collapse; /* Pour éviter les doubles bordures */
+    width: 100%;
+}
 
+/* Style commun pour les cellules d'en-tête et de données */
+.antivirus-table th, 
+.antivirus-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* Style spécifique pour l'en-tête */
+.antivirus-table th {
+    text-align: left;
+   
+}
 /* --- 6. ÉLÉMENTS DU CV (TAGS & TIMELINE) --- */
 .skill-tag {
     background-color: var(--primary-color);
