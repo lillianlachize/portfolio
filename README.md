@@ -23,6 +23,7 @@ Pour développer, j'utilise principalement **Sublime Text**, **Google** et toute
 ### 📂 Projets Phares :
 
 * **📄 [Mon CV Digital]** : Une vitrine que je mets à jour régulièrement pour illustrer ma progression.
+* **📚 Mes veilles technologique]** : Mise en avant de sujets liés au monde de l'informatique. Ces veilles sont effectuées durant mes cours ainsi que sur mon temps libre.
 * **🔢 [Calculatrice Web]** : Un outil interactif développé en HTML/CSS.
 * **👾 [Pacman Lite]** : Un classique revisité, initialement conçu en Python et porté sur navigateur en JavaScript.
 * **🤫 [Projet Secret]** : Un projet d'envergure en développement depuis plus de 3 ans (JavaScript, Game Design, Scénarisation).
