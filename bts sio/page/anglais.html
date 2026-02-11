@@ -1,0 +1,2676 @@
+<link rel="stylesheet" href="../styles/style.css"><!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="../img/iconne.ico" />
+    <title>Anglais | BTS SIO</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            background: #f5f5f5;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .nav-tab:hover {
+            background: #e8e8e8;
+            color: #333;
+        }
+
+        .nav-tab.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .vocab-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .vocab-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .english {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1em;
+        }
+
+        .french {
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .grammar-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #764ba2;
+        }
+
+        .formula {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+
+        .example {
+            background: #d4edda;
+            padding: 12px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #28a745;
+            font-style: italic;
+        }
+
+        .warning {
+            background: #f8d7da;
+            padding: 12px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #dc3545;
+        }
+
+        .info-box {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            margin: 40px 0;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+
+            .nav-tab {
+                width: 100%;
+            }
+
+            .vocab-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .search-box {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #667eea;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+    </style>
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1>🎓 BTS SIO 2025-2027</h1>
+        <p class="subtitle">Services Informatiques aux Organisations - SLAM & SISR</p>
+    </header>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="anglais.html" class="active">Anglais</a></li>
+            <li><a href="culture-generale.html">Culture G</a></li>
+            <li><a href="cejm.html">CEJM</a></li>
+            <li><a href="algorithmique.html">Algorithmique</a></li>
+            <li><a href="mathematiques.html">Mathématiques</a></li>
+            <li><a href="tc1com.html">TC1 COM</a></li>
+            
+            <li><a href="tc2dev.html">TC2DEV</a></li>
+            <li><a href="tc3com.html">TC3 COM</a></li><li><a href="d1.html">D1</a></li>
+            <li><a href="d2.html">D2</a></li>
+            <li><a href="r1.html">R1</a></li>
+            <li><a href="r2.html">R2</a></li>
+            <li><a href="tc5.html">TC5</a></li>
+            <li><a href="tc6.html">TC6</a></li>
+            <li><a href="atelierpro.html">Atelier Pro</a></li>
+        </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <!-- SUBJECT HEADER -->
+        <div class="subject-header">
+            <h1>🌍 Anglais Professionnel</h1>
+            <p class="teacher-name">👨‍🏫 Enseignante : Mme DUBOIS</p>
+            <div class="subject-meta">
+                <div class="meta-item">
+                    <span><span class="coefficient">Coefficient :</span></span>
+                    <strong>2</strong>
+                </div>
+                <div class="meta-item">
+                    <span>📝 Modalité :</span>
+                    <strong><span class="exam">Examen écrit</span> + <span class="exam">Oral</span></strong>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+        <h1>📚 Anglais BTS SIO</h1>
+        <p class="subtitle">Vocabulaire par thème et Grammaire complète</p>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('cybersecurity')">🛡️ Cybersécurité</button>
+            <button class="nav-tab" onclick="showTab('cloud')">☁️ Cloud Computing</button>
+            <button class="nav-tab" onclick="showTab('iot')">🏠 IoT & Domotique</button>
+            <button class="nav-tab" onclick="showTab('environment')">♻️ E-waste & Environnement</button>
+            <button class="nav-tab" onclick="showTab('work')">💼 Travail & Entreprise</button>
+            <button class="nav-tab" onclick="showTab('relations')">🤝 Relations Professionnelles</button>
+            <button class="nav-tab" onclick="showTab('general')">📖 Vocabulaire Général</button>
+            <button class="nav-tab" onclick="showTab('grammar')">📝 Grammaire & Temps</button>
+            <button class="nav-tab" onclick="showTab('expressions')">💬 Expressions Utiles</button>
+        </div>
+
+        <!-- CYBERSÉCURITÉ -->
+        <div id="cybersecurity" class="tab-content active">
+            <h2><span class="emoji">🛡️</span>Cybersécurité et Informatique</h2>
+
+            <h3>Menaces et Attaques</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Malware</div>
+                    <div class="french">Logiciel malveillant (ne prend jamais de "s")</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Hacker / Cybercriminal</div>
+                    <div class="french">Pirate informatique</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Scammer</div>
+                    <div class="french">Escroc</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Virus</div>
+                    <div class="french">Virus informatique</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Worm</div>
+                    <div class="french">Ver informatique (auto-réplicatif)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Spyware</div>
+                    <div class="french">Logiciel espion</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Trojan (Trojan Horse)</div>
+                    <div class="french">Cheval de Troie</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Ransomware</div>
+                    <div class="french">Rançongiciel (crypte les données)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Phishing attack</div>
+                    <div class="french">Attaque par hameçonnage</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">DDoS attack</div>
+                    <div class="french">Attaque par déni de service</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Identity theft</div>
+                    <div class="french">Usurpation d'identité</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Malicious code</div>
+                    <div class="french">Code malveillant</div>
+                </div>
+            </div>
+
+            <h3>Verbes d'Action - Cybersécurité</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">To break into</div>
+                    <div class="french">Entrer par effraction, pirater</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To prevent sb from doing sth</div>
+                    <div class="french">Empêcher quelqu'un de faire quelque chose</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To avoid + V-ing</div>
+                    <div class="french">Éviter de</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To risk + V-ing</div>
+                    <div class="french">Risquer de</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To aim at + V-ing</div>
+                    <div class="french">Viser à</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To damage</div>
+                    <div class="french">Endommager</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To corrupt</div>
+                    <div class="french">Corrompre</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To steal</div>
+                    <div class="french">Voler</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To encrypt / Decrypt</div>
+                    <div class="french">Crypter / Décrypter</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To spread</div>
+                    <div class="french">Se propager, répandre</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To threaten</div>
+                    <div class="french">Menacer</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To dupe / deceive</div>
+                    <div class="french">Duper, tromper</div>
+                </div>
+            </div>
+
+            <h3>Sécurité et Protection</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Antivirus (software)</div>
+                    <div class="french">Antivirus, logiciel antivirus</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Firewall</div>
+                    <div class="french">Pare-feu</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Provider</div>
+                    <div class="french">Fournisseur</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Strong password</div>
+                    <div class="french">Mot de passe robuste</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Credentials</div>
+                    <div class="french">Identifiants</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Update</div>
+                    <div class="french">Mise à jour</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Backup</div>
+                    <div class="french">Sauvegarde</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Recovery</div>
+                    <div class="french">Restauration</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Reliable</div>
+                    <div class="french">Fiable</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Efficient</div>
+                    <div class="french">Efficace</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Loopholes</div>
+                    <div class="french">Failles, lacunes</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">A threat</div>
+                    <div class="french">Une menace</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">A victim</div>
+                    <div class="french">Une victime</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Dubious / Doubtful</div>
+                    <div class="french">Douteux</div>
+                </div>
+            </div>
+
+            <h3>Informatique Générale</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Software</div>
+                    <div class="french">Logiciel (ne prend jamais de "s")</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Hardware</div>
+                    <div class="french">Matériel informatique</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">OS (Operating System)</div>
+                    <div class="french">Système d'exploitation</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Data</div>
+                    <div class="french">Données (toujours pluriel en français)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Hard drive</div>
+                    <div class="french">Disque dur</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Storage capacity</div>
+                    <div class="french">Capacité de stockage</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Email attachment</div>
+                    <div class="french">Pièce jointe</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Computer science</div>
+                    <div class="french">Informatique</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To save</div>
+                    <div class="french">Sauvegarder / Économiser</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To recover</div>
+                    <div class="french">Restaurer, récupérer</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To slow down</div>
+                    <div class="french">Ralentir</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To store</div>
+                    <div class="french">Stocker</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Upgrade</div>
+                    <div class="french">Mise à niveau (pour l'informatique)</div>
+                </div>
+            </div>
+
+            <h3>Cloud & IoT</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Cloud Computing</div>
+                    <div class="french">Informatique en nuage</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">IoT (Internet of Things)</div>
+                    <div class="french">Objets connectés, domotique</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Voice assistant</div>
+                    <div class="french">Assistant vocal</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Household appliance</div>
+                    <div class="french">Appareil électroménager</div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Exemples de phrases :</strong>
+                <ul>
+                    <li>Antivirus software prevents hackers from breaking into computer systems.</li>
+                    <li>You should avoid downloading unknown files.</li>
+                    <li>If you do not have a firewall, you risk spreading viruses on the network.</li>
+                    <li>Malware aim at corrupting or stealing data.</li>
+                    <li>Ransomware aim at encrypting your data and making their access impossible.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CLOUD COMPUTING -->
+        <div id="cloud" class="tab-content">
+            <h2><span class="emoji">☁️</span>Cloud Computing</h2>
+
+            <h3>Concepts Fondamentaux</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Cloud Computing</div>
+                    <div class="french">Informatique en nuage</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Cloud Storage</div>
+                    <div class="french">Stockage en nuage</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">External server</div>
+                    <div class="french">Serveur externe</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To store data</div>
+                    <div class="french">Stocker des données</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Service provider</div>
+                    <div class="french">Fournisseur de services</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Subcontracted</div>
+                    <div class="french">Sous-traité</div>
+                </div>
+            </div>
+
+            <h3>Avantages du Cloud</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Cost-effective / Cost-efficient</div>
+                    <div class="french">Rentable, économique</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Scalability</div>
+                    <div class="french">Évolutivité</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To rent storage</div>
+                    <div class="french">Louer du stockage</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Limited storage</div>
+                    <div class="french">Stockage limité</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Depending on needs</div>
+                    <div class="french">En fonction des besoins</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Peak workload period</div>
+                    <div class="french">Période de charge de travail maximale</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Extra capacity</div>
+                    <div class="french">Capacité supplémentaire</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Temporarily</div>
+                    <div class="french">Temporairement</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Handy / Convenient</div>
+                    <div class="french">Pratique</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Accessibility</div>
+                    <div class="french">Accessibilité</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Anywhere</div>
+                    <div class="french">N'importe où</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To share documents</div>
+                    <div class="french">Partager des documents</div>
+                </div>
+            </div>
+
+            <h3>Gestion et Sécurité</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Backup</div>
+                    <div class="french">Sauvegarde</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Recovery</div>
+                    <div class="french">Récupération, restauration</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Breakdown</div>
+                    <div class="french">Panne</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To charge (for)</div>
+                    <div class="french">Facturer</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To worry about</div>
+                    <div class="french">S'inquiéter de</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Data security</div>
+                    <div class="french">Sécurité des données</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Intuitively</div>
+                    <div class="french">Intuitivement</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Calmly</div>
+                    <div class="french">Calmement</div>
+                </div>
+            </div>
+
+            <h3>Inconvénients et Risques</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Drawback</div>
+                    <div class="french">Inconvénient</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Sensitive data</div>
+                    <div class="french">Données sensibles</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To be pirated</div>
+                    <div class="french">Être piraté</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Data leak</div>
+                    <div class="french">Fuite de données</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Service down / Service off</div>
+                    <div class="french">Service hors ligne</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Service availability</div>
+                    <div class="french">Disponibilité du service</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Privacy concerns</div>
+                    <div class="french">Préoccupations en matière de confidentialité</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Security breach</div>
+                    <div class="french">Violation de sécurité</div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Phrases utiles :</strong>
+                <ul>
+                    <li>The Cloud involves an external server storing your data on the internet.</li>
+                    <li>It is a cost-effective/efficient measure.</li>
+                    <li>If a company experiences a peak workload period, it can temporarily acquire extra capacity.</li>
+                    <li>It is very convenient for sharing documents.</li>
+                    <li>The company no longer has to worry about its data, as data security is subcontracted.</li>
+                    <li>The Cloud can be pirated by hackers generating data leaks.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- IOT & DOMOTIQUE -->
+        <div id="iot" class="tab-content">
+            <h2><span class="emoji">🏠</span>IoT et Domotique (Internet of Things)</h2>
+
+            <h3>Concepts de Base</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">IoT (Internet of Things)</div>
+                    <div class="french">Internet des Objets</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To stand for</div>
+                    <div class="french">Signifier, représenter</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To advocate for</div>
+                    <div class="french">Défendre, promouvoir</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Interconnected objects</div>
+                    <div class="french">Objets interconnectés</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Connected devices</div>
+                    <div class="french">Appareils connectés</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Home appliances</div>
+                    <div class="french">Appareils électroménagers</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To interoperate</div>
+                    <div class="french">Interopérer, fonctionner ensemble</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Interoperability</div>
+                    <div class="french">Interopérabilité</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Platform / Hub</div>
+                    <div class="french">Plateforme / Hub central</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To facilitate</div>
+                    <div class="french">Faciliter</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Smart home</div>
+                    <div class="french">Maison intelligente</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Smart kitchen</div>
+                    <div class="french">Cuisine intelligente</div>
+                </div>
+            </div>
+
+            <h3>Technologies et Protocoles</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Matter standard</div>
+                    <div class="french">Standard Matter (langage commun)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Thread protocol</div>
+                    <div class="french">Protocole Thread</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Mesh network</div>
+                    <div class="french">Réseau maillé</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Border Router</div>
+                    <div class="french">Routeur frontière</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Bridge</div>
+                    <div class="french">Pont (dispositif de connexion)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Wi-Fi</div>
+                    <div class="french">Wi-Fi</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Voice assistant</div>
+                    <div class="french">Assistant vocal</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Digital assistant</div>
+                    <div class="french">Assistant numérique</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">OS (Operating System)</div>
+                    <div class="french">Système d'exploitation</div>
+                </div>
+            </div>
+
+            <h3>Fonctionnalités et Avantages</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">To control</div>
+                    <div class="french">Contrôler</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To cook a meal</div>
+                    <div class="french">Faire à manger</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To manage energy</div>
+                    <div class="french">Gérer l'énergie</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Convenience</div>
+                    <div class="french">Commodité, confort</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To personalise</div>
+                    <div class="french">Personnaliser</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Preferences / Desires</div>
+                    <div class="french">Préférences / Envies</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To secure your home</div>
+                    <div class="french">Sécuriser votre maison</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Motion sensor</div>
+                    <div class="french">Capteur de mouvement</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To lock a door</div>
+                    <div class="french">Verrouiller une porte</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To set a time</div>
+                    <div class="french">Régler une heure</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To trigger off</div>
+                    <div class="french">Déclencher</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">An oven</div>
+                    <div class="french">Un four</div>
+                </div>
+            </div>
+
+            <h3>Caractéristiques Techniques</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Seamless interoperability</div>
+                    <div class="french">Interopérabilité transparente</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Resilience</div>
+                    <div class="french">Résilience</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Node (device)</div>
+                    <div class="french">Nœud (appareil du réseau)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To fill in</div>
+                    <div class="french">Remplacer, combler</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Power efficiency</div>
+                    <div class="french">Efficacité énergétique</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Battery life</div>
+                    <div class="french">Durée de vie de la batterie</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Thread-enabled</div>
+                    <div class="french">Compatible Thread</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Future-proofing</div>
+                    <div class="french">Pérennité, évolutivité future</div>
+                </div>
+            </div>
+
+            <h3>Applications et Secteurs</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Smart surveillance system</div>
+                    <div class="french">Système de surveillance intelligent</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Predictive analytics</div>
+                    <div class="french">Analyse prédictive</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Water management</div>
+                    <div class="french">Gestion de l'eau</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To find leaks</div>
+                    <div class="french">Trouver des fuites</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Pipelines</div>
+                    <div class="french">Canalisations</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Sewage system</div>
+                    <div class="french">Système d'égouts</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Traffic lights</div>
+                    <div class="french">Feux de circulation</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Speed radar</div>
+                    <div class="french">Radar de vitesse</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Commuting</div>
+                    <div class="french">Déplacement domicile-travail</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Medical staff</div>
+                    <div class="french">Personnel médical</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Health</div>
+                    <div class="french">Santé</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Well-being</div>
+                    <div class="french">Bien-être</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Food safety</div>
+                    <div class="french">Sécurité alimentaire</div>
+                </div>
+            </div>
+
+            <h3>Verbes IoT</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">To improve</div>
+                    <div class="french">Améliorer</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To detect</div>
+                    <div class="french">Détecter</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To revolutionise</div>
+                    <div class="french">Révolutionner</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To capture</div>
+                    <div class="french">Capter</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To install</div>
+                    <div class="french">Installer</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To foster</div>
+                    <div class="french">Favoriser</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Streamlined</div>
+                    <div class="french">Fluide, rationalisé</div>
+                </div>
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ Sécurité IoT :</strong>
+                <ul>
+                    <li><strong>Encrypted</strong> = Crypté</li>
+                    <li><strong>Decrypt</strong> = Décrypter</li>
+                    <li>Les appareils IoT peuvent être utilisés pour <strong>deceive</strong> (tromper) et obtenir vos <strong>personal data</strong> (données personnelles)</li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Phrases utiles :</strong>
+                <ul>
+                    <li>The system stands for the Internet of Things (IoT).</li>
+                    <li>Connected devices allow us to control home appliances thanks to Wi-Fi.</li>
+                    <li>Thread creates a mesh network, making the network more reliable.</li>
+                    <li>If one node fails, another immediately fills in.</li>
+                    <li>Thread devices are extremely power efficient, leading to longer battery life.</li>
+                    <li>This is paid for to install a smart kitchen and secure your home.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- E-WASTE & ENVIRONNEMENT -->
+        <div id="environment" class="tab-content">
+            <h2><span class="emoji">♻️</span>E-waste et Environnement</h2>
+
+            <h3>Déchets Électroniques</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">E-waste</div>
+                    <div class="french">Déchets d'équipements électriques et électroniques (DEEE)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To dispose of / To throw away</div>
+                    <div class="french">Se débarrasser de, jeter</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Waste / Discord</div>
+                    <div class="french">Déchet</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Landfill / Dumping ground</div>
+                    <div class="french">Décharge</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To dump</div>
+                    <div class="french">Déverser, abandonner</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To ship</div>
+                    <div class="french">Expédier, envoyer</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To get rid of</div>
+                    <div class="french">Se débarrasser de</div>
+                </div>
+            </div>
+
+            <h3>Technologie et Obsolescence</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Cutting-edge technology</div>
+                    <div class="french">Technologie de pointe</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Planned obsolescence</div>
+                    <div class="french">Obsolescence programmée</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Short lifespan</div>
+                    <div class="french">Durée de vie courte</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Life expectancy</div>
+                    <div class="french">Espérance de vie</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Dysfunctional</div>
+                    <div class="french">Dysfonctionnel</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Outdated</div>
+                    <div class="french">Obsolète, dépassé</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To break down</div>
+                    <div class="french">Tomber en panne</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To upgrade</div>
+                    <div class="french">Mettre à niveau</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Computing power</div>
+                    <div class="french">Puissance de calcul</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Pre-owned / Refurbished</div>
+                    <div class="french">Reconditionné</div>
+                </div>
+            </div>
+
+            <h3>Impact Environnemental</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Sustainable</div>
+                    <div class="french">Durable</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Sustainable development</div>
+                    <div class="french">Développement durable</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Ecological / Environmentally friendly</div>
+                    <div class="french">Écologique</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Pollution</div>
+                    <div class="french">Pollution</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Air pollution</div>
+                    <div class="french">Pollution de l'air</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Soil pollution</div>
+                    <div class="french">Pollution du sol</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To consume energy</div>
+                    <div class="french">Consommer de l'énergie</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Appetite for power</div>
+                    <div class="french">Consommation d'énergie</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Worldwide</div>
+                    <div class="french">Mondial</div>
+                </div>
+            </div>
+
+            <h3>Substances et Matériaux</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Toxic / Carcinogenic</div>
+                    <div class="french">Toxique / Cancérigène</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Toxic fumes / Noxious gas</div>
+                    <div class="french">Vapeurs toxiques / Gaz nocifs</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Heavy metals</div>
+                    <div class="french">Métaux lourds</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Lead</div>
+                    <div class="french">Plomb</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Mercury</div>
+                    <div class="french">Mercure</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Valuable metals</div>
+                    <div class="french">Métaux précieux</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Gold / Silver / Copper</div>
+                    <div class="french">Or / Argent / Cuivre</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To extract</div>
+                    <div class="french">Extraire</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To dismantle</div>
+                    <div class="french">Démonter</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Electronic components</div>
+                    <div class="french">Composants électroniques</div>
+                </div>
+            </div>
+
+            <h3>Impact sur la Santé et l'Environnement</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">To leach into the soil</div>
+                    <div class="french">S'infiltrer dans le sol</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Water table</div>
+                    <div class="french">Nappe phréatique</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To pollute</div>
+                    <div class="french">Polluer</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To breathe in / To inhale</div>
+                    <div class="french">Inhaler</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Influence on health</div>
+                    <div class="french">Impact sur la santé</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">In their blood</div>
+                    <div class="french">Dans leur sang</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To get hurt</div>
+                    <div class="french">Se blesser</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Dangerous substances</div>
+                    <div class="french">Substances dangereuses</div>
+                </div>
+            </div>
+
+            <h3>Aspects Sociaux et Économiques</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Informal sector</div>
+                    <div class="french">Secteur informel (non formel)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To work for themselves</div>
+                    <div class="french">Travailler pour soi-même</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To make a living</div>
+                    <div class="french">Subvenir à ses besoins</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Income</div>
+                    <div class="french">Revenu</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Financial support</div>
+                    <div class="french">Soutien financier</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To recover materials</div>
+                    <div class="french">Récupérer des matériaux</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Major impact</div>
+                    <div class="french">Impact majeur</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Emerging countries</div>
+                    <div class="french">Pays émergents</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Poor population</div>
+                    <div class="french">Population pauvre</div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Phrases utiles :</strong>
+                <ul>
+                    <li>Old e-waste products consume a lot of energy.</li>
+                    <li>Manufacturers use planned obsolescence to make devices break down.</li>
+                    <li>E-waste is dumped in landfills in Africa.</li>
+                    <li>They extract valuable metals such as gold, silver, and copper by dismantling e-waste.</li>
+                    <li>Heavy metals like lead and mercury pollute the water tables.</li>
+                    <li>This has a major impact on the environment with millions of tons of e-waste.</li>
+                    <li>The massive e-waste problem calls for more action.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TRAVAIL & ENTREPRISE -->
+        <div id="work" class="tab-content">
+            <h2><span class="emoji">💼</span>Travail et Entreprise</h2>
+
+            <h3>Emploi et Recrutement</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Job / Employment</div>
+                    <div class="french">Emploi</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Job seeker</div>
+                    <div class="french">Demandeur d'emploi</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Looking for a job</div>
+                    <div class="french">Recherche d'emploi</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To apply for a job</div>
+                    <div class="french">Postuler pour un emploi</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Cover letter</div>
+                    <div class="french">Lettre de motivation</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Resume / CV</div>
+                    <div class="french">Curriculum vitae</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Internship</div>
+                    <div class="french">Stage</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Training</div>
+                    <div class="french">Formation</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Fixed-term contract</div>
+                    <div class="french">Contrat à durée déterminée (CDD)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Permanent contract/job</div>
+                    <div class="french">Contrat à durée indéterminée (CDI)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Open-ended contract</div>
+                    <div class="french">Contrat à durée indéterminée</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Full-time position</div>
+                    <div class="french">Poste à temps plein</div>
+                </div>
+            </div>
+
+            <h3>Compétences et Carrière</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Skills</div>
+                    <div class="french">Compétences</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Transferable skills</div>
+                    <div class="french">Compétences transférables</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To upgrade skills</div>
+                    <div class="french">Améliorer ses compétences</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To develop</div>
+                    <div class="french">Développer</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Career advancement</div>
+                    <div class="french">Évolution de carrière</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Solid career prospects</div>
+                    <div class="french">Perspectives de carrière solides</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Responsibilities</div>
+                    <div class="french">Responsabilités</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To assign tasks</div>
+                    <div class="french">Assigner des tâches</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Management position</div>
+                    <div class="french">Poste de direction</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To get involved / To be involved in</div>
+                    <div class="french">S'impliquer dans</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To prioritize</div>
+                    <div class="french">Prioriser</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To enhance</div>
+                    <div class="french">Valoriser, améliorer</div>
+                </div>
+            </div>
+
+            <h3>Salaire et Conditions</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Salary / Wage</div>
+                    <div class="french">Salaire</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Hourly rate</div>
+                    <div class="french">Taux horaire</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Payslip</div>
+                    <div class="french">Fiche de paie</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Bonus</div>
+                    <div class="french">Prime</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To grant</div>
+                    <div class="french">Accorder (une prime)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Overtime hours</div>
+                    <div class="french">Heures supplémentaires</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To work in shifts</div>
+                    <div class="french">Travailler en équipe (horaires alternants)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Market value</div>
+                    <div class="french">Valeur sur le marché</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To renegotiate</div>
+                    <div class="french">Renégocier</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Perk</div>
+                    <div class="french">Avantage en nature</div>
+                </div>
+            </div>
+
+            <h3>Lieu et Organisation du Travail</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Workplace</div>
+                    <div class="french">Lieu de travail</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Company / Enterprise</div>
+                    <div class="french">Entreprise</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Small business</div>
+                    <div class="french">Petite entreprise</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Flexible workspace</div>
+                    <div class="french">Espace de travail flexible</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Flex time</div>
+                    <div class="french">Horaires flexibles</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Depending on</div>
+                    <div class="french">En fonction de</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Well-being</div>
+                    <div class="french">Bien-être</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Work-life balance</div>
+                    <div class="french">Équilibre vie professionnelle/personnelle</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Fulfilling</div>
+                    <div class="french">Épanouissant</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Grueling</div>
+                    <div class="french">Éreintant</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Interpersonal relationships</div>
+                    <div class="french">Relations interpersonnelles</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Criteria (plural)</div>
+                    <div class="french">Critères</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Warehouses</div>
+                    <div class="french">Entrepôts</div>
+                </div>
+            </div>
+
+            <h3>Problèmes de Recrutement</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Unfillable (positions)</div>
+                    <div class="french">Postes qu'on ne peut pas pourvoir</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To quit</div>
+                    <div class="french">Démissionner</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To re-hire</div>
+                    <div class="french">Réembaucher</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">New hires</div>
+                    <div class="french">Nouvelles recrues</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Sign-on bonuses</div>
+                    <div class="french">Prime à l'embauche</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Home health aides</div>
+                    <div class="french">Aides à domicile</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Survey</div>
+                    <div class="french">Étude, enquête</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Signs</div>
+                    <div class="french">Pancartes, enseignes</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Unheard of</div>
+                    <div class="french">Inédit, jamais entendu</div>
+                </div>
+            </div>
+
+            <h3>Conditions de Travail</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Predictability</div>
+                    <div class="french">Prévisibilité</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Scheduling</div>
+                    <div class="french">Planification (des horaires)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Childcare</div>
+                    <div class="french">Garde d'enfants</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To care</div>
+                    <div class="french">Prendre soin de</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Short-sighted</div>
+                    <div class="french">Myope, court-termiste</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To address (a problem)</div>
+                    <div class="french">Résoudre un problème</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Below</div>
+                    <div class="french">En dessous</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Throughout</div>
+                    <div class="french">À travers, tout au long de</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Across</div>
+                    <div class="french">À travers</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Perhaps</div>
+                    <div class="french">Peut-être</div>
+                </div>
+            </div>
+
+            <h3>BYOD - Bring Your Own Device</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">BYOD (Bring Your Own Device)</div>
+                    <div class="french">Apportez votre propre appareil</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To save on costs</div>
+                    <div class="french">Économiser sur les coûts</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Growing trend</div>
+                    <div class="french">Tendance croissante</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">A spark</div>
+                    <div class="french">Une étincelle</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To comply with</div>
+                    <div class="french">Se conformer à</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">IT charter</div>
+                    <div class="french">Charte informatique</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To protect system</div>
+                    <div class="french">Protéger le système</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Security tools</div>
+                    <div class="french">Outils de sécurité</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To connect to the network</div>
+                    <div class="french">Se connecter au réseau</div>
+                </div>
+            </div>
+
+            <h3>Gap Year (Année Sabbatique)</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Gap year</div>
+                    <div class="french">Année sabbatique, année de césure</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To take a gap year</div>
+                    <div class="french">Faire une année sabbatique</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Communication skills</div>
+                    <div class="french">Compétences en communication</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To test limits</div>
+                    <div class="french">Tester ses limites</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Physical limits</div>
+                    <div class="french">Limites physiques</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Advantage over others</div>
+                    <div class="french">Avantage par rapport aux autres</div>
+                </div>
+            </div>
+
+            <h3>Personnel et Équipe</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Staff / Employees</div>
+                    <div class="french">Personnel / Employés</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Manager</div>
+                    <div class="french">Responsable, gestionnaire</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">CEO</div>
+                    <div class="french">Directeur général</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Team</div>
+                    <div class="french">Équipe</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Colleague / Co-worker</div>
+                    <div class="french">Collègue</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Collaborators</div>
+                    <div class="french">Collaborateurs</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Technician</div>
+                    <div class="french">Technicien</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Happiness manager</div>
+                    <div class="french">Responsable du bien-être</div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Phrases utiles :</strong>
+                <ul>
+                    <li>I am actively seeking a full-time position that allows me to work in shifts.</li>
+                    <li>I would like to find a job that allows me to use my skills.</li>
+                    <li>Finding a job in line with my degree is essential.</li>
+                    <li>I prioritize a job offering career advancement opportunities.</li>
+                    <li>I am looking for a healthy work-life balance.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- RELATIONS PROFESSIONNELLES -->
+        <div id="relations" class="tab-content">
+            <h2><span class="emoji">🤝</span>Relations Professionnelles et Égalité</h2>
+
+            <h3>Jalousie et Conflits au Travail</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Envy / Jealousy</div>
+                    <div class="french">Jalousie, envie</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Common affliction</div>
+                    <div class="french">Problème fréquent</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To resent</div>
+                    <div class="french">En vouloir à quelqu'un</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To erode authority</div>
+                    <div class="french">Éroder l'autorité</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To sabotage</div>
+                    <div class="french">Saboter</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To undermine</div>
+                    <div class="french">Saper, miner</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Behaviour</div>
+                    <div class="french">Comportement</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To keep informed</div>
+                    <div class="french">Tenir informé</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Instructions</div>
+                    <div class="french">Instructions, consignes</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To tackle a problem</div>
+                    <div class="french">Traiter un problème</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Disharmony</div>
+                    <div class="french">Discorde, désaccord</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Magnet for disharmony</div>
+                    <div class="french">Aimant pour la discorde</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To distance yourself</div>
+                    <div class="french">Prendre de la distance</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">It's their problem</div>
+                    <div class="french">C'est leur problème</div>
+                </div>
+            </div>
+
+            <h3>Égalité et Inégalités</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Glass ceiling</div>
+                    <div class="french">Plafond de verre</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Lead floor</div>
+                    <div class="french">Plancher de plomb</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Gender pay gap</div>
+                    <div class="french">Écart salarial hommes/femmes</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Equal / Unequal</div>
+                    <div class="french">Égal / Inégal</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Inequalities</div>
+                    <div class="french">Inégalités</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Inferior to / Superior to</div>
+                    <div class="french">Inférieur à / Supérieur à</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">The same... as</div>
+                    <div class="french">Le/la même... que</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">On behalf of</div>
+                    <div class="french">Au nom de</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Policy</div>
+                    <div class="french">La politique (règlement interne)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Politics</div>
+                    <div class="french">La politique (domaine public)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To get committed to</div>
+                    <div class="french">S'engager dans</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To harm</div>
+                    <div class="french">Nuire</div>
+                </div>
+            </div>
+
+            <h3>Recherche et Conséquences</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Associate professor</div>
+                    <div class="french">Professeur associé</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Chartered psychologist</div>
+                    <div class="french">Psychologue agréé</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Evidence</div>
+                    <div class="french">Preuves</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To occur</div>
+                    <div class="french">Se produire</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Financial consequences</div>
+                    <div class="french">Conséquences financières</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Worth</div>
+                    <div class="french">La valeur</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">A knock-on effect</div>
+                    <div class="french">Un effet d'entraînement</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Stubborn</div>
+                    <div class="french">Obstiné, persistant</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Incentives</div>
+                    <div class="french">Incitations, motivations</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Organisational incentives</div>
+                    <div class="french">Incitations organisationnelles</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To manage</div>
+                    <div class="french">Gérer</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Human mind</div>
+                    <div class="french">Esprit humain</div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Phrases utiles :</strong>
+                <ul>
+                    <li>Envy can be a real issue for both employers and employees.</li>
+                    <li>Envious people might refuse to acknowledge good ideas.</li>
+                    <li>The gender pay gap remains a stubborn problem.</li>
+                    <li>I am writing on behalf of our CEO about the gender pay gap in our company.</li>
+                    <li>These inequalities are detrimental to the good atmosphere in the company.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- VOCABULAIRE GÉNÉRAL -->
+        <div id="general" class="tab-content">
+            <h2><span class="emoji">📖</span>Vocabulaire Général</h2>
+
+            <h3>Adverbes et Connecteurs</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Among</div>
+                    <div class="french">Parmi</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Alongside</div>
+                    <div class="french">Aux côtés de</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Although</div>
+                    <div class="french">Bien que</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Whereas</div>
+                    <div class="french">Tandis que</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Unlike</div>
+                    <div class="french">Contrairement à</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Moreover</div>
+                    <div class="french">De plus</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">However</div>
+                    <div class="french">Cependant</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Indeed</div>
+                    <div class="french">En effet</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Therefore</div>
+                    <div class="french">Par conséquent</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Since</div>
+                    <div class="french">Puisque / Depuis</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Especially since</div>
+                    <div class="french">Surtout depuis que</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Following</div>
+                    <div class="french">Suite à</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">In any case</div>
+                    <div class="french">Dans tous les cas</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Almost always</div>
+                    <div class="french">Presque toujours</div>
+                </div>
+            </div>
+
+            <h3>Verbes Utiles</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">To contribute</div>
+                    <div class="french">Contribuer</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To grow</div>
+                    <div class="french">Croître, grandir</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To carry out</div>
+                    <div class="french">Réaliser, mener à bien</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To consist in + V-ing</div>
+                    <div class="french">Consister à</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To deal with</div>
+                    <div class="french">Traiter de, s'occuper de</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To benefit from</div>
+                    <div class="french">Bénéficier de</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To attend</div>
+                    <div class="french">Assister à</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To witness</div>
+                    <div class="french">Être témoin de</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To purchase</div>
+                    <div class="french">Acheter</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To stick with</div>
+                    <div class="french">S'en tenir à</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To attach</div>
+                    <div class="french">Attacher, joindre</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To send</div>
+                    <div class="french">Envoyer</div>
+                </div>
+            </div>
+
+            <h3>Adjectifs Courants</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Harmful / Harmless</div>
+                    <div class="french">Nuisible / Inoffensif</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Known / Unknown</div>
+                    <div class="french">Connu / Inconnu</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Self-replicating</div>
+                    <div class="french">Auto-réplicatif</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Notorious</div>
+                    <div class="french">Notoire, célèbre (péjoratif)</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Designed</div>
+                    <div class="french">Conçu</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Stored</div>
+                    <div class="french">Stocké</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Low / High</div>
+                    <div class="french">Bas / Haut</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Essential</div>
+                    <div class="french">Essentiel</div>
+                </div>
+            </div>
+
+            <h3>Noms Généraux</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Resources</div>
+                    <div class="french">Ressources</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Advice / Tip</div>
+                    <div class="french">Conseil</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Request</div>
+                    <div class="french">Demande, requête</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Incidents</div>
+                    <div class="french">Incidents, événements négatifs</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">A buyout</div>
+                    <div class="french">Un rachat d'entreprise</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Folder</div>
+                    <div class="french">Dossier</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Task</div>
+                    <div class="french">Tâche</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Repetition</div>
+                    <div class="french">Répétition</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">The month</div>
+                    <div class="french">Le mois</div>
+                </div>
+            </div>
+
+            <h3>Expressions avec Prépositions</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">Upon himself</div>
+                    <div class="french">De sa propre initiative</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Found himself</div>
+                    <div class="french">S'est retrouvé</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Can also refer to</div>
+                    <div class="french">Peut également faire référence à</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Until executed</div>
+                    <div class="french">Jusqu'à ce qu'il soit exécuté</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">By (+ agent)</div>
+                    <div class="french">Par (voix passive)</div>
+                </div>
+            </div>
+
+            <h3>Expressions Utiles</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">You ought to</div>
+                    <div class="french">Vous devriez</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">We know</div>
+                    <div class="french">Nous savons</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">How do you say... in English?</div>
+                    <div class="french">Comment dit-on... en anglais ?</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">But also</div>
+                    <div class="french">Mais aussi</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">For this</div>
+                    <div class="french">Pour cela</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- GRAMMAIRE & TEMPS -->
+        <div id="grammar" class="tab-content">
+            <h2><span class="emoji">📝</span>Grammaire et Temps de Conjugaison</h2>
+
+            <div class="section-divider"></div>
+
+            <h3>I. Les Temps Simples (Simple Tenses)</h3>
+
+            <div class="grammar-section">
+                <h4>1. Présent Simple (Simple Present)</h4>
+                <p><strong>Usage :</strong> Faits, habitudes, vérités générales</p>
+                <div class="formula">Sujet + Base verbale (+ -s/-es à la 3ème personne du singulier)</div>
+                <div class="example">
+                    ✓ I work every day.<br>
+                    ✓ She works in London.<br>
+                    ✓ Do you often go to the cinema?
+                </div>
+                <div class="warning">
+                    ⚠️ N'oubliez pas le -s/-es pour he, she, it !
+                </div>
+            </div>
+
+            <div class="grammar-section">
+                <h4>2. Passé Simple / Prétérit (Simple Past)</h4>
+                <p><strong>Usage :</strong> Actions terminées dans le passé à un moment précis</p>
+                <div class="formula">
+                    Verbes réguliers : Sujet + Base verbale + -ed<br>
+                    Verbes irréguliers : Forme spécifique à apprendre
+                </div>
+                <div class="example">
+                    ✓ I worked yesterday.<br>
+                    ✓ She went to Paris last week. (go → went)<br>
+                    ✓ They ate dinner at 7pm. (eat → ate)
+                </div>
+            </div>
+
+            <div class="grammar-section">
+                <h4>3. Futur Simple (Simple Future)</h4>
+                <p><strong>Usage :</strong> Prédictions, décisions spontanées</p>
+                <div class="formula">Sujet + will + Base verbale</div>
+                <div class="example">
+                    ✓ I will go to the party tomorrow.<br>
+                    ✓ She will call you later.<br>
+                    ✓ They will finish the project next week.
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <h3>II. Les Temps Progressifs / Continus (Continuous Tenses)</h3>
+
+            <div class="grammar-section">
+                <h4>1. Présent Progressif (Present Continuous)</h4>
+                <p><strong>Usage :</strong> Action en cours au moment où l'on parle</p>
+                <div class="formula">Sujet + be (am/is/are) + verbe en -ing</div>
+                <div class="example">
+                    ✓ I am writing an email.<br>
+                    ✓ She is working right now.<br>
+                    ✓ They are studying at the library.
+                </div>
+                <div class="warning">
+                    ⚠️ Ne pas utiliser avec les verbes de jugement/opinion (I think, pas I am thinking)
+                </div>
+            </div>
+
+            <div class="grammar-section">
+                <h4>2. Passé Progressif (Past Continuous)</h4>
+                <p><strong>Usage :</strong> Action en cours à un moment donné du passé</p>
+                <div class="formula">Sujet + was/were + verbe en -ing</div>
+                <div class="example">
+                    ✓ I was studying when you called.<br>
+                    ✓ She was working at 5pm yesterday.<br>
+                    ✓ They were playing football all afternoon.
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <h3>III. Les Temps Parfaits (Perfect Tenses)</h3>
+
+            <div class="grammar-section">
+                <h4>1. Présent Parfait (Present Perfect)</h4>
+                <p><strong>Usage :</strong> Actions commencées dans le passé qui continuent OU actions passées avec conséquence sur le présent</p>
+                <div class="formula">Sujet + have / has + participe passé</div>
+                <div class="example">
+                    ✓ She has lost her keys. (Elle ne les a plus maintenant)<br>
+                    ✓ I have lived here for 5 years. (J'y habite toujours)<br>
+                    ✓ They have just arrived.
+                </div>
+                <div class="info-box">
+                    <strong>Différence UK vs US :</strong><br>
+                    UK : I've just had breakfast. (Present Perfect)<br>
+                    US : I just had breakfast. (Past Simple)
+                </div>
+            </div>
+
+            <div class="grammar-section">
+                <h4>2. Passé Parfait (Past Perfect)</h4>
+                <p><strong>Usage :</strong> Action qui a eu lieu avant une autre action dans le passé</p>
+                <div class="formula">Sujet + had + participe passé</div>
+                <div class="example">
+                    ✓ She had left before I arrived.<br>
+                    ✓ I had finished my work when he called.<br>
+                    ✓ They had already eaten when we got there.
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <h3>IV. La Voix Passive (Passive Voice)</h3>
+
+            <div class="grammar-section">
+                <h4>Formation de la Voix Passive</h4>
+                <div class="formula">BE (au temps de la voix active) + participe passé</div>
+                
+                <p><strong>Exemples selon les temps :</strong></p>
+                
+                <div class="example">
+                    <strong>Présent Simple :</strong><br>
+                    Actif : They build new houses.<br>
+                    Passif : <strong>New houses are built.</strong>
+                </div>
+
+                <div class="example">
+                    <strong>Futur Simple :</strong><br>
+                    Actif : We will eat this cake.<br>
+                    Passif : <strong>This cake will be eaten.</strong>
+                </div>
+
+                <div class="example">
+                    <strong>Prétérit :</strong><br>
+                    Actif : We ate this cake yesterday.<br>
+                    Passif : <strong>This cake was eaten yesterday.</strong>
+                </div>
+
+                <div class="example">
+                    <strong>Présent Parfait :</strong><br>
+                    Actif : We have eaten this cake.<br>
+                    Passif : <strong>This cake has been eaten.</strong>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <h3>V. Règles Importantes</h3>
+
+            <div class="grammar-section">
+                <h4>Comparatifs</h4>
+                <p><strong>Comparatif de supériorité :</strong></p>
+                <ul>
+                    <li>Adjectif court : <strong>Adjectif + -er + than</strong>
+                        <div class="example">He is taller than me.</div>
+                    </li>
+                    <li>Adjectif long : <strong>more + Adjectif + than</strong>
+                        <div class="example">This is more interesting than that.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="grammar-section">
+                <h4>Traduction de "Comme"</h4>
+                <ul>
+                    <li><strong>AS</strong> + Sujet + Verbe (subordonnée)
+                        <div class="example">He works as I do.</div>
+                    </li>
+                    <li><strong>LIKE</strong> + Nom (ressemblance)
+                        <div class="example">He looks like his father.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="grammar-section">
+                <h4>Prépositions + Verbe</h4>
+                <div class="warning">
+                    ⚠️ Toute préposition autre que TO entraîne V-ING (Gérondif)
+                </div>
+                <div class="example">
+                    ✓ To prevent somebody FROM doing something<br>
+                    ✓ To aim AT protecting systems<br>
+                    ✓ To consist IN + V-ing
+                </div>
+            </div>
+
+            <div class="grammar-section">
+                <h4>Structures Importantes</h4>
+                <ul>
+                    <li><strong>To avoid + V-ing</strong> = Éviter de</li>
+                    <li><strong>To risk + V-ing</strong> = Risquer de</li>
+                    <li><strong>To aim at / to + V-ing</strong> = Viser à</li>
+                    <li><strong>To prevent sb from doing sth</strong> = Empêcher quelqu'un de faire quelque chose</li>
+                    <li><strong>To consist in + V-ing</strong> = Consister à</li>
+                </ul>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <h3>VI. Différences UK vs US</h3>
+
+            <div class="info-box">
+                <h4>Noms Collectifs</h4>
+                <p><strong>UK :</strong> Peuvent être pluriels → The team <strong>are</strong> playing well.</p>
+                <p><strong>US :</strong> Généralement singuliers → The team <strong>is</strong> playing well.</p>
+            </div>
+
+            <div class="info-box">
+                <h4>Modaux et Suggestions</h4>
+                <p><strong>UK :</strong> Shall we go to the cinema?</p>
+                <p><strong>US :</strong> Should we go to the cinema? / Will we go?</p>
+            </div>
+
+            <div class="info-box">
+                <h4>Prépositions</h4>
+                <p><strong>UK :</strong> at the weekend, different to/from</p>
+                <p><strong>US :</strong> on the weekend, different than</p>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <h3>VII. Notes Grammaticales Spéciales</h3>
+
+            <div class="warning">
+                <strong>⚠️ Attention :</strong>
+                <ul>
+                    <li><strong>Software</strong> et <strong>Malware</strong> ne prennent jamais de "s"</li>
+                    <li><strong>Data</strong> est toujours pluriel en français (mais singulier en anglais moderne)</li>
+                    <li><strong>Want</strong> fait sauter le sujet : <em>Want looking for a job</em> = On recherche un emploi</li>
+                    <li><strong>Upgrade</strong> s'utilise pour l'informatique (mise à niveau)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- EXPRESSIONS UTILES -->
+        <div id="expressions" class="tab-content">
+            <h2><span class="emoji">💬</span>Expressions et Structures Utiles</h2>
+
+            <h3>Structure d'une Lettre Formelle</h3>
+            <div class="grammar-section">
+                <div class="formula">
+                    <strong>En-tête :</strong><br>
+                    Votre nom<br>
+                    Votre adresse<br>
+                    <br>
+                    Nom du destinataire<br>
+                    Entreprise<br>
+                    Adresse<br>
+                    <br>
+                    Lieu, Date (ex: Nottinghamshire, November the 23rd 2022)
+                </div>
+
+                <div class="example">
+                    <strong>Formules de salutation :</strong><br>
+                    • Dear Mr/Mrs/Ms + Nom (si vous connaissez le nom)<br>
+                    • Dear Sir / Dear Madam (si vous ne connaissez pas le nom)
+                </div>
+
+                <div class="example">
+                    <strong>Formules de politesse de fin :</strong><br>
+                    • <strong>Yours sincerely</strong> (si vous connaissez le nom)<br>
+                    • <strong>Yours faithfully</strong> (si vous ne connaissez pas le nom)
+                </div>
+
+                <div class="example">
+                    <strong>Phrases d'introduction :</strong><br>
+                    • With reference to your mail dated...<br>
+                    • I am writing on behalf of...<br>
+                    • I would like to comment on / discuss / present...
+                </div>
+
+                <div class="example">
+                    <strong>Phrases de conclusion :</strong><br>
+                    • Should you need more information on this...<br>
+                    • Please do not hesitate to contact me.<br>
+                    • I look forward to hearing from you.
+                </div>
+            </div>
+
+            <h3>Structure d'un Email Professionnel</h3>
+            <div class="grammar-section">
+                <div class="formula">
+                    <strong>Objet :</strong> Subject: [Sujet clair et concis]<br>
+                    <strong>Destinataire :</strong> To: [adresse email]
+                </div>
+
+                <div class="example">
+                    <strong>Salutations email :</strong><br>
+                    • Good morning / Good afternoon,<br>
+                    • Dear [Nom],<br>
+                    • Hello [Nom],
+                </div>
+
+                <div class="example">
+                    <strong>Fin d'email :</strong><br>
+                    • Best regards,<br>
+                    • Kind regards,<br>
+                    • Sincerely,
+                </div>
+            </div>
+
+            <h3>Connecteurs Logiques</h3>
+            <div class="grammar-section">
+                <h4>Addition / Ajout</h4>
+                <ul>
+                    <li><strong>Moreover</strong> = De plus</li>
+                    <li><strong>In addition</strong> = En outre</li>
+                    <li><strong>Furthermore</strong> = En outre, de plus</li>
+                    <li><strong>On the one hand... on the other hand</strong> = D'une part... d'autre part</li>
+                    <li><strong>But also</strong> = Mais aussi</li>
+                </ul>
+
+                <h4>Opposition / Contraste</h4>
+                <ul>
+                    <li><strong>However</strong> = Cependant</li>
+                    <li><strong>Nevertheless</strong> = Néanmoins</li>
+                    <li><strong>By contrast</strong> = Par contraste</li>
+                    <li><strong>Whereas</strong> = Tandis que</li>
+                    <li><strong>Although</strong> = Bien que</li>
+                </ul>
+
+                <h4>Conséquence</h4>
+                <ul>
+                    <li><strong>Therefore</strong> = Par conséquent</li>
+                    <li><strong>As a result</strong> = En conséquence</li>
+                    <li><strong>This leads to</strong> = Cela conduit à</li>
+                    <li><strong>Thus</strong> = Ainsi</li>
+                </ul>
+
+                <h4>Cause</h4>
+                <ul>
+                    <li><strong>Since</strong> = Puisque</li>
+                    <li><strong>Because</strong> = Parce que</li>
+                    <li><strong>Due to</strong> = En raison de</li>
+                </ul>
+
+                <h4>Ordre / Séquence</h4>
+                <ul>
+                    <li><strong>First / Firstly</strong> = Premièrement</li>
+                    <li><strong>Second / Secondly</strong> = Deuxièmement</li>
+                    <li><strong>Finally</strong> = Finalement</li>
+                    <li><strong>To begin with</strong> = Pour commencer</li>
+                </ul>
+            </div>
+
+            <h3>Présentation Orale - Phrases Types</h3>
+            <div class="grammar-section">
+                <div class="example">
+                    <strong>Introduction :</strong><br>
+                    • This folder is composed of X documents.<br>
+                    • It deals with... / It tackles the issue of...<br>
+                    • First, I will discuss / comment on / analyse / highlight...<br>
+                    • Second, I will...
+                </div>
+
+                <div class="example">
+                    <strong>Référence aux documents :</strong><br>
+                    • Document A / Document B (pas "the first document")<br>
+                    • According to document A...<br>
+                    • As stated in document B...
+                </div>
+
+                <div class="example">
+                    <strong>Analyse :</strong><br>
+                    • I will lay stress on...<br>
+                    • I will tackle...<br>
+                    • It is important to note that...
+                </div>
+            </div>
+
+            <h3>Phrases Utiles pour la Cybersécurité</h3>
+            <div class="info-box">
+                <ul>
+                    <li>If you do not have a firewall, you risk spreading viruses on the network.</li>
+                    <li>You should avoid downloading unknown files.</li>
+                    <li>Viruses threaten your security.</li>
+                    <li>Antivirus software prevents hackers from breaking into computer systems.</li>
+                    <li>To prevent hackers from breaking into a system, you need an efficient and reliable antivirus.</li>
+                    <li>Malware aim at corrupting or stealing data.</li>
+                    <li>You should avoid getting connected to dubious websites.</li>
+                </ul>
+            </div>
+
+            <h3>Phrases Utiles pour le Travail</h3>
+            <div class="info-box">
+                <ul>
+                    <li>I am actively seeking a full-time position.</li>
+                    <li>I apply for a job because cybersecurity is very important to me.</li>
+                    <li>I am looking for a job that will allow me to acquire transferable skills.</li>
+                    <li>I prioritize a job offering career advancement opportunities.</li>
+                    <li>My well-being is also important.</li>
+                    <li>I would like to be assigned tasks that match my skills.</li>
+                    <li>The quality of interpersonal relationships is an essential criterion.</li>
+                </ul>
+            </div>
+
+            <h3>Expressions avec "To want"</h3>
+            <div class="warning">
+                <strong>⚠️ Note importante :</strong> "Want" fait sauter le sujet dans certaines expressions
+                <div class="example">
+                    Want looking for a job = On recherche un emploi<br>
+                    (Utilisation dans les annonces)
+                </div>
+            </div>
+
+            <h3>Expressions Idiomatiques</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">It's not worth + V-ing</div>
+                    <div class="french">Ça ne vaut pas la peine de</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">To be worth</div>
+                    <div class="french">Valoir la peine</div>
+                </div>
+            </div>
+
+            <h3>Expressions de Fréquence et Temps</h3>
+            <div class="vocab-grid">
+                <div class="vocab-item">
+                    <div class="english">All day long</div>
+                    <div class="french">Toute la journée</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">From time to time</div>
+                    <div class="french">De temps en temps</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Whenever</div>
+                    <div class="french">Chaque fois que</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">At the end of the month</div>
+                    <div class="french">À la fin du mois</div>
+                </div>
+                <div class="vocab-item">
+                    <div class="english">Per week / Per day</div>
+                    <div class="french">Par semaine / Par jour</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+
+
+        <!-- PROGRAM OVERVIEW -->
+        <div class="content-section">
+            <h2>📖 Vue d'ensemble du programme</h2>
+            <p>
+                L'<strong>Anglais Professionnel</strong> est une matière essentielle dans le cursus BTS SIO, car la maîtrise de l'anglais 
+                est aujourd'hui <span class="important">indispensable</span> dans le secteur informatique. La documentation technique, 
+                les langages de programmation, les forums d'entraide, et la communication avec les clients internationaux se font 
+                principalement en anglais.
+            </p>
+            <p>
+                Ce cours vise à développer vos compétences linguistiques dans un contexte professionnel spécifique à l'informatique. 
+                Vous apprendrez le vocabulaire technique, améliorerez votre compréhension écrite et orale, et développerez votre capacité 
+                à communiquer efficacement en milieu professionnel anglophone.
+            </p>
+            
+            <h3>🎯 Objectifs pédagogiques</h3>
+            <ul>
+                <li>Maîtriser le vocabulaire technique informatique en anglais</li>
+                <li>Comprendre et rédiger de la documentation technique</li>
+                <li>Communiquer efficacement dans un environnement professionnel international</li>
+                <li>Présenter un projet ou une solution technique en anglais</li>
+                <li>Participer à des réunions et échanges professionnels</li>
+                <li>Rédiger des emails professionnels et des rapports</li>
+                <li>Comprendre les actualités technologiques en anglais</li>
+            </ul>
+
+            <h3>📚 Contenu du programme</h3>
+            <ol>
+                <li>
+                    <strong>Anglais Technique IT</strong>
+                    <ul>
+                        <li>Vocabulaire du développement logiciel et des réseaux</li>
+                        <li>Lecture et compréhension de documentation technique</li>
+                        <li>Terminologie des systèmes d'exploitation et bases de données</li>
+                        <li>Acronymes et abréviations courantes (API, CRUD, REST, etc.)</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Communication Professionnelle</strong>
+                    <ul>
+                        <li>Rédaction d'emails professionnels</li>
+                        <li>Présentations orales de projets techniques</li>
+                        <li>Conduite de réunions et conférences téléphoniques</li>
+                        <li>Négociation et argumentation</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Compréhension Écrite et Orale</strong>
+                    <ul>
+                        <li>Articles techniques et blogs IT en anglais</li>
+                        <li>Vidéos de conférences (Google I/O, Microsoft Build, etc.)</li>
+                        <li>Podcasts et interviews de professionnels</li>
+                        <li>Manuels d'utilisation et guides techniques</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Monde Professionnel Anglophone</strong>
+                    <ul>
+                        <li>Culture d'entreprise dans les pays anglophones</li>
+                        <li>Processus de recrutement (CV, lettre de motivation, entretien)</li>
+                        <li>Actualités du secteur IT international</li>
+                        <li>Entreprises tech leaders (GAFAM, startups, etc.)</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Préparation aux Certifications</strong>
+                    <ul>
+                        <li>TOEIC (Test of English for International Communication)</li>
+                        <li>BULATS/Linguaskill Business</li>
+                        <li>Techniques de préparation aux tests standardisés</li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h3>⚠️ Points d'attention</h3>
+            <p>
+                <span class="important">Important :</span> La réussite en anglais nécessite une pratique régulière et active. 
+                Il est fortement recommandé de consommer du contenu en anglais quotidiennement (séries, podcasts tech, articles).
+            </p>
+            <p>
+                L'<span class="exam">examen écrit</span> évalue la compréhension et l'expression écrites, tandis que l'<span class="exam">oral</span> 
+                teste votre capacité à présenter un projet technique et à répondre aux questions. Le <span class="coefficient">coefficient 2</span> 
+                en fait une matière déterminante pour l'obtention du BTS.
+            </p>
+        </div>
+
+        <!-- RESOURCES SECTION -->
+        <div class="content-section">
+            <h2>📁 Ressources et supports de cours</h2>
+            <p>Outils et ressources pour progresser en anglais technique et professionnel.</p>
+
+            <div class="resources-list">
+                <div class="resource-item">
+                    <h4>📘 Manuel de cours</h4>
+                    <p>Polycopiés et exercices thématiques</p>
+                    <a href="#">📥 Télécharger</a>
+                </div>
+
+                <div class="resource-item">
+                    <h4>🎧 Ressources audio</h4>
+                    <p>Podcasts IT et exercices d'écoute</p>
+                    <a href="#">🎵 Écouter</a>
+                </div>
+
+                <div class="resource-item">
+                    <h4>📺 Vidéos techniques</h4>
+                    <p>Conférences et tutoriels en anglais</p>
+                    <a href="#">▶️ Regarder</a>
+                </div>
+
+                <div class="resource-item">
+                    <h4>📝 Exercices TOEIC</h4>
+                    <p>Tests blancs et entraînement au TOEIC</p>
+                    <a href="#">✍️ S'entraîner</a>
+                </div>
+
+                <div class="resource-item">
+                    <h4>💼 Guide CV/Lettre</h4>
+                    <p>Modèles et conseils pour candidatures</p>
+                    <a href="#">📄 Consulter</a>
+                </div>
+
+                <div class="resource-item">
+                    <h4>📚 Glossaire IT</h4>
+                    <p>Dictionnaire technique anglais-français</p>
+                    <a href="#">📖 Accéder</a>
+                </div>
+            </div>
+
+            <h3 class="mt-2">🔗 Liens utiles</h3>
+            <ul>
+                <li><a href="https://www.duolingo.com/" target="_blank">Duolingo - Apprentissage ludique</a></li>
+                <li><a href="https://www.cambridgeenglish.org/" target="_blank">Cambridge English - Tests et ressources</a></li>
+                <li><a href="https://www.ted.com/" target="_blank">TED Talks - Conférences inspirantes</a></li>
+                <li><a href="https://stackoverflow.com/" target="_blank">Stack Overflow - Forum IT en anglais</a></li>
+                <li><a href="https://news.ycombinator.com/" target="_blank">Hacker News - Actualités tech</a></li>
+                <li><a href="https://www.bbc.co.uk/learningenglish" target="_blank">BBC Learning English</a></li>
+            </ul>
+        </div>
+
+        <!-- EVALUATION & SCHEDULE -->
+        <div class="content-section">
+
+            <h3>💡 Conseils de préparation</h3>
+            <ul>
+                <li>Réviser</li>
+                <li>Pratiquer l'anglais 15-30 minutes par jour (séries, podcasts, articles) et/ou utiliser Duoligo ou tout autre application pour apprendre l'anglais</li>
+                <li>Lire régulièrement la documentation technique en anglais</li>
+                <li>Participer activement en cours et ne pas avoir peur de faire des erreurs</li>
+                <li>Série et film un maximun en anglais, soutitrer anglais</li>
+            </ul>
+
+            <div class="mt-2">
+                <span class="badge badge-accent">EXAMEN Écrit + Oral</span>
+                <span class="badge badge-primary">Coefficient 2</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 BTS SIO 2025-2027 - Lillian LACHIZE</p>
+        <p><a href="https://www.linkedin.com/in/lillian-lachize/" target="_blank">Me retrouver sur LinkedIn</a></p>
+    </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Masquer tous les contenus
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Désactiver tous les boutons
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Activer le contenu et le bouton sélectionnés
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+
+            // Scroll vers le haut
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

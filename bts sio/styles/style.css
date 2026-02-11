@@ -1,0 +1,416 @@
+/* ========================================
+   BTS SIO 2025-2027 - Global Stylesheet
+   Design System: Off-white, Grass Green, Bright Red
+   ======================================== */
+
+/* ========== ROOT VARIABLES ========== */
+:root {
+    --bg-primary: #FAF9F6;
+    --color-primary: #4CAF50;
+    --color-scondaire: #7AAF4C;
+    --color-accent: #D32F2F;
+    --color-text: #333333;
+    --color-text-light: #666666;
+    --color-border: #E0E0E0;
+    --font-main: Arial, Helvetica, sans-serif;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ========== GLOBAL RESET ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-primary);
+    color: var(--color-text);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    border-bottom: 3px solid var(--color-primary);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--color-scondaire);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ========== IMPORTANT KEYWORDS (RED) ========== */
+.important,
+.exam,
+.project,
+.coefficient,
+.urgent {
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+/* ========== HEADER ========== */
+header {
+    background: linear-gradient(135deg, var(--color-primary), #66BB6A);
+    color: white;
+    padding: 1.5rem 2rem;
+    box-shadow: var(--shadow-md);
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    color: white;
+    border: none;
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+header .subtitle {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 0.3rem;
+}
+
+/* ========== NAVIGATION BAR ========== */
+nav {
+    background-color: #388E3C;
+    box-shadow: var(--shadow-sm);
+    top: 0;
+    z-index: 999;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    display: block;
+    padding: 1rem 1.5rem;
+    color: white;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: var(--color-scondaire);
+    text-decoration: none;
+}
+
+/* ========== MAIN CONTENT ========== */
+main {
+    flex: 1;
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+    width: 100%;
+}
+
+/* ========== DASHBOARD GRID (Home Page) ========== */
+.dashboard {
+    margin-top: 2rem;
+}
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.subject-card {
+    background: white;
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.subject-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.subject-card h3 {
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+}
+
+.subject-card .teacher {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+}
+
+.subject-card .info {
+    font-size: 0.9rem;
+    color: var(--color-text);
+}
+
+.subject-card .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.6rem 1.5rem;
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.subject-card .btn:hover {
+    background-color: #45a049;
+    text-decoration: none;
+}
+
+/* ========== SUBJECT PAGE LAYOUT ========== */
+.subject-header {
+    background: linear-gradient(135deg, var(--color-primary), #66BB6A);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.subject-header h1 {
+    color: white;
+    border: none;
+}
+
+.subject-header .teacher-name {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    margin-top: 0.5rem;
+}
+
+.subject-header .subject-meta {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.subject-header .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.content-section {
+    background: white;
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.content-section h2 {
+    margin-top: 0;
+}
+
+.content-section ul,
+.content-section ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.content-section li {
+    margin-bottom: 0.5rem;
+}
+
+/* ========== RESOURCES SECTION ========== */
+.resources-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.resource-item {
+    background: var(--bg-primary);
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+    padding: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.resource-item:hover {
+    border-color: var(--color-primary);
+}
+
+.resource-item h4 {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.resource-item p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+}
+
+.resource-item a {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* ========== BADGES & TAGS ========== */
+.badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.badge-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.badge-accent {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+.badge-info {
+    background-color: #2196F3;
+    color: white;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    background-color: #2E7D32;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+footer a {
+    color: #A5D6A7;
+    font-weight: 500;
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li a {
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    main {
+        padding: 0 1rem;
+        margin: 1rem auto;
+    }
+
+    .subjects-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .subject-header .subject-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* ========== UTILITY CLASSES ========== */
+.text-center {
+    text-align: center;
+}
+
+.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+.highlight {
+    background-color: #FFF9C4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+}
