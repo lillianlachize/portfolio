@@ -7,6 +7,277 @@
     <title>CEJM | BTS SIO</title>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #e0e0e0;
+        flex-wrap: wrap;
+    }
+
+    .nav-tab {
+        padding: 10px 18px;
+        background: #f5f5f5;
+        border: none;
+        border-radius: 8px 8px 0 0;
+        cursor: pointer;
+        font-size: 0.9em;
+        font-weight: 600;
+        color: #666;
+        transition: all 0.3s;
+    }
+
+    .nav-tab:hover {
+        background: #e8e8e8;
+        color: #333;
+    }
+
+    .nav-tab.active {
+        background: #667eea;
+        color: white;
+    }
+
+    .tab-content {
+        display: none;
+    }
+
+    .tab-content.active {
+        display: block;
+        animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .vocab-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .vocab-item {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        border-left: 4px solid #667eea;
+        transition: all 0.3s;
+    }
+
+    .vocab-item:hover {
+        transform: translateX(5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .term {
+        font-weight: bold;
+        color: #667eea;
+        font-size: 1.05em;
+    }
+
+    .definition {
+        color: #555;
+        margin-top: 5px;
+        font-size: 0.95em;
+        line-height: 1.5;
+    }
+
+    .grammar-section {
+        background: #f8f9fa;
+        padding: 25px;
+        border-radius: 10px;
+        margin: 20px 0;
+        border-left: 5px solid #764ba2;
+    }
+
+    .formula {
+        background: #fff3cd;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 15px 0;
+        border-left: 4px solid #ffc107;
+        font-family: 'Courier New', monospace;
+        font-weight: bold;
+    }
+
+    .example {
+        background: #d4edda;
+        padding: 12px;
+        border-radius: 5px;
+        margin: 10px 0;
+        border-left: 4px solid #28a745;
+        font-style: italic;
+    }
+
+    .warning {
+        background: #f8d7da;
+        padding: 12px;
+        border-radius: 5px;
+        margin: 10px 0;
+        border-left: 4px solid #dc3545;
+    }
+
+    .info-box {
+        background: #d1ecf1;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+        border-left: 4px solid #17a2b8;
+    }
+
+    .section-divider {
+        height: 2px;
+        background: linear-gradient(to right, #667eea, #764ba2);
+        margin: 40px 0;
+        border-radius: 2px;
+    }
+
+    .keyword-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 15px 0;
+    }
+
+    .keyword-tag {
+        background: #667eea;
+        color: white;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.85em;
+        font-weight: 600;
+    }
+
+    .author-quote {
+        background: #f0f4ff;
+        border-left: 5px solid #667eea;
+        padding: 15px 20px;
+        margin: 15px 0;
+        border-radius: 0 8px 8px 0;
+        font-style: italic;
+        color: #444;
+    }
+
+    .author-name {
+        font-style: normal;
+        font-weight: bold;
+        color: #667eea;
+        display: block;
+        margin-top: 8px;
+        font-size: 0.9em;
+    }
+
+    .steps-list {
+        counter-reset: step-counter;
+        list-style: none;
+        padding: 0;
+    }
+
+    .steps-list li {
+        counter-increment: step-counter;
+        padding: 12px 15px 12px 50px;
+        margin: 8px 0;
+        background: #f8f9fa;
+        border-radius: 8px;
+        position: relative;
+        border: 1px solid #e9ecef;
+    }
+
+    .steps-list li::before {
+        content: counter(step-counter);
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #667eea;
+        color: white;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.85em;
+    }
+
+    .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin: 20px 0;
+    }
+
+    .card-highlight {
+        background: linear-gradient(135deg, #667eea22, #764ba222);
+        border: 2px solid #667eea44;
+        border-radius: 12px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .card-highlight .icon { font-size: 2em; margin-bottom: 8px; }
+    .card-highlight .card-title { font-weight: bold; color: #667eea; font-size: 1em; }
+    .card-highlight .card-desc { color: #666; font-size: 0.85em; margin-top: 5px; }
+
+    .pestel-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin: 20px 0;
+    }
+
+    .pestel-item {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 18px;
+        text-align: center;
+        border: 1px solid #dee2e6;
+    }
+
+    .pestel-letter {
+        font-size: 1.8em;
+        font-weight: 900;
+        color: #667eea;
+        font-family: Georgia, serif;
+    }
+
+    .pestel-word {
+        color: #666;
+        font-size: 0.85em;
+        margin-top: 4px;
+    }
+
+    .likert-card {
+        border: 2px solid #e9ecef;
+        border-radius: 10px;
+        padding: 18px;
+        margin: 10px 0;
+        transition: all 0.3s;
+    }
+
+    .likert-card:hover { border-color: #667eea; box-shadow: 0 5px 15px rgba(102,126,234,0.15); }
+    .likert-card h4 { color: #667eea; margin-bottom: 8px; }
+
+    @media (max-width: 768px) {
+        .container { padding: 20px; }
+        .nav-tabs { flex-direction: column; }
+        .nav-tab { width: 100%; }
+        .vocab-grid, .pestel-grid, .grid-3 { grid-template-columns: 1fr; }
+    }
+</style>
 <body>
     <!-- HEADER -->
     <header>
@@ -24,9 +295,9 @@
             <li><a href="algorithmique.html">Algorithmique</a></li>
             <li><a href="mathematiques.html">Mathématiques</a></li>
             <li><a href="tc1com.html">TC1 COM</a></li>
-            
             <li><a href="tc2dev.html">TC2DEV</a></li>
-            <li><a href="tc3com.html">TC3 COM</a></li><li><a href="d1.html">D1</a></li>
+            <li><a href="tc3com.html">TC3 COM</a></li>
+            <li><a href="d1.html">D1</a></li>
             <li><a href="d2.html">D2</a></li>
             <li><a href="r1.html">R1</a></li>
             <li><a href="r2.html">R2</a></li>
@@ -54,177 +325,906 @@
             </div>
         </div>
 
-        <!-- PROGRAM OVERVIEW -->
-        <div class="content-section">
-            <h2>📖 Vue d'ensemble du programme</h2>
-            <p>
-                La <strong>Culture Économique, Juridique et Managériale (CEJM)</strong> est une matière transversale 
-                <span class="important">essentielle</span> du BTS SIO. Elle fournit les connaissances nécessaires pour 
-                comprendre l'environnement économique, juridique et managérial dans lequel évoluent les professionnels de l'informatique.
-            </p>
-            <p>
-                Ce cours vous permettra de comprendre les enjeux économiques des entreprises, le cadre juridique des activités IT, 
-                et les principes du management. Ces connaissances sont <span class="important">indispensables</span> pour dialoguer 
-                avec les décideurs, comprendre les contraintes organisationnelles et évoluer vers des responsabilités managériales.
-            </p>
-            
-            <h3>🎯 Objectifs pédagogiques</h3>
-            <ul>
-                <li>Comprendre le fonctionnement économique des organisations</li>
-                <li>Maîtriser le cadre juridique applicable aux activités informatiques</li>
-                <li>Analyser les stratégies d'entreprise et leur contexte</li>
-                <li>Appréhender les principes du management et de la GRH</li>
-                <li>Comprendre les enjeux éthiques et sociétaux du numérique</li>
-                <li>Analyser l'environnement concurrentiel et les marchés</li>
-            </ul>
-
-            <h3>📚 Contenu du programme</h3>
-            <ol>
-                <li>
-                    <strong>L'Intégration de l'Entreprise dans son Environnement</strong>
-                    <ul>
-                        <li>Diversité des entreprises et des organisations</li>
-                        <li>Environnement économique, social et réglementaire</li>
-                        <li>Parties prenantes et responsabilité sociétale (RSE)</li>
-                        <li>Transition numérique et transformation digitale</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>La Régulation de l'Activité Économique</strong>
-                    <ul>
-                        <li>Mécanismes de marché et formation des prix</li>
-                        <li>Rôle de l'État et politiques économiques</li>
-                        <li>Mondialisation et commerce international</li>
-                        <li>Union européenne et régulation</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>L'Organisation de l'Activité de l'Entreprise</strong>
-                    <ul>
-                        <li>Processus de production et chaîne de valeur</li>
-                        <li>Stratégies d'entreprise (domaine, croissance, innovation)</li>
-                        <li>Management stratégique et opérationnel</li>
-                        <li>Organisation du travail et performance</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Le Cadre Juridique de l'Activité</strong>
-                    <ul>
-                        <li>Droit des contrats et des obligations</li>
-                        <li>Droit commercial et des sociétés</li>
-                        <li>Droit du travail et relations sociales</li>
-                        <li>Propriété intellectuelle et droit des données (RGPD)</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>L'Impact du Numérique</strong>
-                    <ul>
-                        <li>Transformation digitale des organisations</li>
-                        <li>E-commerce et nouveaux modèles économiques</li>
-                        <li>Cybersécurité et protection des données</li>
-                        <li>Éthique et numérique responsable</li>
-                    </ul>
-                </li>
-            </ol>
-
-            <h3>⚠️ Points d'attention</h3>
-            <p>
-                <span class="important">Important :</span> Le CEJM nécessite une culture générale solide et une capacité d'analyse 
-                des situations économiques et juridiques. Suivez l'actualité économique et les évolutions réglementaires !
-            </p>
-            <p>
-                L'<span class="exam">examen final</span> dure 4 heures et porte sur des études de cas réelles. 
-                Le <span class="coefficient">coefficient 3</span> en fait une épreuve <span class="important">déterminante</span> 
-                pour l'obtention du BTS.
-            </p>
+        <!-- TAB NAVIGATION -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('overview')">📖 Programme</button>
+            <button class="nav-tab" onclick="showTab('ch1')">Ch. 1 — Environnement</button>
+            <button class="nav-tab" onclick="showTab('ch2')">Ch. 2 — Contrats</button>
+            <button class="nav-tab" onclick="showTab('ch3')">Ch. 3 — Env. Économique</button>
+            <button class="nav-tab" onclick="showTab('ch4')">Ch. 4 — Macroenvironnement</button>
+            <button class="nav-tab" onclick="showTab('ch5')">Ch. 5 — Régulation</button>
+            <button class="nav-tab" onclick="showTab('ch6')">Ch. 6 — Rôle de l'État</button>
+            <button class="nav-tab" onclick="showTab('ch7')">Ch. 7 — Organisation</button>
+            <button class="nav-tab" onclick="showTab('ch8')">Ch. 8 — Structure Juridique</button>
         </div>
 
-        <!-- RESOURCES SECTION -->
-        <div class="content-section">
-            <h2>📁 Ressources et supports de cours</h2>
-            <p>Documents et ressources pour maîtriser la CEJM.</p>
+        <!-- ===== ONGLET PROGRAMME ===== -->
+        <div id="overview" class="tab-content active">
+            <div class="content-section">
+                <h2>📖 Vue d'ensemble du programme</h2>
+                <p>
+                    La <strong>Culture Économique, Juridique et Managériale (CEJM)</strong> est une matière transversale
+                    <span class="important">essentielle</span> du BTS SIO. Elle fournit les connaissances nécessaires pour
+                    comprendre l'environnement économique, juridique et managérial dans lequel évoluent les professionnels de l'informatique.
+                </p>
 
-            <div class="resources-list">
-                <div class="resource-item">
-                    <h4>📚 Cours complets</h4>
-                    <p>Polycopiés et synthèses par thème</p>
-                    <a href="#">📥 Télécharger</a>
+                <h3>🎯 Objectifs pédagogiques</h3>
+                <ul>
+                    <li>Comprendre le fonctionnement économique des organisations</li>
+                    <li>Maîtriser le cadre juridique applicable aux activités informatiques</li>
+                    <li>Analyser les stratégies d'entreprise et leur contexte</li>
+                    <li>Appréhender les principes du management et de la GRH</li>
+                    <li>Comprendre les enjeux éthiques et sociétaux du numérique</li>
+                    <li>Analyser l'environnement concurrentiel et les marchés</li>
+                </ul>
+
+                <h3>📚 Les 8 chapitres du programme</h3>
+                <div class="vocab-grid">
+                    <div class="vocab-item" style="cursor:pointer" onclick="showTab('ch1'); document.querySelector('[onclick=\'showTab(\\\"ch1\\\")\']').classList.add('active')">
+                        <div class="term">📌 Chapitre 1</div>
+                        <div class="definition">De quelle manière l'entreprise s'inscrit-elle dans son environnement ? — Finalité, RSE, Parties prenantes, Performance</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">⚖️ Chapitre 2</div>
+                        <div class="definition">Comment les contrats sécurisent-ils les relations ? — Droit des contrats, Formation, Validité, Exécution</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">📊 Chapitre 3</div>
+                        <div class="definition">Relations entre l'entreprise et son environnement économique — Agents, Marché, Flux, Marché financier</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">🔭 Chapitre 4</div>
+                        <div class="definition">Comment l'entreprise intègre-t-elle son environnement ? — PESTEL, Innovation, Macro/Micro-environnement</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">🏛️ Chapitre 5</div>
+                        <div class="definition">Comment les activités sont-elles régulées par le droit ? — Concurrence, Brevets, Marques, AAI</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">🏦 Chapitre 6</div>
+                        <div class="definition">Comment l'État régule-t-il l'activité économique ? — PIB, Carré magique, Politique budgétaire/monétaire</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">🏢 Chapitre 7</div>
+                        <div class="definition">Comment l'entreprise organise-t-elle ses ressources ? — Processus, Likert, Mintzberg, RSE, Penrose</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">📋 Chapitre 8</div>
+                        <div class="definition">Comment choisir une structure juridique ? — EI, EURL, SASU, Personne morale, Patrimoine</div>
+                    </div>
                 </div>
 
-                <div class="resource-item">
-                    <h4>📰 Revue de presse</h4>
-                    <p>Actualités économiques et juridiques</p>
-                    <a href="#">📰 Consulter</a>
+                <h3>⚠️ Points d'attention</h3>
+                <div class="warning">
+                    <strong>Important :</strong> Le CEJM nécessite une culture générale solide et une capacité d'analyse des situations économiques et juridiques. Suivez l'actualité économique et les évolutions réglementaires !
                 </div>
-
-                <div class="resource-item">
-                    <h4>⚖️ Textes juridiques</h4>
-                    <p>Codes et réglementations essentielles</p>
-                    <a href="#">📜 Accéder</a>
-                </div>
-
-                <div class="resource-item">
-                    <h4>📊 Études de cas</h4>
-                    <p>Cas réels d'entreprises IT</p>
-                    <a href="#">🔍 Analyser</a>
-                </div>
-
-                <div class="resource-item">
-                    <h4>🎯 Annales</h4>
-                    <p>Sujets d'examens avec corrigés</p>
-                    <a href="#">📝 S'entraîner</a>
-                </div>
-
-                <div class="resource-item">
-                    <h4>📖 Lexique</h4>
-                    <p>Définitions des termes clés</p>
-                    <a href="#">📚 Consulter</a>
+                <div class="info-box">
+                    L'<strong>examen final</strong> dure 4 heures et porte sur des études de cas réelles. Le <strong>coefficient 3</strong> en fait une épreuve <strong>déterminante</strong> pour l'obtention du BTS.
                 </div>
             </div>
 
-            <h3 class="mt-2">🔗 Liens utiles</h3>
-            <ul>
-                <li><a href="https://www.legifrance.gouv.fr/" target="_blank">Légifrance - Textes juridiques officiels</a></li>
-                <li><a href="https://www.insee.fr/" target="_blank">INSEE - Données économiques</a></li>
-                <li><a href="https://www.cnil.fr/" target="_blank">CNIL - Protection des données</a></li>
-                <li><a href="https://www.economie.gouv.fr/" target="_blank">Ministère de l'Économie</a></li>
-                <li><a href="https://www.lesechos.fr/" target="_blank">Les Échos - Actualité économique</a></li>
-            </ul>
-        </div>
+            <div class="content-section">
+                <h2>📁 Ressources et supports de cours</h2>
+                <div class="resources-list">
+                    <div class="resource-item">
+                        <h4>📚 Cours complets</h4>
+                        <p>Polycopiés et synthèses par thème</p>
+                        <a href="#">📥 Télécharger</a>
+                    </div>
+                    <div class="resource-item">
+                        <h4>📰 Revue de presse</h4>
+                        <p>Actualités économiques et juridiques</p>
+                        <a href="#">📰 Consulter</a>
+                    </div>
+                    <div class="resource-item">
+                        <h4>⚖️ Textes juridiques</h4>
+                        <p>Codes et réglementations essentielles</p>
+                        <a href="#">📜 Accéder</a>
+                    </div>
+                    <div class="resource-item">
+                        <h4>📊 Études de cas</h4>
+                        <p>Cas réels d'entreprises IT</p>
+                        <a href="#">🔍 Analyser</a>
+                    </div>
+                    <div class="resource-item">
+                        <h4>🎯 Annales</h4>
+                        <p>Sujets d'examens avec corrigés</p>
+                        <a href="#">📝 S'entraîner</a>
+                    </div>
+                    <div class="resource-item">
+                        <h4>📖 Lexique</h4>
+                        <p>Définitions des termes clés</p>
+                        <a href="#">📚 Consulter</a>
+                    </div>
+                </div>
 
-        <!-- EVALUATION & SCHEDULE -->
-        <div class="content-section">
-            <h2>📊 Évaluation et calendrier</h2>
-            
-            <h3>Modalités d'évaluation</h3>
-            <ul>
-                <li>Devoirs surveillés : 30% de la note finale</li>
-                <li><span class="exam">Examen final écrit</span> (4 heures) : 60% de la note finale</li>
-                <li>Contrôle continu (exposés, dossiers) : 10% de la note finale</li>
-            </ul>
-
-            <h3>Dates importantes</h3>
-            <ul>
-                <li>DS n°1 (Environnement économique) - <span class="important">20 Novembre 2025</span></li>
-                <li>DS n°2 (Droit et réglementation) - <span class="important">30 Janvier 2026</span></li>
-                <li>DS n°3 (Management et stratégie) - <span class="important">25 Mars 2026</span></li>
-                <li><span class="exam">Examen blanc</span> - <span class="important">22 Avril 2026</span></li>
-                <li><span class="exam">EXAMEN FINAL</span> - <span class="important">14 Mai 2026</span> (4 heures)</li>
-            </ul>
-
-            <h3>📖 Structure de l'examen</h3>
-            <p>L'épreuve de CEJM comprend :</p>
-            <ul>
-                <li><strong>Partie 1 (2h)</strong> : Analyse d'un contexte économique et juridique</li>
-                <li><strong>Partie 2 (2h)</strong> : Étude de cas appliquée à une organisation</li>
-            </ul>
-
-            <div class="mt-2">
-                <span class="badge badge-accent">EXAMEN 4H</span>
-                <span class="badge badge-primary">Coefficient 3</span>
-                <span class="badge badge-info">2h/semaine</span>
+                <h3 class="mt-2">🔗 Liens utiles</h3>
+                <ul>
+                    <li><a href="https://www.legifrance.gouv.fr/" target="_blank">Légifrance - Textes juridiques officiels</a></li>
+                    <li><a href="https://www.insee.fr/" target="_blank">INSEE - Données économiques</a></li>
+                    <li><a href="https://www.cnil.fr/" target="_blank">CNIL - Protection des données</a></li>
+                    <li><a href="https://www.economie.gouv.fr/" target="_blank">Ministère de l'Économie</a></li>
+                    <li><a href="https://www.lesechos.fr/" target="_blank">Les Échos - Actualité économique</a></li>
+                </ul>
+            <h3 class="mt-2">🔗 Lien Quizlet</h3>
+                <ul>
+                    <li><a href="https://quizlet.com/user/Oce_na/folders/theme-1-chapitre-1?i=6rlzit&x=1xqt">Chapitre 1</a></li>
+                    <li><a href="https://quizlet.com/user/Oce_na/folders/theme-1-chapitre-2?i=6rlzit&x=1xqt">Chapitre 2</a></li>
+                    <li><a href="https://quizlet.com/user/Oce_na/folders/theme-1-chapitre-3?i=6rlzit&x=1xqt">Chapitre 3</a></li>
+                    <li><a href="https://quizlet.com/user/Oce_na/folders/theme-2-chapitre-4?i=6rlzit&x=1xqt">Chapitre 4</a></li>
+                    <li><a href="https://quizlet.com/user/Oce_na/folders/theme-2-chapitre-5?i=6rlzit&x=1xqt">Chapitre 5</a></li>
+                    <li><a href="https://quizlet.com/user/Oce_na/folders/theme-2-chapitre-6?i=6rlzit&x=1xqt">Chapitre 6</a></li>
+                    <li><a href="https://quizlet.com/user/Oce_na/folders/theme-3-chapitre-7?i=6rlzit&x=1xqt">Chapitre 7</a></li>
+                    <li><a href="https://quizlet.com/user/Oce_na/folders/theme-3-chapitre-8?i=6rlzit&x=1xqt">Chapitre 8</a></li>
+                </ul>
             </div>
         </div>
+
+        <!-- ===== CHAPITRE 1 ===== -->
+        <div id="ch1" class="tab-content">
+            <div class="content-section">
+                <h2>📌 Chapitre 1 — De quelle manière l'entreprise s'inscrit-elle dans son environnement ?</h2>
+                <div class="info-box">
+                    L'entreprise <strong>1083</strong> (créée en 2013) illustre parfaitement ce chapitre : jeans <em>Made in France</em> dans un rayon de 1083 km, économie circulaire, financement participatif, distribution 50% internet / 50% magasin. Son fondateur <strong>Thomas Huriez</strong> place le respect de l'environnement au même niveau que les bénéfices.
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>📖 Définitions clés</h3>
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <div class="term">Finalité</div>
+                        <div class="definition">La raison d'être d'une entreprise, son but sur le <strong>long terme</strong>.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">RSE — Responsabilité Sociale de l'Entreprise</div>
+                        <div class="definition">Engagement volontaire à intégrer des préoccupations sociales, environnementales et économiques dans les activités.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Parties Prenantes (Stakeholders)</div>
+                        <div class="definition">Selon <strong>Freeman</strong> : tout groupe ou individu qui peut <em>affecter</em> ou être <em>affecté</em> par la réalisation des objectifs organisationnels.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Écoresponsable</div>
+                        <div class="definition">Qualificatif d'une entreprise qui intègre les enjeux écologiques dans son modèle économique.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Économie circulaire</div>
+                        <div class="definition">Modèle visant à réduire les déchets par le recyclage, la réutilisation et la régénération des ressources.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Performance globale</div>
+                        <div class="definition">Capacité à atteindre ses objectifs sur 5 dimensions : économique, commerciale, sociale, sociétale et environnementale.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Entrepreneur (Schumpeter)</div>
+                        <div class="definition">Individu qui crée ou reprend une activité, prend des risques et innove. Pour Schumpeter : un <em>innovateur</em>.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Logique managériale (Fayol)</div>
+                        <div class="definition">Démarche tournée vers le <strong>présent</strong> (court/moyen terme). Le manager gère les ressources selon les objectifs stratégiques.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Business Plan</div>
+                        <div class="definition">Document de présentation du projet d'entreprise pour rechercher des financements (banques, love money, donateurs).</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>🔺 Triangle de la Performance</h3>
+                <div class="grid-3">
+                    <div class="card-highlight">
+                        <div class="icon">🎯</div>
+                        <div class="card-title">Efficacité</div>
+                        <div class="card-desc">Atteindre l'objectif fixé</div>
+                    </div>
+                    <div class="card-highlight">
+                        <div class="icon">⚡</div>
+                        <div class="card-title">Efficience</div>
+                        <div class="card-desc">Atteindre l'objectif avec un minimum de moyens</div>
+                    </div>
+                    <div class="card-highlight">
+                        <div class="icon">✅</div>
+                        <div class="card-title">Pertinence</div>
+                        <div class="card-desc">Les moyens utilisés sont adaptés à l'objectif</div>
+                    </div>
+                </div>
+
+                <div class="formula">VA = CA − CI &nbsp;&nbsp;&nbsp; (Valeur Ajoutée = Chiffre d'Affaires − Consommations Intermédiaires)</div>
+
+                <div class="section-divider"></div>
+                <h3>🚀 Caractéristiques d'un entrepreneur</h3>
+                <div class="grammar-section">
+                    <ul>
+                        <li>Un état d'esprit : la volonté d'entreprendre</li>
+                        <li>Une implication personnelle dans son projet</li>
+                        <li>C'est un leader qui a du charisme</li>
+                        <li>Tenace et persévérant — ne s'arrête pas à un échec</li>
+                        <li>Prend des risques</li>
+                        <li>Capable de détecter et saisir les opportunités de marché</li>
+                    </ul>
+                </div>
+
+                <h3>📋 Étapes de création d'une entreprise</h3>
+                <ol class="steps-list">
+                    <li><strong>Recherche d'opportunité</strong> — Identifier un besoin de marché</li>
+                    <li><strong>Étude de marché</strong> — Observer la concurrence, le fonctionnement et les évolutions</li>
+                    <li><strong>Business plan</strong> — Recherche de financements (banques, love money, donateurs)</li>
+                    <li><strong>Choix du statut juridique</strong> — Démarches administratives et légales (ex : SAS pour 1083)</li>
+                </ol>
+
+                <div class="section-divider"></div>
+                <h3>🏷️ Vocabulaire clé</h3>
+                <div class="keyword-tags">
+                    <span class="keyword-tag">RSE</span><span class="keyword-tag">Finalité</span><span class="keyword-tag">Parties prenantes</span>
+                    <span class="keyword-tag">Freeman</span><span class="keyword-tag">Schumpeter</span><span class="keyword-tag">Henri Fayol</span>
+                    <span class="keyword-tag">Écoresponsable</span><span class="keyword-tag">Made in France</span><span class="keyword-tag">Économie circulaire</span>
+                    <span class="keyword-tag">Fast fashion</span><span class="keyword-tag">Performance globale</span><span class="keyword-tag">Efficacité</span>
+                    <span class="keyword-tag">Efficience</span><span class="keyword-tag">Pertinence</span><span class="keyword-tag">Business plan</span>
+                    <span class="keyword-tag">Love money</span><span class="keyword-tag">SAS</span><span class="keyword-tag">VA = CA - CI</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CHAPITRE 2 ===== -->
+        <div id="ch2" class="tab-content">
+            <div class="content-section">
+                <h2>⚖️ Chapitre 2 — Comment les contrats sécurisent-ils les relations entre l'entreprise et ses partenaires ?</h2>
+                <div class="info-box">
+                    Le <strong>Code Civil de 1804</strong> (Napoléon) encadre le droit des contrats. Un contrat est formé par la rencontre d'une offre et d'une acceptation. Toute la relation contractuelle repose sur les principes de <strong>bonne foi, loyauté et liberté contractuelle</strong>.
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>📖 Définitions clés</h3>
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <div class="term">Contrat</div>
+                        <div class="definition">Accord de volonté entre deux ou plusieurs personnes destiné à <strong>créer, modifier, transmettre ou éteindre des obligations</strong>.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Phase précontractuelle (Pourparlers)</div>
+                        <div class="definition">Période de négociation avant la conclusion du contrat. Régie par la liberté contractuelle, mais impose : bonne foi, obligation d'information et de confidentialité.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Nullité du contrat</div>
+                        <div class="definition">Sanction si l'une des 3 conditions (C.C.C.) n'est pas remplie : <strong>Consentement, Capacité, Contenu</strong> licite et certain.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Vice du consentement</div>
+                        <div class="definition">Défaut qui entache le consentement : <strong>erreur, dol (tromperie), violence</strong>. Peut entraîner la nullité du contrat.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Clause de réserve de propriété</div>
+                        <div class="definition">Permet de garder la <strong>propriété juridique</strong> d'un objet tant que l'acheteur n'a pas fini de payer.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Clause de dédit</div>
+                        <div class="definition">S'applique quand une partie ne souhaite plus exécuter le contrat avant le délai prévu → entraîne des <strong>dédommagements</strong>.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Clause abusive</div>
+                        <div class="definition">Clause qui crée un <strong>déséquilibre significatif</strong> entre les droits et obligations des parties. Réputée non écrite si le juge la déclare abusive.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Clause d'indexation</div>
+                        <div class="definition">Protège contre les <strong>augmentations disproportionnées</strong> (ex : loyer indexé sur un indice).</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Mise en demeure</div>
+                        <div class="definition">Lettre adressée au débiteur spécifiant ce qui est dû et pourquoi, en cas de non-respect d'une obligation contractuelle.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Exception d'inexécution</div>
+                        <div class="definition">Dans les contrats synallagmatiques : si une partie n'exécute pas, <strong>l'autre n'est pas obligée non plus</strong>. Ex : "Tu ne me paies pas, je ne travaille pas."</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>✅ Les 3 conditions de validité — C.C.C.</h3>
+                <div class="grid-3">
+                    <div class="card-highlight">
+                        <div class="icon">🤝</div>
+                        <div class="card-title">Consentement</div>
+                        <div class="card-desc">Libre et éclairé, sans vice (erreur, dol, violence)</div>
+                    </div>
+                    <div class="card-highlight">
+                        <div class="icon">👤</div>
+                        <div class="card-title">Capacité</div>
+                        <div class="card-desc">Les parties doivent avoir la capacité juridique</div>
+                    </div>
+                    <div class="card-highlight">
+                        <div class="icon">📜</div>
+                        <div class="card-title">Contenu</div>
+                        <div class="card-desc">Licite et certain — l'objet doit être légal et déterminé</div>
+                    </div>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ Attention :</strong> Si l'une de ces 3 conditions n'est pas remplie, la sanction est la <strong>nullité du contrat</strong>.
+                </div>
+
+                <h3>⚙️ Principes d'exécution du contrat</h3>
+                <div class="grammar-section">
+                    <ul>
+                        <li><strong>Force obligatoire</strong> — Le contrat formé tient lieu de loi entre les parties</li>
+                        <li><strong>Effet relatif</strong> — Le contrat ne produit d'effets qu'entre les parties (sauf assurance vie)</li>
+                        <li>En cas d'inexécution → mise en demeure → <strong>exécution forcée, dommages-intérêts ou résolution</strong></li>
+                    </ul>
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>🏷️ Vocabulaire clé</h3>
+                <div class="keyword-tags">
+                    <span class="keyword-tag">Pourparlers</span><span class="keyword-tag">Précontractuel</span><span class="keyword-tag">Liberté contractuelle</span>
+                    <span class="keyword-tag">Bonne foi</span><span class="keyword-tag">C.C.C.</span><span class="keyword-tag">Consentement</span>
+                    <span class="keyword-tag">Nullité</span><span class="keyword-tag">Vice du consentement</span><span class="keyword-tag">Synallagmatique</span>
+                    <span class="keyword-tag">Force obligatoire</span><span class="keyword-tag">Effet relatif</span><span class="keyword-tag">Mise en demeure</span>
+                    <span class="keyword-tag">Exécution forcée</span><span class="keyword-tag">Clause abusive</span><span class="keyword-tag">Créancier / Débiteur</span>
+                    <span class="keyword-tag">Jurisprudence</span><span class="keyword-tag">Code Civil 1804</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CHAPITRE 3 ===== -->
+        <div id="ch3" class="tab-content">
+            <div class="content-section">
+                <h2>📊 Chapitre 3 — Comment s'établissent les relations entre l'entreprise et son environnement économique ?</h2>
+                <div class="info-box">
+                    L'entreprise évolue dans un environnement composé de <strong>6 catégories d'agents économiques</strong>. Elle entretient avec eux des flux réels (biens, services) et monétaires (argent). Le marché fixe un prix d'équilibre selon la loi de l'offre et de la demande.
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>🌐 Les 6 agents économiques</h3>
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <div class="term">SNF — Sociétés Non Financières</div>
+                        <div class="definition">Les entreprises qui produisent des biens et services marchands (ex : 1083).</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Ménages</div>
+                        <div class="definition">Les foyers/lieux d'habitation. Consomment les produits et peuvent financer via crowdfunding.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">SF — Sociétés Financières</div>
+                        <div class="definition">Les banques — elles collectent et distribuent de l'argent (prêts).</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">APU — Administrations Publiques</div>
+                        <div class="definition">L'État et ses démembrements — reçoivent impôts et taxes, accordent des subventions.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">ISBLSM</div>
+                        <div class="definition">Institutions Sans But Lucratif au Service des Ménages = associations, syndicats.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Reste du Monde (RDM)</div>
+                        <div class="definition">Tous les acteurs hors de France : ménages, concurrents, entreprises étrangères.</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>📖 Définitions clés</h3>
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <div class="term">Marché</div>
+                        <div class="definition">Lieu de rencontre <strong>réel ou fictif</strong> de l'offre et de la demande qui fixe un prix et une quantité.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Flux réel</div>
+                        <div class="definition">Échange de <strong>biens ou de services</strong> (objets physiques ou prestations).</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Flux monétaire / financier</div>
+                        <div class="definition">Échange d'argent (salaire, prêt, paiement).</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Loi de l'offre</div>
+                        <div class="definition">L'offre est une <strong>fonction croissante du prix</strong> : plus le prix est élevé, plus les offreurs veulent produire.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Loi de la demande</div>
+                        <div class="definition">La demande est une <strong>fonction décroissante du prix</strong> : plus le prix est élevé, moins on achète.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Prix d'équilibre</div>
+                        <div class="definition">Point où <strong>offre = demande</strong>. Si O &gt; D → surproduction. Si D &gt; O → pénurie.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Barrières à l'entrée</div>
+                        <div class="definition">Obstacles rencontrés par les entreprises qui cherchent à s'implanter sur un marché.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Asymétrie d'information</div>
+                        <div class="definition">Situation où les offreurs et les demandeurs <strong>n'ont pas les mêmes informations</strong>.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Action</div>
+                        <div class="definition">Titre de propriété qui rapporte des <strong>dividendes</strong> et donne des droits de vote sur l'entreprise.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Obligation</div>
+                        <div class="definition">Titre de créance qui rapporte des <strong>intérêts</strong>.</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>🚧 Types de barrières à l'entrée</h3>
+                <div class="grammar-section">
+                    <p><strong>Barrières économiques :</strong> coûts d'investissement élevés, notoriété des concurrents, maîtrise du savoir-faire</p>
+                    <p style="margin-top:10px"><strong>Barrières réglementaires :</strong> juridiques, brevets, licences, diplômes, normes</p>
+                </div>
+
+                <h3>🏦 Marché primaire vs secondaire</h3>
+                <div class="example">
+                    <strong>Marché primaire</strong> — Émission pour la première fois de nouveaux titres financiers<br>
+                    <strong>Marché secondaire</strong> — Revente de titres déjà émis = <em>la Bourse</em>
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>🏷️ Vocabulaire clé</h3>
+                <div class="keyword-tags">
+                    <span class="keyword-tag">Agent économique</span><span class="keyword-tag">SNF / SF / APU / ISBLSM / RDM</span>
+                    <span class="keyword-tag">Flux réel</span><span class="keyword-tag">Flux monétaire</span><span class="keyword-tag">Marché</span>
+                    <span class="keyword-tag">Offre / Demande</span><span class="keyword-tag">Prix d'équilibre</span><span class="keyword-tag">Surproduction</span>
+                    <span class="keyword-tag">Pénurie</span><span class="keyword-tag">Barrières à l'entrée</span><span class="keyword-tag">Asymétrie d'info</span>
+                    <span class="keyword-tag">Action</span><span class="keyword-tag">Obligation</span><span class="keyword-tag">Dividende</span>
+                    <span class="keyword-tag">Bourse</span><span class="keyword-tag">Externalités</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CHAPITRE 4 ===== -->
+        <div id="ch4" class="tab-content">
+            <div class="content-section">
+                <h2>🔭 Chapitre 4 — Comment l'entreprise intègre-t-elle la connaissance de son environnement dans sa prise de décision ?</h2>
+                <div class="info-box">
+                    L'entreprise analyse son <strong>macro-environnement</strong> via la méthode <strong>PESTEL</strong> pour identifier les opportunités et les menaces. <strong>Porter</strong> introduit le concept d'avantage concurrentiel. <strong>Schumpeter</strong> explique que l'innovation est à l'origine de la <em>destruction créatrice</em>.
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>📖 Définitions clés</h3>
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <div class="term">Environnement de l'entreprise</div>
+                        <div class="definition">Ensemble des forces et acteurs <strong>externes</strong> susceptibles d'influencer positivement ou négativement ses opérations.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Macro-environnement</div>
+                        <div class="definition">Ensemble des <strong>forces externes larges</strong> qui affectent l'entreprise (réglementation, conjoncture économique, tendances…).</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Micro-environnement</div>
+                        <div class="definition">Ensemble des <strong>acteurs proches</strong> de l'entreprise : clients, fournisseurs, concurrents, intermédiaires.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Avantage concurrentiel (Porter)</div>
+                        <div class="definition">Élément qui <strong>différencie fondamentalement</strong> l'offre d'une entreprise de ses concurrents.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Destruction créatrice (Schumpeter)</div>
+                        <div class="definition">L'innovation détruit des emplois existants tout en en créant de nouveaux. Exemple : l'IA détruisant des postes de travail.</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>🔍 La méthode PESTEL</h3>
+                <div class="pestel-grid">
+                    <div class="pestel-item"><div class="pestel-letter">P</div><div class="pestel-word">Politique</div></div>
+                    <div class="pestel-item"><div class="pestel-letter">E</div><div class="pestel-word">Économique</div></div>
+                    <div class="pestel-item"><div class="pestel-letter">S</div><div class="pestel-word">Socioculturel</div></div>
+                    <div class="pestel-item"><div class="pestel-letter">T</div><div class="pestel-word">Technologique</div></div>
+                    <div class="pestel-item"><div class="pestel-letter">E</div><div class="pestel-word">Écologique</div></div>
+                    <div class="pestel-item"><div class="pestel-letter">L</div><div class="pestel-word">Légal</div></div>
+                </div>
+
+                <div class="author-quote">
+                    L'entreprise utilise la méthode PESTEL pour transformer les évolutions de son macro-environnement en une liste structurée d'<strong>Opportunités</strong> et de <strong>Menaces</strong>, ce qui éclaire sa prise de décision stratégique.
+                    <span class="author-name">— Principe clé à retenir</span>
+                </div>
+
+                <h3>💡 4 formes d'innovation</h3>
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <div class="term">Innovation produit</div>
+                        <div class="definition">Nouveau produit ou très fortement amélioré.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Innovation procédé</div>
+                        <div class="definition">Nouvelle méthode de production.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Innovation de commercialisation</div>
+                        <div class="definition">Nouveau canal de vente ou nouveau conditionnement (ex : e-commerce, compote en gourde).</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Innovation d'organisation</div>
+                        <div class="definition">Nouvelle forme d'organisation interne de l'entreprise.</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>🏷️ Vocabulaire clé</h3>
+                <div class="keyword-tags">
+                    <span class="keyword-tag">PESTEL</span><span class="keyword-tag">Macro-environnement</span><span class="keyword-tag">Micro-environnement</span>
+                    <span class="keyword-tag">Porter</span><span class="keyword-tag">Avantage concurrentiel</span><span class="keyword-tag">Schumpeter</span>
+                    <span class="keyword-tag">Destruction créatrice</span><span class="keyword-tag">Innovation produit</span><span class="keyword-tag">Innovation procédé</span>
+                    <span class="keyword-tag">Opportunités / Menaces</span><span class="keyword-tag">E-commerce</span><span class="keyword-tag">Décision stratégique</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CHAPITRE 5 ===== -->
+        <div id="ch5" class="tab-content">
+            <div class="content-section">
+                <h2>🏛️ Chapitre 5 — Comment les activités économiques sont-elles régulées par le droit ?</h2>
+                <div class="info-box">
+                    Le droit encadre les pratiques anticoncurrentielles grâce à l'<strong>Autorité de la concurrence</strong> (AAI). Elle lutte contre les ententes illicites et les abus de position dominante. La <strong>propriété industrielle</strong> protège les innovations via les brevets (20 ans) et les marques (10 ans renouvelable).
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>📖 Définitions clés</h3>
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <div class="term">AAI — Autorité Administrative Indépendante</div>
+                        <div class="definition">Organisme indépendant de l'État chargé de réguler un secteur. L'Autorité de la concurrence en est un exemple.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Entente illicite</div>
+                        <div class="definition">Concertation entre plusieurs entreprises sur un marché avec pour objectif de <strong>fausser la concurrence</strong>.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Entente horizontale</div>
+                        <div class="definition">Entente entre entreprises du <strong>même niveau</strong> (ex : le cartel des yaourts entre concurrents directs).</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Entente verticale</div>
+                        <div class="definition">Entente entre une entreprise et ses <strong>fournisseurs et/ou distributeurs</strong>.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Procédure de clémence</div>
+                        <div class="definition">L'entreprise qui <strong>dénonce</strong> une entente illicite est exonérée de payer l'amende (max 10% du CA mondial).</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Abus de position dominante</div>
+                        <div class="definition">Exploitation abusive de sa position de leader sur un marché pour réduire la concurrence (ex : Doctolib).</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Brevet d'invention</div>
+                        <div class="definition">Titre délivré par l'État accordant un <strong>monopole d'exploitation de 20 ans</strong>. Appartient à l'entreprise si l'inventeur est salarié.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Contrefaçon</div>
+                        <div class="definition">Délit commis par celui qui copie un brevet ou une marque protégée. Acheter une contrefaçon est aussi un délit.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Marque</div>
+                        <div class="definition">Signe permettant de <strong>distinguer ses produits</strong> de ceux des concurrents. Valable <strong>10 ans renouvelable indéfiniment</strong>.</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>🏢 Missions de l'Autorité de la concurrence</h3>
+                <div class="grammar-section">
+                    <ul>
+                        <li>Lutter contre les ententes illicites</li>
+                        <li>Contrôler les opérations de fusion</li>
+                        <li>Formuler des avis et émettre des recommandations</li>
+                        <li>Réguler des professions du droit</li>
+                    </ul>
+                </div>
+
+                <h3>🔬 4 conditions pour déposer un brevet</h3>
+                <div class="grid-3">
+                    <div class="card-highlight"><div class="icon">✨</div><div class="card-title">Nouveau</div><div class="card-desc">Ne doit pas déjà exister</div></div>
+                    <div class="card-highlight"><div class="icon">🧠</div><div class="card-title">Inventif</div><div class="card-desc">Non évident pour un spécialiste</div></div>
+                    <div class="card-highlight"><div class="icon">🔧</div><div class="card-title">Technique</div><div class="card-desc">Apporte une solution technique</div></div>
+                    <div class="card-highlight"><div class="icon">🏭</div><div class="card-title">Industrialisable</div><div class="card-desc">Peut être fabriqué industriellement</div></div>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ Important :</strong> Les logiciels <strong>NE SONT PAS brevetables</strong>. Le premier déposant obtient le brevet.
+                </div>
+
+                <h3>🌍 Organismes de protection des brevets</h3>
+                <div class="example">
+                    <strong>INPI</strong> — Niveau français &nbsp;|&nbsp; <strong>OEB</strong> (Office Européen des Brevets) — Niveau européen &nbsp;|&nbsp; <strong>OMPI</strong> — Niveau international
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>🏷️ Vocabulaire clé</h3>
+                <div class="keyword-tags">
+                    <span class="keyword-tag">AAI</span><span class="keyword-tag">Autorité de la concurrence</span><span class="keyword-tag">Entente illicite</span>
+                    <span class="keyword-tag">Entente horizontale</span><span class="keyword-tag">Entente verticale</span><span class="keyword-tag">Cartel</span>
+                    <span class="keyword-tag">Procédure de clémence</span><span class="keyword-tag">Position dominante</span><span class="keyword-tag">INPI / OEB / OMPI</span>
+                    <span class="keyword-tag">Brevet (20 ans)</span><span class="keyword-tag">Monopole d'exploitation</span><span class="keyword-tag">Contrefaçon</span>
+                    <span class="keyword-tag">Marque (10 ans ∞)</span><span class="keyword-tag">Domaine public</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CHAPITRE 6 ===== -->
+        <div id="ch6" class="tab-content">
+            <div class="content-section">
+                <h2>🏦 Chapitre 6 — Comment l'État régule-t-il l'activité économique ?</h2>
+                <div class="info-box">
+                    L'État joue un rôle central dans l'économie à travers ses <strong>3 fonctions selon Musgrave</strong>. Il utilise des politiques conjoncturelles (court terme) et structurelles (long terme). Le <strong>carré magique de Kaldor</strong> représente les 4 grands indicateurs économiques. L'UE (27 pays) influence les politiques nationales via règlements et directives.
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>📖 Définitions clés</h3>
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <div class="term">Politique économique</div>
+                        <div class="definition">Ensemble des mesures prises par l'État pour <strong>réguler l'activité économique</strong> à court terme et favoriser la croissance à long terme.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">PIB — Produit Intérieur Brut</div>
+                        <div class="definition">Indicateur <strong>quantitatif</strong> de la production de richesse d'un pays.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">IDH</div>
+                        <div class="definition">Indice de Développement Humain — indicateur <strong>qualitatif</strong> évaluant santé, instruction et niveau de vie.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Croissance économique</div>
+                        <div class="definition">Évolution de la richesse produite sur le territoire entre 2 périodes.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Développement durable</div>
+                        <div class="definition">Développement qui répond aux besoins du présent sans compromettre la capacité des générations futures. Indicateur : <em>empreinte écologique</em>.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Conjoncture</div>
+                        <div class="definition">Situation actuelle d'un pays à <strong>court terme</strong> : PIB, solde commercial, chômage, inflation.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Carré magique de Kaldor</div>
+                        <div class="definition">Outil graphique représentant les <strong>4 variables</strong> de la politique économique conjoncturelle. Idéal mais irréalisable (les "2 i").</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Politique de l'offre</div>
+                        <div class="definition">Améliore les conditions des entreprises via des <strong>réductions de charges ou des aides</strong> pour améliorer leur compétitivité.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Politique de la demande</div>
+                        <div class="definition">Améliore le <strong>pouvoir d'achat des ménages</strong> pour leur permettre de consommer davantage.</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>⚙️ 3 fonctions de l'État selon Musgrave</h3>
+                <div class="grid-3">
+                    <div class="card-highlight">
+                        <div class="icon">📦</div>
+                        <div class="card-title">Allocation</div>
+                        <div class="card-desc">Rétablir un usage optimal des ressources</div>
+                    </div>
+                    <div class="card-highlight">
+                        <div class="icon">⚖️</div>
+                        <div class="card-title">Redistribution</div>
+                        <div class="card-desc">Corriger la répartition des revenus pour une répartition plus juste</div>
+                    </div>
+                    <div class="card-highlight">
+                        <div class="icon">🎯</div>
+                        <div class="card-title">Stabilisation</div>
+                        <div class="card-desc">Plein emploi et stabilité des prix</div>
+                    </div>
+                </div>
+
+                <h3>🔧 Les 2 leviers de la politique conjoncturelle</h3>
+                <div class="grammar-section">
+                    <p><strong>Politique monétaire</strong> (banques, taux directeur) :</p>
+                    <ul>
+                        <li>Relance = <strong>baisse</strong> du taux directeur</li>
+                        <li>Rigueur = <strong>hausse</strong> du taux directeur</li>
+                    </ul>
+                    <p style="margin-top:12px"><strong>Politique budgétaire</strong> (État, recettes/dépenses) :</p>
+                    <ul>
+                        <li>Relance = augmentation des dépenses + <strong>baisse des impôts</strong></li>
+                        <li>Rigueur = diminution des dépenses + <strong>hausse des impôts</strong></li>
+                    </ul>
+                </div>
+
+                <h3>🇪🇺 L'Union Européenne</h3>
+                <div class="example">
+                    <strong>27 pays</strong> dans l'UE — <strong>20</strong> utilisent l'euro<br>
+                    <strong>Règlements</strong> : directement applicables (ex : RGPD 2018)<br>
+                    <strong>Directives</strong> : doivent être transposées dans la législation nationale de chaque pays
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>🏷️ Vocabulaire clé</h3>
+                <div class="keyword-tags">
+                    <span class="keyword-tag">Politique économique</span><span class="keyword-tag">PIB</span><span class="keyword-tag">IDH</span>
+                    <span class="keyword-tag">Empreinte écologique</span><span class="keyword-tag">Conjoncture</span><span class="keyword-tag">Carré magique Kaldor</span>
+                    <span class="keyword-tag">Inflation</span><span class="keyword-tag">Chômage</span><span class="keyword-tag">Solde commercial</span>
+                    <span class="keyword-tag">Musgrave</span><span class="keyword-tag">Politique structurelle</span><span class="keyword-tag">Politique conjoncturelle</span>
+                    <span class="keyword-tag">Taux directeur</span><span class="keyword-tag">Relance / Rigueur</span><span class="keyword-tag">Règlement UE</span>
+                    <span class="keyword-tag">Directive UE</span><span class="keyword-tag">Développement durable</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CHAPITRE 7 ===== -->
+        <div id="ch7" class="tab-content">
+            <div class="content-section">
+                <h2>🏢 Chapitre 7 — Comment l'entreprise organise-t-elle ses ressources ?</h2>
+                <div class="info-box">
+                    L'entreprise s'organise autour de <strong>processus</strong> et de 3 niveaux de management. <strong>Likert</strong> identifie 4 styles de direction. <strong>Mintzberg</strong> décrit 6 mécanismes de coordination. <strong>Penrose</strong> distingue ressources tangibles et intangibles. Les <strong>parties prenantes</strong> (Crozier & Friedberg) cherchent à augmenter leur zone d'incertitude.
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>📖 Définitions clés</h3>
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <div class="term">Processus</div>
+                        <div class="definition">Système d'activité qui utilise des ressources pour transformer des <strong>éléments d'entrée</strong> (fournisseur) en <strong>éléments de sortie</strong> (satisfaction client).</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Avantage concurrentiel (Porter)</div>
+                        <div class="definition">Élément qui <strong>différencie fondamentalement</strong> l'offre d'une entreprise par rapport à ses concurrents.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Zone d'incertitude (Crozier & Friedberg)</div>
+                        <div class="definition">Marge de manœuvre non contrôlable que les parties prenantes cherchent à augmenter pour <strong>détenir plus de pouvoir</strong>.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Ressources tangibles (Penrose)</div>
+                        <div class="definition">Ressources physiquement palpables : humaines, financières, matérielles (ex : usine, capital, salariés).</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Ressources intangibles (Penrose)</div>
+                        <div class="definition">Ressources non palpables qui procurent des <strong>avantages concurrentiels</strong> (ex : brevets, notoriété, savoir-faire).</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Compétence collective</div>
+                        <div class="definition">Capacité acquise par une équipe à force de travailler ensemble — difficile à imiter par les concurrents.</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>📊 3 niveaux de management</h3>
+                <div class="grammar-section">
+                    <ul>
+                        <li><strong>Stratégique</strong> — Long terme, coûteux, risqué, difficile à reverser. Définit la stratégie globale.</li>
+                        <li><strong>Tactique / Intermédiaire</strong> — Moyen terme, moyennement risqué. Met en œuvre la stratégie.</li>
+                        <li><strong>Opérationnel / De proximité</strong> — Court terme, quotidien, peu coûteux, réversible.</li>
+                    </ul>
+                </div>
+
+                <h3>👥 4 styles de direction selon Likert</h3>
+                <div class="likert-card">
+                    <h4>1 — Autoritaire exploiteur</h4>
+                    <p>Management par la <strong>peur et la contrainte</strong>. Aucune confiance. Forte rotation du personnel, absentéisme élevé.</p>
+                </div>
+                <div class="likert-card">
+                    <h4>2 — Autoritaire paternaliste</h4>
+                    <p>Dirigeant "père de famille" : confiance relative, récompenses ET sanctions. Communication <strong>descendante</strong>.</p>
+                </div>
+                <div class="likert-card">
+                    <h4>3 — Consultatif</h4>
+                    <p>Les salariés sont <strong>consultés</strong> avant la décision finale. Esprit d'équipe assez élevé, climat plus stable.</p>
+                </div>
+                <div class="likert-card" style="border-color: #28a745;">
+                    <h4 style="color: #28a745;">4 — Participatif ⭐ (idéal selon Likert)</h4>
+                    <p>Forte confiance, communication totale (ascendante/descendante/horizontale), salariés impliqués dans les décisions. <strong>Faible absentéisme</strong>.</p>
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>⚙️ 6 mécanismes de coordination selon Mintzberg</h3>
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <div class="term">Supervision directe</div>
+                        <div class="definition">Une personne coordonne le travail des autres en donnant des instructions directes.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Ajustement mutuel</div>
+                        <div class="definition">Coordination par <strong>communication informelle</strong> entre les individus eux-mêmes.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Standardisation des procédés</div>
+                        <div class="definition">Processus définis à l'avance — chaque étape suit un protocole précis.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Standardisation des résultats</div>
+                        <div class="definition">Objectifs précis attendus — le contrôle se fait par la mesure des performances.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Standardisation des qualifications</div>
+                        <div class="definition">Coordination par la formation spécialisée ou les diplômes spécifiques.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Standardisation des normes</div>
+                        <div class="definition">Les valeurs/croyances communes guident le travail — chacun s'auto-discipline.</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>🏷️ Vocabulaire clé</h3>
+                <div class="keyword-tags">
+                    <span class="keyword-tag">Processus</span><span class="keyword-tag">Porter</span><span class="keyword-tag">Crozier & Friedberg</span>
+                    <span class="keyword-tag">Zone d'incertitude</span><span class="keyword-tag">RSE</span><span class="keyword-tag">Penrose</span>
+                    <span class="keyword-tag">Tangible / Intangible</span><span class="keyword-tag">Compétence collective</span><span class="keyword-tag">Likert</span>
+                    <span class="keyword-tag">Style participatif</span><span class="keyword-tag">Mintzberg</span><span class="keyword-tag">Supervision directe</span>
+                    <span class="keyword-tag">Ajustement mutuel</span><span class="keyword-tag">Standardisation</span><span class="keyword-tag">Management stratégique</span>
+                    <span class="keyword-tag">Management opérationnel</span><span class="keyword-tag">Structure réseau</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== CHAPITRE 8 ===== -->
+        <div id="ch8" class="tab-content">
+            <div class="content-section">
+                <h2>📋 Chapitre 8 — Comment choisir une structure juridique pour l'entreprise ?</h2>
+                <div class="info-box">
+                    Le choix de la structure juridique est une étape clé de la création d'entreprise. Il dépend de plusieurs critères : <strong>seul ou à plusieurs, protection du patrimoine, besoins de financement, régime social et fiscal</strong>. Une société est une <strong>personne morale</strong> distincte de ses associés.
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>📖 Définitions clés</h3>
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <div class="term">EI — Entreprise Individuelle</div>
+                        <div class="definition">Structure pour exercer <strong>seul</strong>, sans capital minimum. Patrimoine personnel et professionnel confondus (risque élevé).</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">EURL</div>
+                        <div class="definition">Entreprise Unipersonnelle à Responsabilité Limitée — société à <strong>associé unique</strong> avec protection du patrimoine personnel.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">SASU</div>
+                        <div class="definition">Société par Actions Simplifiée Unipersonnelle — société <strong>à associé unique</strong>, très flexible dans son fonctionnement.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Personne morale</div>
+                        <div class="definition">Entité juridique <strong>indépendante</strong> des associés. Dispose d'un patrimoine propre distinct de celui des associés.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Statuts</div>
+                        <div class="definition">Le <strong>contrat de société</strong> précisant les caractéristiques : nombre d'associés, apports, règles de fonctionnement.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Parts sociales / Actions</div>
+                        <div class="definition">Ce que possèdent les associés en contrepartie de leurs apports. Ils ne sont <strong>pas propriétaires</strong> des biens de l'entreprise, seulement des titres.</div>
+                    </div>
+                    <div class="vocab-item">
+                        <div class="term">Régime matrimonial</div>
+                        <div class="definition">Important pour un créateur d'entreprise. Le régime légal est la <strong>communauté aux acquêts</strong>. Il est conseillé d'opter pour la <em>séparation des biens</em>.</div>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>⚙️ Critères de choix d'une structure juridique</h3>
+                <ol class="steps-list">
+                    <li>Exercer <strong>seul ou à plusieurs</strong> ?</li>
+                    <li>Veut-on <strong>protéger son patrimoine</strong> personnel ?</li>
+                    <li>Quels sont les <strong>besoins de financement</strong> ?</li>
+                    <li>Quel <strong>régime social</strong> pour le dirigeant ?</li>
+                    <li>Quel <strong>régime fiscal</strong> souhaite-t-on ?</li>
+                </ol>
+
+                <h3>⚠️ Différence personne physique / personne morale</h3>
+                <div class="grammar-section">
+                    <p><strong>Personne physique</strong> (EI) : l'entrepreneur et son entreprise ne font qu'un. Le patrimoine est commun = risque élevé.</p>
+                    <p style="margin-top: 10px"><strong>Personne morale</strong> (EURL, SASU, SAS…) : l'entreprise est une entité distincte. Les associés ne sont responsables qu'à hauteur de leurs apports.</p>
+                </div>
+
+                <div class="warning">
+                    <strong>⚠️ Conseil :</strong> Il est recommandé pour un créateur d'entreprise de faire un <strong>contrat de mariage en séparation des biens</strong> pour protéger le conjoint en cas de difficultés.
+                </div>
+
+                <div class="section-divider"></div>
+                <h3>🏷️ Vocabulaire clé</h3>
+                <div class="keyword-tags">
+                    <span class="keyword-tag">EI</span><span class="keyword-tag">EURL</span><span class="keyword-tag">SASU</span>
+                    <span class="keyword-tag">SAS</span><span class="keyword-tag">Personne morale</span><span class="keyword-tag">Personne physique</span>
+                    <span class="keyword-tag">Patrimoine</span><span class="keyword-tag">Statuts</span><span class="keyword-tag">Parts sociales</span>
+                    <span class="keyword-tag">Actions</span><span class="keyword-tag">Responsabilité limitée</span><span class="keyword-tag">Régime social</span>
+                    <span class="keyword-tag">Régime fiscal</span><span class="keyword-tag">Régime matrimonial</span><span class="keyword-tag">Séparation des biens</span>
+                    <span class="keyword-tag">Communauté aux acquêts</span><span class="keyword-tag">Capital social</span>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <!-- FOOTER -->
@@ -232,5 +1232,24 @@
         <p>&copy; 2025 BTS SIO 2025-2027 - Lillian LACHIZE</p>
         <p><a href="https://www.linkedin.com/in/lillian-lachize/" target="_blank">Me retrouver sur LinkedIn</a></p>
     </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Masquer tous les contenus
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Désactiver tous les boutons
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Activer le contenu et le bouton sélectionnés
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+
+            // Scroll vers le haut
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
