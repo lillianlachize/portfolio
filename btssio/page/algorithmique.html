@@ -7,11 +7,209 @@
     <title>Algorithmique | BTS SIO</title>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
+<style>
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+    .nav-tabs {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #e0e0e0;
+        flex-wrap: wrap;
+    }
+
+    .nav-tab {
+        padding: 12px 24px;
+        background: #f5f5f5;
+        border: none;
+        border-radius: 8px 8px 0 0;
+        cursor: pointer;
+        font-size: 1em;
+        font-weight: 600;
+        color: #666;
+        transition: all 0.3s;
+    }
+
+    .nav-tab:hover {
+        background: #e8e8e8;
+        color: #333;
+    }
+
+    .nav-tab.active {
+        background: #667eea;
+        color: white;
+    }
+
+    .tab-content {
+        display: none;
+    }
+
+    .tab-content.active {
+        display: block;
+        animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .code-section {
+        background: #282c34;
+        color: #abb2bf;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+        overflow-x: auto;
+        font-family: 'Courier New', monospace;
+        border-left: 5px solid #61afef;
+    }
+
+    .code-section code {
+        font-size: 0.95em;
+        line-height: 1.6;
+    }
+
+    .python-keyword {
+        color: #c678dd;
+        font-weight: bold;
+    }
+
+    .python-string {
+        color: #98c379;
+    }
+
+    .python-comment {
+        color: #5c6370;
+        font-style: italic;
+    }
+
+    .python-number {
+        color: #d19a66;
+    }
+
+    .python-function {
+        color: #61afef;
+    }
+
+    .concept-box {
+        background: #f8f9fa;
+        padding: 25px;
+        border-radius: 10px;
+        margin: 20px 0;
+        border-left: 5px solid #667eea;
+    }
+
+    .formula {
+        background: #fff3cd;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 15px 0;
+        border-left: 4px solid #ffc107;
+        font-family: 'Courier New', monospace;
+        font-weight: bold;
+    }
+
+    .example {
+        background: #d4edda;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 10px 0;
+        border-left: 4px solid #28a745;
+    }
+
+    .warning {
+        background: #f8d7da;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 10px 0;
+        border-left: 4px solid #dc3545;
+    }
+
+    .info-box {
+        background: #d1ecf1;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+        border-left: 4px solid #17a2b8;
+    }
+
+    .exercise-box {
+        background: #e7f3ff;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 20px 0;
+        border-left: 5px solid #0066cc;
+    }
+
+    .section-divider {
+        height: 2px;
+        background: linear-gradient(to right, #667eea, #764ba2);
+        margin: 40px 0;
+        border-radius: 2px;
+    }
+
+    .math-formula {
+        font-family: 'Times New Roman', serif;
+        font-size: 1.1em;
+        padding: 10px;
+        background: #f9f9f9;
+        border-radius: 5px;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .grid-2col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin: 20px 0;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 20px;
+        }
+
+        .nav-tabs {
+            flex-direction: column;
+        }
+
+        .nav-tab {
+            width: 100%;
+        }
+
+        .grid-2col {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .emoji {
+        font-size: 1.5em;
+        margin-right: 10px;
+    }
+
+    .highlight {
+        background: #ffeb3b;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-weight: bold;
+    }
+</style>
 <body>
+    <!-- HEADER -->
     <header>
         <h1>🎓 BTS SIO 2025-2027</h1>
         <p class="subtitle">Services Informatiques aux Organisations - SLAM & SISR</p>
     </header>
+
+    <!-- NAVIGATION -->
     <nav>
         <ul>
             <li><a href="../btssio.html">Accueil</a></li>
@@ -21,9 +219,9 @@
             <li><a href="algorithmique.html" class="active">Algorithmique</a></li>
             <li><a href="mathematiques.html">Mathématiques</a></li>
             <li><a href="tc1com.html">TC1 COM</a></li>
-            
             <li><a href="tc2dev.html">TC2DEV</a></li>
-            <li><a href="tc3com.html">TC3 COM</a></li><li><a href="d1.html">D1</a></li>
+            <li><a href="tc3com.html">TC3 COM</a></li>
+            <li><a href="d1.html">D1</a></li>
             <li><a href="d2.html">D2</a></li>
             <li><a href="r1.html">R1</a></li>
             <li><a href="r2.html">R2</a></li>
@@ -32,18 +230,831 @@
             <li><a href="atelierpro.html">Atelier Pro</a></li>
         </ul>
     </nav>
+
+    <!-- MAIN CONTENT -->
     <main>
+        <!-- SUBJECT HEADER -->
         <div class="subject-header">
             <h1>💻 Algorithmique Appliquée</h1>
             <p class="teacher-name">👨‍🏫 Enseignant : M. KORDZINSKI</p>
             <div class="subject-meta">
-                <div class="meta-item"><span><span class="coefficient">Coefficient :</span></span><strong>1</strong></div>
+                <div class="meta-item"><span class="coefficient">Coefficient :</span><strong>1</strong></div>
                 <div class="meta-item"><span>📝 Modalité :</span><strong><span class="project">Projets</span> + <span class="exam">Examen pratique</span></strong></div>
             </div>
         </div>
+
+        <!-- TABS NAVIGATION -->
+        <div class="container">
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="showTab('bases-python')">🐍 Bases Python</button>
+                <button class="nav-tab" onclick="showTab('structures-controle')">🔄 Structures de Contrôle</button>
+                <button class="nav-tab" onclick="showTab('listes-tableaux')">📋 Listes & Tableaux</button>
+                <button class="nav-tab" onclick="showTab('fonctions')">⚙️ Fonctions</button>
+                <button class="nav-tab" onclick="showTab('algorithmes')">🧮 Algorithmes</button>
+                <button class="nav-tab" onclick="showTab('mathematiques')">➕ Mathématiques</button>
+                <button class="nav-tab" onclick="showTab('exercices')">📝 Exercices</button>
+            </div>
+
+            <!-- TAB: Bases Python -->
+            <div id="bases-python" class="tab-content active">
+                <h2>🐍 Les Bases de Python</h2>
+                
+                <div class="concept-box">
+                    <h3>🔤 Variables et Types de Données</h3>
+                    <p>En Python, une variable est un conteneur qui stocke une valeur. Python reconnaît automatiquement le type de données.</p>
+                    
+                    <h4>Les types principaux :</h4>
+                    <ul>
+                        <li><strong>int</strong> : nombres entiers (ex: 5, -10, 42)</li>
+                        <li><strong>float</strong> : nombres décimaux (ex: 3.14, -0.5, 2.0)</li>
+                        <li><strong>str</strong> : chaînes de caractères (ex: "Bonjour", 'Python')</li>
+                        <li><strong>bool</strong> : booléens (True ou False)</li>
+                    </ul>
+                </div>
+
+                <div class="code-section">
+                    <h4>Exemples de déclaration de variables :</h4>
+                    <pre><code><span class="python-comment"># Nombres entiers</span>
+age = <span class="python-number">25</span>
+annee = <span class="python-number">2025</span>
+
+<span class="python-comment"># Nombres décimaux</span>
+rayon = <span class="python-number">5.5</span>
+pi = <span class="python-number">3.14</span>
+
+<span class="python-comment"># Chaînes de caractères</span>
+prenom = <span class="python-string">"Lillian"</span>
+message = <span class="python-string">'Bonjour le monde'</span>
+
+<span class="python-comment"># Booléens</span>
+est_etudiant = <span class="python-keyword">True</span>
+a_reussi = <span class="python-keyword">False</span></code></pre>
+                </div>
+
+                <div class="concept-box">
+                    <h3>⌨️ Entrées et Sorties</h3>
+                    <h4>La fonction <code>input()</code> :</h4>
+                    <p>Permet de demander une saisie à l'utilisateur. Par défaut, elle retourne une chaîne de caractères.</p>
+                    
+                    <div class="code-section">
+                        <pre><code><span class="python-comment"># Saisie d'une chaîne de caractères</span>
+prenom = <span class="python-function">input</span>(<span class="python-string">"Quel est votre prénom ? "</span>)
+
+<span class="python-comment"># Saisie d'un nombre entier</span>
+age = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"Quel est votre âge ? "</span>))
+
+<span class="python-comment"># Saisie d'un nombre décimal</span>
+prix = <span class="python-function">float</span>(<span class="python-function">input</span>(<span class="python-string">"Entrez le prix : "</span>))</code></pre>
+                    </div>
+
+                    <h4>La fonction <code>print()</code> :</h4>
+                    <p>Permet d'afficher du texte ou des valeurs à l'écran.</p>
+                    
+                    <div class="code-section">
+                        <pre><code><span class="python-comment"># Affichage simple</span>
+<span class="python-function">print</span>(<span class="python-string">"Bonjour"</span>)
+
+<span class="python-comment"># Affichage de variables</span>
+<span class="python-function">print</span>(<span class="python-string">"Bonjour"</span>, prenom, <span class="python-string">"tu as"</span>, age, <span class="python-string">"ans"</span>)
+
+<span class="python-comment"># Affichage avec f-string (recommandé)</span>
+<span class="python-function">print</span>(<span class="python-string">f"Bonjour {prenom}, tu as {age} ans"</span>)</code></pre>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h4>📌 Exemple complet : Calculer l'aire d'un cercle</h4>
+                    <div class="code-section">
+                        <pre><code><span class="python-comment"># Programme cercle.py</span>
+rayon = <span class="python-function">float</span>(<span class="python-function">input</span>(<span class="python-string">'Entre le rayon en m\n'</span>))
+
+perimetre = <span class="python-number">2</span> * <span class="python-number">3.14</span> * rayon
+aire = rayon * rayon * <span class="python-number">3.14</span>
+
+<span class="python-function">print</span>(<span class="python-string">f"l'aire est de {aire} m² et le périmètre est de {perimetre} m"</span>)</code></pre>
+                    </div>
+                </div>
+
+                <div class="concept-box">
+                    <h3>➕ Opérateurs Arithmétiques</h3>
+                    <ul>
+                        <li><code>+</code> : Addition</li>
+                        <li><code>-</code> : Soustraction</li>
+                        <li><code>*</code> : Multiplication</li>
+                        <li><code>/</code> : Division (résultat décimal)</li>
+                        <li><code>//</code> : Division entière (quotient)</li>
+                        <li><code>%</code> : Modulo (reste de la division)</li>
+                        <li><code>**</code> : Puissance</li>
+                    </ul>
+
+                    <div class="code-section">
+                        <pre><code>a = <span class="python-number">10</span>
+b = <span class="python-number">3</span>
+
+<span class="python-function">print</span>(a + b)   <span class="python-comment"># 13</span>
+<span class="python-function">print</span>(a - b)   <span class="python-comment"># 7</span>
+<span class="python-function">print</span>(a * b)   <span class="python-comment"># 30</span>
+<span class="python-function">print</span>(a / b)   <span class="python-comment"># 3.333...</span>
+<span class="python-function">print</span>(a // b)  <span class="python-comment"># 3 (quotient)</span>
+<span class="python-function">print</span>(a % b)   <span class="python-comment"># 1 (reste)</span>
+<span class="python-function">print</span>(a ** b)  <span class="python-comment"># 1000 (10^3)</span></code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: Structures de Contrôle -->
+            <div id="structures-controle" class="tab-content">
+                <h2>🔄 Structures de Contrôle</h2>
+
+                <div class="concept-box">
+                    <h3>🔀 Les Conditions (if, elif, else)</h3>
+                    <p>Les conditions permettent d'exécuter du code uniquement si une certaine condition est vraie.</p>
+                    
+                    <h4>Opérateurs de comparaison :</h4>
+                    <ul>
+                        <li><code>==</code> : égal à</li>
+                        <li><code>!=</code> : différent de</li>
+                        <li><code>&lt;</code> : inférieur à</li>
+                        <li><code>&gt;</code> : supérieur à</li>
+                        <li><code>&lt;=</code> : inférieur ou égal</li>
+                        <li><code>&gt;=</code> : supérieur ou égal</li>
+                    </ul>
+
+                    <h4>Opérateurs logiques :</h4>
+                    <ul>
+                        <li><code>and</code> : ET logique</li>
+                        <li><code>or</code> : OU logique</li>
+                        <li><code>not</code> : NON logique</li>
+                    </ul>
+                </div>
+
+                <div class="code-section">
+                    <h4>Structure if simple :</h4>
+                    <pre><code>age = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"Quel âge as-tu ? "</span>))
+
+<span class="python-keyword">if</span> age &gt;= <span class="python-number">18</span>:
+    <span class="python-function">print</span>(<span class="python-string">"Tu es majeur"</span>)</code></pre>
+                </div>
+
+                <div class="code-section">
+                    <h4>Structure if-else :</h4>
+                    <pre><code>age = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"Quel âge as-tu ? "</span>))
+
+<span class="python-keyword">if</span> age &gt;= <span class="python-number">18</span>:
+    <span class="python-function">print</span>(<span class="python-string">"Tu es majeur"</span>)
+<span class="python-keyword">else</span>:
+    <span class="python-function">print</span>(<span class="python-string">"Tu es mineur"</span>)</code></pre>
+                </div>
+
+                <div class="code-section">
+                    <h4>Structure if-elif-else :</h4>
+                    <pre><code>note = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"Quelle est ta note ? "</span>))
+
+<span class="python-keyword">if</span> note &gt;= <span class="python-number">16</span>:
+    <span class="python-function">print</span>(<span class="python-string">"Très bien !"</span>)
+<span class="python-keyword">elif</span> note &gt;= <span class="python-number">14</span>:
+    <span class="python-function">print</span>(<span class="python-string">"Bien"</span>)
+<span class="python-keyword">elif</span> note &gt;= <span class="python-number">12</span>:
+    <span class="python-function">print</span>(<span class="python-string">"Assez bien"</span>)
+<span class="python-keyword">elif</span> note &gt;= <span class="python-number">10</span>:
+    <span class="python-function">print</span>(<span class="python-string">"Passable"</span>)
+<span class="python-keyword">else</span>:
+    <span class="python-function">print</span>(<span class="python-string">"Insuffisant"</span>)</code></pre>
+                </div>
+
+                <div class="example">
+                    <h4>📌 Exemple : Année bissextile</h4>
+                    <div class="code-section">
+                        <pre><code>annee = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"Choisi une année \n"</span>))
+
+<span class="python-keyword">if</span> annee % <span class="python-number">4</span> == <span class="python-number">0</span>:
+    <span class="python-keyword">if</span> annee % <span class="python-number">400</span> == <span class="python-number">0</span>:
+        <span class="python-function">print</span>(<span class="python-string">"Il s'agit d'une année bissextile"</span>)
+    <span class="python-keyword">elif</span> annee % <span class="python-number">100</span> == <span class="python-number">0</span>:
+        <span class="python-function">print</span>(<span class="python-string">"Il ne s'agit pas d'une année bissextile"</span>)
+    <span class="python-keyword">else</span>:
+        <span class="python-function">print</span>(<span class="python-string">"Il s'agit d'une année bissextile"</span>)
+<span class="python-keyword">else</span>:
+    <span class="python-function">print</span>(<span class="python-string">"Il ne s'agit pas d'une année bissextile"</span>)</code></pre>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="concept-box">
+                    <h3>🔁 Les Boucles</h3>
+                    
+                    <h4>Boucle <code>while</code> (tant que) :</h4>
+                    <p>Répète un bloc de code tant qu'une condition est vraie.</p>
+                    
+                    <div class="code-section">
+                        <pre><code><span class="python-comment"># Exemple : Compter de 1 à 5</span>
+i = <span class="python-number">1</span>
+<span class="python-keyword">while</span> i &lt;= <span class="python-number">5</span>:
+    <span class="python-function">print</span>(i)
+    i = i + <span class="python-number">1</span>  <span class="python-comment"># ou i += 1</span></code></pre>
+                    </div>
+
+                    <div class="warning">
+                        <strong>⚠️ Attention aux boucles infinies !</strong>
+                        <p>N'oubliez jamais d'incrémenter votre variable de contrôle, sinon la boucle ne s'arrêtera jamais.</p>
+                    </div>
+
+                    <h4>Boucle <code>for</code> (pour) :</h4>
+                    <p>Répète un bloc de code un nombre déterminé de fois.</p>
+                    
+                    <div class="code-section">
+                        <pre><code><span class="python-comment"># Compter de 0 à 4</span>
+<span class="python-keyword">for</span> i <span class="python-keyword">in</span> <span class="python-function">range</span>(<span class="python-number">5</span>):
+    <span class="python-function">print</span>(i)
+
+<span class="python-comment"># Compter de 1 à 5</span>
+<span class="python-keyword">for</span> i <span class="python-keyword">in</span> <span class="python-function">range</span>(<span class="python-number">1</span>, <span class="python-number">6</span>):
+    <span class="python-function">print</span>(i)
+
+<span class="python-comment"># Compter de 1 à 100 par pas de 2 (nombres impairs)</span>
+<span class="python-keyword">for</span> i <span class="python-keyword">in</span> <span class="python-function">range</span>(<span class="python-number">1</span>, <span class="python-number">100</span>, <span class="python-number">2</span>):
+    <span class="python-function">print</span>(i)</code></pre>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>📌 La fonction range() :</strong>
+                        <ul>
+                            <li><code>range(n)</code> : de 0 à n-1</li>
+                            <li><code>range(début, fin)</code> : de début à fin-1</li>
+                            <li><code>range(début, fin, pas)</code> : de début à fin-1 avec un pas donné</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h4>📌 Exemple : Table de multiplication</h4>
+                    <div class="code-section">
+                        <pre><code>n = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"Entrez un entier n (entre 2 et 9) : "</span>))
+
+<span class="python-function">print</span>(<span class="python-string">f"--- Table de {n} ---"</span>)
+<span class="python-keyword">for</span> i <span class="python-keyword">in</span> <span class="python-function">range</span>(<span class="python-number">1</span>, <span class="python-number">11</span>):
+    <span class="python-function">print</span>(<span class="python-string">f"{n} x {i} = {n * i}"</span>)</code></pre>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h4>📌 Exemple : Doubler les voyelles</h4>
+                    <div class="code-section">
+                        <pre><code>mot = <span class="python-function">input</span>(<span class="python-string">"Saisir un mot : "</span>)
+voyelles = <span class="python-string">"aeiouyAEIOUY"</span>
+mot_transforme = <span class="python-string">""</span>
+
+<span class="python-keyword">for</span> lettre <span class="python-keyword">in</span> mot:
+    <span class="python-keyword">if</span> lettre <span class="python-keyword">in</span> voyelles:
+        mot_transforme = mot_transforme + lettre + lettre
+    <span class="python-keyword">else</span>:
+        mot_transforme = mot_transforme + lettre
+
+<span class="python-function">print</span>(<span class="python-string">"Résultat :"</span>, mot_transforme)</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: Listes & Tableaux -->
+            <div id="listes-tableaux" class="tab-content">
+                <h2>📋 Listes et Tableaux en Python</h2>
+
+                <div class="concept-box">
+                    <h3>📚 Qu'est-ce qu'une liste ?</h3>
+                    <p>Une liste est une collection ordonnée d'éléments. Les éléments peuvent être de différents types.</p>
+                    
+                    <div class="code-section">
+                        <pre><code><span class="python-comment"># Créer une liste</span>
+t = [<span class="python-string">'a'</span>, <span class="python-string">'b'</span>, <span class="python-string">'d'</span>, <span class="python-string">'e'</span>]
+nombres = [<span class="python-number">1</span>, <span class="python-number">2</span>, <span class="python-number">3</span>, <span class="python-number">4</span>, <span class="python-number">5</span>]
+mixte = [<span class="python-number">1</span>, <span class="python-string">"deux"</span>, <span class="python-number">3.0</span>, <span class="python-keyword">True</span>]
+vide = []</code></pre>
+                    </div>
+                </div>
+
+                <div class="concept-box">
+                    <h3>🔍 Accéder aux éléments d'une liste</h3>
+                    
+                    <div class="code-section">
+                        <pre><code>t = [<span class="python-string">'a'</span>, <span class="python-string">'b'</span>, <span class="python-string">'d'</span>, <span class="python-string">'e'</span>]
+
+<span class="python-comment"># Longueur de la liste</span>
+<span class="python-function">print</span>(<span class="python-function">len</span>(t))  <span class="python-comment"># 4</span>
+
+<span class="python-comment"># Premier élément (indice 0)</span>
+<span class="python-function">print</span>(t[<span class="python-number">0</span>])  <span class="python-comment"># 'a'</span>
+
+<span class="python-comment"># Dernier élément</span>
+<span class="python-function">print</span>(t[-<span class="python-number">1</span>])  <span class="python-comment"># 'e'</span>
+
+<span class="python-comment"># Parcourir tous les éléments</span>
+<span class="python-keyword">for</span> i <span class="python-keyword">in</span> <span class="python-function">range</span>(<span class="python-function">len</span>(t)):
+    <span class="python-function">print</span>(t[i])
+
+<span class="python-comment"># Ou plus simplement :</span>
+<span class="python-keyword">for</span> element <span class="python-keyword">in</span> t:
+    <span class="python-function">print</span>(element)</code></pre>
+                    </div>
+                </div>
+
+                <div class="concept-box">
+                    <h3>➕ Ajouter des éléments</h3>
+                    
+                    <div class="code-section">
+                        <pre><code>t = [<span class="python-string">'a'</span>, <span class="python-string">'b'</span>, <span class="python-string">'d'</span>, <span class="python-string">'e'</span>]
+
+<span class="python-comment"># Ajouter à la fin</span>
+t.<span class="python-function">append</span>(<span class="python-string">'f'</span>)
+<span class="python-function">print</span>(t)  <span class="python-comment"># ['a', 'b', 'd', 'e', 'f']</span>
+
+<span class="python-comment"># Insérer à un indice précis</span>
+t.<span class="python-function">insert</span>(<span class="python-number">2</span>, <span class="python-string">'c'</span>)
+<span class="python-function">print</span>(t)  <span class="python-comment"># ['a', 'b', 'c', 'd', 'e', 'f']</span></code></pre>
+                    </div>
+                </div>
+
+                <div class="concept-box">
+                    <h3>➖ Supprimer des éléments</h3>
+                    
+                    <div class="code-section">
+                        <pre><code>L = [<span class="python-string">'a'</span>, <span class="python-string">'b'</span>, <span class="python-string">'c'</span>, <span class="python-string">'d'</span>, <span class="python-string">'e'</span>]
+
+<span class="python-comment"># Supprimer par indice</span>
+<span class="python-keyword">del</span> L[<span class="python-number">2</span>]
+<span class="python-function">print</span>(L)  <span class="python-comment"># ['a', 'b', 'd', 'e']</span>
+
+<span class="python-comment"># Supprimer par valeur (première occurrence)</span>
+L.<span class="python-function">remove</span>(<span class="python-string">'b'</span>)
+<span class="python-function">print</span>(L)  <span class="python-comment"># ['a', 'd', 'e']</span>
+
+<span class="python-comment"># Supprimer et récupérer un élément</span>
+element = L.<span class="python-function">pop</span>(<span class="python-number">1</span>)  <span class="python-comment"># Retire l'élément à l'indice 1</span>
+<span class="python-function">print</span>(element)  <span class="python-comment"># 'd'</span>
+<span class="python-function">print</span>(L)  <span class="python-comment"># ['a', 'e']</span></code></pre>
+                    </div>
+                </div>
+
+                <div class="concept-box">
+                    <h3>🔗 Concaténer des listes</h3>
+                    
+                    <div class="code-section">
+                        <pre><code>t = [<span class="python-string">'a'</span>, <span class="python-string">'b'</span>, <span class="python-string">'c'</span>]
+t1 = [<span class="python-string">"asterix"</span>, <span class="python-string">'obelix'</span>, <span class="python-string">'idefix'</span>]
+
+<span class="python-comment"># Concaténation avec +</span>
+L = t + t1
+<span class="python-function">print</span>(L)  <span class="python-comment"># ['a', 'b', 'c', 'asterix', 'obelix', 'idefix']</span></code></pre>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h4>📌 Exemple complet : Créer une liste dynamiquement</h4>
+                    <div class="code-section">
+                        <pre><code>t = []
+
+<span class="python-keyword">while</span> <span class="python-keyword">True</span>:
+    reponse = <span class="python-function">input</span>(<span class="python-string">"Tu veux ajouter un nombre o/n : \n"</span>)
+    
+    <span class="python-keyword">if</span> reponse == <span class="python-string">"o"</span> <span class="python-keyword">or</span> reponse == <span class="python-string">"O"</span>:
+        nombre = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"Il faut mettre un nombre : \n"</span>))
+        t.<span class="python-function">append</span>(nombre)
+    <span class="python-keyword">elif</span> reponse == <span class="python-string">"n"</span> <span class="python-keyword">or</span> reponse == <span class="python-string">"N"</span>:
+        <span class="python-keyword">break</span>
+    <span class="python-keyword">else</span>:
+        <span class="python-function">print</span>(<span class="python-string">"Apprendre à écrire\n"</span>)
+
+<span class="python-function">print</span>(t)</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: Fonctions -->
+            <div id="fonctions" class="tab-content">
+                <h2>⚙️ Les Fonctions en Python</h2>
+
+                <div class="concept-box">
+                    <h3>🎯 Qu'est-ce qu'une fonction ?</h3>
+                    <p>Une fonction est un bloc de code réutilisable qui effectue une tâche spécifique. Elle peut prendre des paramètres en entrée et retourner un résultat.</p>
+                    
+                    <h4>Syntaxe de base :</h4>
+                    <div class="code-section">
+                        <pre><code><span class="python-keyword">def</span> <span class="python-function">nom_fonction</span>(parametre1, parametre2):
+    <span class="python-comment"># Code de la fonction</span>
+    resultat = parametre1 + parametre2
+    <span class="python-keyword">return</span> resultat
+
+<span class="python-comment"># Appel de la fonction</span>
+valeur = <span class="python-function">nom_fonction</span>(<span class="python-number">5</span>, <span class="python-number">3</span>)
+<span class="python-function">print</span>(valeur)  <span class="python-comment"># 8</span></code></pre>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h4>📌 Exemple : Compter les occurrences d'une lettre</h4>
+                    <div class="code-section">
+                        <pre><code><span class="python-keyword">def</span> <span class="python-function">chercher</span>(mot, lettre):
+    <span class="python-string">"""Compte le nombre d'occurrences d'une lettre dans un mot"""</span>
+    cpt = <span class="python-number">0</span>
+    <span class="python-keyword">for</span> i <span class="python-keyword">in</span> <span class="python-function">range</span>(<span class="python-function">len</span>(mot)):
+        <span class="python-keyword">if</span> mot[i] == lettre:
+            cpt += <span class="python-number">1</span>
+    <span class="python-keyword">return</span> cpt
+
+<span class="python-comment"># Utilisation</span>
+saisi_mot = <span class="python-function">input</span>(<span class="python-string">"Choisis un mot ou une phrase : \n"</span>)
+saisi_lettre = <span class="python-function">input</span>(<span class="python-string">"Choisis une lettre à chercher : \n"</span>)
+
+resultat = <span class="python-function">chercher</span>(saisi_mot, saisi_lettre)
+<span class="python-function">print</span>(<span class="python-string">f"Il y a {resultat} fois la lettre '{saisi_lettre}' dans ce texte."</span>)</code></pre>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h4>📌 Exemple : Compter les diviseurs d'un nombre</h4>
+                    <div class="code-section">
+                        <pre><code><span class="python-keyword">def</span> <span class="python-function">compter_diviseurs</span>(n):
+    <span class="python-string">"""Retourne le nombre de diviseurs d'un entier n"""</span>
+    cpt = <span class="python-number">0</span>
+    <span class="python-keyword">for</span> i <span class="python-keyword">in</span> <span class="python-function">range</span>(<span class="python-number">1</span>, n + <span class="python-number">1</span>):
+        <span class="python-keyword">if</span> n % i == <span class="python-number">0</span>:
+            cpt = cpt + <span class="python-number">1</span>
+    <span class="python-keyword">return</span> cpt
+
+<span class="python-comment"># Utilisation</span>
+n = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"Saisir un entier n : "</span>))
+nb_diviseurs = <span class="python-function">compter_diviseurs</span>(n)
+<span class="python-function">print</span>(<span class="python-string">f"Le nombre de diviseurs est : {nb_diviseurs}"</span>)</code></pre>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h4>💡 Avantages des fonctions :</h4>
+                    <ul>
+                        <li><strong>Réutilisabilité</strong> : écrire le code une fois, l'utiliser plusieurs fois</li>
+                        <li><strong>Lisibilité</strong> : diviser un programme complexe en petites tâches simples</li>
+                        <li><strong>Maintenance</strong> : plus facile de corriger ou modifier le code</li>
+                        <li><strong>Modularité</strong> : tester chaque fonction indépendamment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- TAB: Algorithmes -->
+            <div id="algorithmes" class="tab-content">
+                <h2>🧮 Algorithmes Classiques</h2>
+
+                <div class="concept-box">
+                    <h3>🔢 Conversion Décimal → Binaire</h3>
+                    <p>Algorithme pour convertir un nombre décimal en binaire en utilisant des divisions successives par 2.</p>
+                    
+                    <div class="code-section">
+                        <pre><code>decimal = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"Choisi un nombre décimal : "</span>))
+binaire = <span class="python-string">""</span>
+
+<span class="python-keyword">while</span> decimal &gt; <span class="python-number">0</span>:
+    reste = decimal % <span class="python-number">2</span>
+    binaire = <span class="python-function">str</span>(reste) + binaire
+    decimal //= <span class="python-number">2</span>
+
+<span class="python-function">print</span>(<span class="python-string">f"En binaire : {binaire}"</span>)</code></pre>
+                    </div>
+                </div>
+
+                <div class="concept-box">
+                    <h3>🔢 PGCD (Algorithme d'Euclide)</h3>
+                    <p>Calculer le Plus Grand Commun Diviseur de deux nombres avec l'algorithme d'Euclide.</p>
+                    
+                    <div class="code-section">
+                        <pre><code>a = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"Valeur a : "</span>))
+b = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"Valeur b : "</span>))
+
+a_orig = a
+b_orig = b
+
+<span class="python-keyword">while</span> b &gt; <span class="python-number">0</span>:
+    r = a % b
+    a = b
+    b = r
+
+<span class="python-function">print</span>(<span class="python-string">f"Le PGCD de {a_orig} et {b_orig} est : {a}"</span>)</code></pre>
+                    </div>
+                </div>
+
+                <div class="concept-box">
+                    <h3>🔢 Test de Primalité</h3>
+                    <p>Déterminer si un nombre est premier (divisible uniquement par 1 et lui-même).</p>
+                    
+                    <div class="code-section">
+                        <pre><code>p = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"p : entier \n"</span>))
+
+<span class="python-keyword">if</span> p &lt; <span class="python-number">2</span>:
+    rep = <span class="python-string">"Faux"</span>
+<span class="python-keyword">else</span>:
+    i = <span class="python-number">2</span>
+    rep = <span class="python-string">"Vrai"</span>
+    <span class="python-keyword">while</span> rep == <span class="python-string">"Vrai"</span> <span class="python-keyword">and</span> i &lt; p:
+        <span class="python-keyword">if</span> p % i == <span class="python-number">0</span>:
+            rep = <span class="python-string">"Faux"</span>
+        i = i + <span class="python-number">1</span>
+
+<span class="python-function">print</span>(<span class="python-string">f"Il est {rep}"</span>)</code></pre>
+                    </div>
+                </div>
+
+                <div class="concept-box">
+                    <h3>🔢 Somme des Chiffres d'un Nombre</h3>
+                    <p>Calculer la somme de tous les chiffres d'un nombre entier.</p>
+                    
+                    <div class="code-section">
+                        <pre><code>n = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"Saisir un nombre entier : "</span>))
+s = <span class="python-number">0</span>
+
+<span class="python-keyword">while</span> n != <span class="python-number">0</span>:
+    s = s + n % <span class="python-number">10</span>  <span class="python-comment"># Ajouter le dernier chiffre</span>
+    n = n // <span class="python-number">10</span>  <span class="python-comment"># Supprimer le dernier chiffre</span>
+
+<span class="python-function">print</span>(<span class="python-string">f"Somme des chiffres : {s}"</span>)</code></pre>
+                    </div>
+                </div>
+
+                <div class="concept-box">
+                    <h3>🔢 Division Euclidienne</h3>
+                    <p>Calculer le quotient et le reste d'une division sans utiliser les opérateurs // et %.</p>
+                    
+                    <div class="code-section">
+                        <pre><code>a = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"Saisir entier n°1 : "</span>))
+b = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"Saisir entier n°2 : "</span>))
+q = <span class="python-number">0</span>
+
+<span class="python-keyword">while</span> b * q &lt;= a:
+    q = q + <span class="python-number">1</span>
+
+q = q - <span class="python-number">1</span>
+r = a - b * q
+
+<span class="python-function">print</span>(<span class="python-string">f"q = {q} et r = {r}"</span>)</code></pre>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h4>📌 Exemple : Jeu de Devinette</h4>
+                    <div class="code-section">
+                        <pre><code><span class="python-keyword">import</span> random
+
+nombre_mystere = random.<span class="python-function">randint</span>(<span class="python-number">1</span>, <span class="python-number">99</span>)
+nb_essais = <span class="python-number">5</span>
+i = <span class="python-number">0</span>
+
+<span class="python-function">print</span>(<span class="python-string">"Devine le nombre entre 1 et 99 !"</span>)
+
+<span class="python-keyword">while</span> i &lt; nb_essais:
+    proposition = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"Choisi un nombre : \n"</span>))
+    i = i + <span class="python-number">1</span>
+    essais_restants = nb_essais - i
+    
+    <span class="python-keyword">if</span> proposition &gt; nombre_mystere:
+        <span class="python-function">print</span>(<span class="python-string">"Trop grand"</span>)
+        <span class="python-function">print</span>(<span class="python-string">f"Il te reste {essais_restants} essai(s)"</span>)
+    <span class="python-keyword">elif</span> proposition &lt; nombre_mystere:
+        <span class="python-function">print</span>(<span class="python-string">"Trop petit"</span>)
+        <span class="python-function">print</span>(<span class="python-string">f"Il te reste {essais_restants} essai(s)"</span>)
+    <span class="python-keyword">else</span>:
+        <span class="python-function">print</span>(<span class="python-string">f"Bravo ! Tu as trouvé {nombre_mystere} !"</span>)
+        <span class="python-keyword">break</span>
+
+<span class="python-keyword">if</span> proposition != nombre_mystere:
+    <span class="python-function">print</span>(<span class="python-string">f"Perdu ! C'était {nombre_mystere}"</span>)</code></pre>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: Mathématiques -->
+            <div id="mathematiques" class="tab-content">
+                <h2>➕ Mathématiques pour l'Algorithmique</h2>
+
+                <div class="concept-box">
+                    <h3>📐 Résoudre une Équation (degré 1)</h3>
+                    
+                    <h4>Définition :</h4>
+                    <p>Une <strong>équation</strong> est une égalité qui comporte au moins un nombre inconnu, généralement désigné par une lettre.</p>
+                    
+                    <div class="formula">
+                        Exemple : 3x + 7 = 8 + x
+                    </div>
+
+                    <p>Une <strong>solution</strong> d'une équation est une valeur de l'inconnue pour laquelle l'égalité est vraie.</p>
+                    <p><strong>Résoudre une équation</strong>, c'est trouver toutes les solutions de cette équation.</p>
+
+                    <h4>Méthode de résolution :</h4>
+                    <ol>
+                        <li>On effectue les <strong>mêmes opérations</strong> aux deux membres de l'équation (addition, soustraction, multiplication, division)</li>
+                        <li>Le but est d'obtenir une équation du type <code>ax = b</code></li>
+                        <li>On divise par <code>a</code> pour obtenir la valeur de <code>x</code></li>
+                    </ol>
+
+                    <div class="example">
+                        <h4>Résolution de 7x + 2 = 9 + 2x :</h4>
+                        <div class="math-formula">
+                            7x + 2 = 9 + 2x<br>
+                            ⇔ 7x + 2 - 2 = 9 + 2x - 2 <span style="color: #666;">(on enlève 2 aux deux membres)</span><br>
+                            ⇔ 7x = 7 + 2x<br>
+                            ⇔ 7x - 2x = 7 + 2x - 2x <span style="color: #666;">(on enlève 2x aux deux membres)</span><br>
+                            ⇔ 5x = 7<br>
+                            ⇔ x = 7/5 <span style="color: #666;">(on divise par 5)</span><br>
+                            ⇔ x = 1,4
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>À savoir :</strong>
+                        <ul>
+                            <li>En BTS SIO, une équation de degré 1 aura <strong>une seule solution</strong></li>
+                            <li>Il arrive qu'une équation n'ait <strong>aucune solution</strong> : 3x = 3x + 5</li>
+                            <li>Il arrive qu'une équation ait une <strong>infinité de solutions</strong> : 3(x + 1) = 3x + 3</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-divider"></div>
+
+                <div class="concept-box">
+                    <h3>📊 Vocabulaire des Fonctions</h3>
+                    
+                    <h4>Définition :</h4>
+                    <p>Une <strong>fonction</strong> est un procédé (mécanisme) qui à un nombre associe un nombre.</p>
+                    
+                    <div class="formula">
+                        f : x ↦ f(x)
+                    </div>
+
+                    <p>où <code>x</code> désigne un nombre de l'ensemble de départ et <code>f(x)</code> se lit "l'image de x par f".</p>
+
+                    <h4>Courbe représentative :</h4>
+                    <p>Dans un repère, la <strong>courbe représentative</strong> d'une fonction <code>f</code> est l'ensemble des points de coordonnées <code>(x, f(x))</code>.</p>
+
+                    <div class="example">
+                        <h4>Exemple avec f : x ↦ 2x + 3</h4>
+                        <ul>
+                            <li>f(1) = 5 donc le point A(1 ; 5) est sur la courbe de f</li>
+                            <li>f(-1) = 1 donc le point B(-1 ; 1) est sur la courbe de f</li>
+                            <li>f(0) = 3 donc le point C(0 ; 3) est sur la courbe de f</li>
+                            <li>f(0,5) = 4 donc le point D(0,5 ; 4) est sur la courbe de f</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box">
+                        <h4>Vocabulaire important :</h4>
+                        <ul>
+                            <li><strong>Image</strong> : f(1) = 5 signifie que 5 est l'image de 1 par f</li>
+                            <li><strong>Antécédent</strong> : f(1) = 5 signifie que 1 est UN antécédent de 5 par f</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB: Exercices -->
+            <div id="exercices" class="tab-content">
+                <h2>📝 Exercices Pratiques</h2>
+
+                <div class="exercise-box">
+                    <h3>Exercice 1 : Résoudre des équations</h3>
+                    <p>Résoudre les équations suivantes :</p>
+                    <ol>
+                        <li>(E1) : 3x + 7 = 8 + x</li>
+                        <li>(E2) : 5n + 9 + n = 11 + n - 5</li>
+                        <li>(E3) : 5t - 9 = 4(1 + 2t)</li>
+                        <li>(E4) : 8(x + 1) = 3 - 7x</li>
+                        <li>(E5) : 0 = 9(x - 1) + 11</li>
+                    </ol>
+                </div>
+
+                <div class="exercise-box">
+                    <h3>Exercice 2 : Prix d'une BD</h3>
+                    <p>Dans un magasin :</p>
+                    <ul>
+                        <li>Jordan achète 4 BD au même prix et un manga à 8 €</li>
+                        <li>Piala achète 2 de ces BD et un dictionnaire à 45 €</li>
+                        <li>À la caisse, ils paient la même somme</li>
+                    </ul>
+                    <p><strong>Question :</strong> Déterminer le prix, en euro, d'une BD.</p>
+                </div>
+
+                <div class="exercise-box">
+                    <h3>Exercice 3 : Périmètres</h3>
+                    <p>Tom affirme : « Ce triangle équilatéral et ce rectangle ne peuvent pas avoir le même périmètre ».</p>
+                    <p><strong>Question :</strong> Tom a-t-il raison ? Expliquer.</p>
+                </div>
+
+                <div class="exercise-box">
+                    <h3>Exercice 4 : Angles d'un triangle</h3>
+                    <p>Trouver la mesure de chacun des angles d'un triangle sachant que :</p>
+                    <ul>
+                        <li>Un angle mesure 75°</li>
+                        <li>Un autre angle mesure x</li>
+                        <li>Le troisième angle mesure 2x</li>
+                    </ul>
+                    <p><em>Rappel : La somme des angles d'un triangle = 180°</em></p>
+                </div>
+
+                <div class="exercise-box">
+                    <h3>Exercice 5 : Problème d'âges</h3>
+                    <p>La somme des âges de Jacques, Paul et Estelle est 41 ans.</p>
+                    <ul>
+                        <li>Jacques a 3 ans de plus que Paul</li>
+                        <li>Estelle a 4 ans de moins que Paul</li>
+                    </ul>
+                    <p><strong>Question :</strong> Quel est l'âge de chacun ?</p>
+                </div>
+
+                <div class="exercise-box">
+                    <h3>Exercice 6 : Nombre mystère</h3>
+                    <p>Joey pense à un nombre, lui ajoute 11, multiplie le tout par 3 et au résultat obtenu il retranche 3. Joey obtient 51.</p>
+                    <p><strong>Question :</strong> Quel est ce nombre de départ ?</p>
+                </div>
+
+                <div class="exercise-box">
+                    <h3>Exercice 7 : Problème de classe</h3>
+                    <p>Dans ma classe, il y a 28 élèves. Le jour où Lucas était absent, il y avait deux fois plus de filles que de garçons.</p>
+                    <p><strong>Question :</strong> Combien y a-t-il de filles dans ma classe ?</p>
+                </div>
+
+                <div class="exercise-box">
+                    <h3>Exercice 8 : Fractions d'élèves</h3>
+                    <p>Combien y a-t-il d'élèves dans une classe sachant qu'un tiers calculent, les deux cinquièmes écrivent et 8 élèves dessinent ?</p>
+                </div>
+
+                <div class="exercise-box">
+                    <h3>Exercice 9 : Fonction - Programme de calcul</h3>
+                    <p>On donne le programme de calcul suivant :</p>
+                    <ol>
+                        <li>On choisit un nombre x</li>
+                        <li>On le multiplie par 2</li>
+                        <li>On ajoute 5 au résultat</li>
+                        <li>On obtient un nombre h(x)</li>
+                    </ol>
+                    <p><strong>Questions :</strong></p>
+                    <ol>
+                        <li>Exprimer h(x) en fonction de x</li>
+                        <li>Quelle est l'image de 1/3 par la fonction h ?</li>
+                        <li>Donner le ou les antécédents de 9 par la fonction h</li>
+                    </ol>
+                </div>
+
+                <div class="exercise-box">
+                    <h3>Exercice 10 : Lecture graphique</h3>
+                    <p>À partir d'un graphique représentant une fonction f :</p>
+                    <ol>
+                        <li>Quelle est l'image de 1 par f ?</li>
+                        <li>Donner des valeurs pour : f(0), l'image de -2 par f, f(-1)</li>
+                    </ol>
+                </div>
+
+                <div class="exercise-box">
+                    <h3>Exercice Programmation : Doubler son capital</h3>
+                    <p><strong>Objectif :</strong> Calculer combien d'années il faut pour doubler un capital avec un taux d'intérêt donné.</p>
+                    
+                    <div class="code-section">
+                        <pre><code><span class="python-comment"># Exercice à compléter</span>
+capital = <span class="python-function">float</span>(<span class="python-function">input</span>(<span class="python-string">"Quel est le capital de départ ? "</span>))
+taux = <span class="python-function">float</span>(<span class="python-function">input</span>(<span class="python-string">"Quel est le taux (en %) ? "</span>))
+
+capital_double = capital * <span class="python-number">2</span>
+capital_actuel = capital
+annees = <span class="python-number">0</span>
+
+<span class="python-comment"># À compléter : calculer le nombre d'années nécessaires</span>
+<span class="python-keyword">while</span> capital_actuel &lt; capital_double:
+    <span class="python-comment"># Ajouter le code ici</span>
+    <span class="python-keyword">pass</span>
+
+<span class="python-function">print</span>(<span class="python-string">f"Il faudra {annees} année(s) pour doubler le capital."</span>)</code></pre>
+                    </div>
+                </div>
+
+                <div class="exercise-box">
+                    <h3>Exercice Programmation : Dessin d'escalier</h3>
+                    <p><strong>Objectif :</strong> Créer un escalier en étoiles.</p>
+                    
+                    <div class="code-section">
+                        <pre><code><span class="python-comment"># Exemple de sortie :</span>
+<span class="python-comment"># *</span>
+<span class="python-comment"># **</span>
+<span class="python-comment"># ***</span>
+<span class="python-comment"># ****</span>
+
+etage = <span class="python-function">int</span>(<span class="python-function">input</span>(<span class="python-string">"Combien d'étages ? "</span>))
+
+<span class="python-comment"># À compléter</span></code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROGRAM OVERVIEW -->
         <div class="content-section">
             <h2>📖 Vue d'ensemble</h2>
             <p>L'<strong>Algorithmique Appliquée</strong> enseigne les fondements de la résolution de problèmes informatiques par les algorithmes et la programmation.</p>
+            
             <h3>🎯 Objectifs</h3>
             <ul>
                 <li>Concevoir des algorithmes efficaces</li>
@@ -52,6 +1063,7 @@
                 <li>Implémenter des algorithmes en Python, Java ou C</li>
                 <li>Résoudre des problèmes de tri, recherche, récursivité</li>
             </ul>
+            
             <h3>📚 Programme</h3>
             <ol>
                 <li><strong>Bases de l'algorithmique</strong> : Variables, boucles, conditions</li>
@@ -61,21 +1073,72 @@
                 <li><strong>Récursivité</strong> : Factorielle, Fibonacci, backtracking</li>
                 <li><strong>Graphes</strong> : Parcours en largeur et profondeur, Dijkstra</li>
             </ol>
+            
             <h3>⚠️ Points d'attention</h3>
             <p><span class="important">Important :</span> L'algorithmique nécessite beaucoup de pratique. Faites les exercices régulièrement ! L'<span class="exam">examen pratique</span> teste votre capacité à coder en temps limité.</p>
         </div>
+
+        <!-- RESOURCES SECTION -->
         <div class="content-section">
             <h2>📁 Ressources</h2>
             <div class="resources-list">
-                <div class="resource-item"><h4>💻 Cours et TD</h4><p>Exercices progressifs avec corrigés</p><a href="#">📥 Télécharger</a></div>
-                <div class="resource-item"><h4>🎮 Challenges</h4><p>Codingame, LeetCode, HackerRank</p><a href="#">🎯 S'entraîner</a></div>
-                <div class="resource-item"><h4>📊 Visualisations</h4><p>Animations d'algorithmes</p><a href="#">👁️ Voir</a></div>
+                <div class="resource-item">
+                    <h4>💻 Cours et TD</h4>
+                    <p>Exercices progressifs avec corrigés</p>
+                    <a href="#">📥 Télécharger</a>
+                </div>
+                <div class="resource-item">
+                    <h4>🎮 Challenges</h4>
+                    <p>Codingame, LeetCode, HackerRank</p>
+                    <a href="#">🎯 S'entraîner</a>
+                </div>
+                <div class="resource-item">
+                    <h4>📊 Visualisations</h4>
+                    <p>Animations d'algorithmes</p>
+                    <a href="#">👁️ Voir</a>
+                </div>
+                <div class="resource-item">
+                    <h4>🐍 Python.org</h4>
+                    <p>Documentation officielle Python</p>
+                    <a href="https://docs.python.org/fr/3/" target="_blank">📖 Consulter</a>
+                </div>
+                <div class="resource-item">
+                    <h4>📚 France IOI</h4>
+                    <p>Exercices de programmation progressifs</p>
+                    <a href="http://www.france-ioi.org/" target="_blank">🎓 Accéder</a>
+                </div>
+                <div class="resource-item">
+                    <h4>🎯 CodinGame</h4>
+                    <p>Apprendre en jouant</p>
+                    <a href="https://www.codingame.com/" target="_blank">🎮 Jouer</a>
+                </div>
             </div>
         </div>
     </main>
+
+    <!-- FOOTER -->
     <footer>
         <p>&copy; 2025 BTS SIO 2025-2027 - Lillian LACHIZE</p>
         <p><a href="https://www.linkedin.com/in/lillian-lachize/" target="_blank">Me retrouver sur LinkedIn</a></p>
     </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Masquer tous les contenus
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Désactiver tous les boutons
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Activer le contenu et le bouton sélectionnés
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+
+            // Scroll vers le haut
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
