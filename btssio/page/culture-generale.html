@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../styles/style.css><!DOCTYPE html>
+<link rel="stylesheet" href="../styles/style.css"><!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,198 @@
     <title>Culture Générale | BTS SIO</title>
     <link rel="stylesheet" href="../styles/style.css">
 </head>
+<style>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        .nav-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            background: #f5f5f5;
+            border: none;
+            border-radius: 8px 8px 0 0;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .nav-tab:hover {
+            background: #e8e8e8;
+            color: #333;
+        }
+
+        .nav-tab.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .vocab-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+
+        .vocab-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .grammar-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #764ba2;
+        }
+
+        .formula {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+        }
+
+        .example {
+            background: #d4edda;
+            padding: 12px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #28a745;
+            font-style: italic;
+        }
+
+        .warning {
+            background: #f8d7da;
+            padding: 12px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #dc3545;
+        }
+
+        .info-box {
+            background: #d1ecf1;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #17a2b8;
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            margin: 40px 0;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .nav-tabs {
+                flex-direction: column;
+            }
+
+            .nav-tab {
+                width: 100%;
+            }
+
+            .vocab-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+
+        .compare-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .compare-card {
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            background: #f8f9fa;
+        }
+
+        .compare-card h4 {
+            margin-bottom: 15px;
+            color: #667eea;
+            font-size: 1.2em;
+        }
+
+        .timeline-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .archetype-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #e0e0e0;
+        }
+
+        .archetype-card .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+    </style>
 <body>
     <header>
         <h1>🎓 BTS SIO 2025-2027</h1>
@@ -41,6 +233,407 @@
                 <div class="meta-item"><span>📝 Modalité :</span><strong><span class="exam">Examen écrit</span> (4h)</strong></div>
             </div>
         </div>
+
+        <!-- ============================================================ -->
+        <!-- START: INTEGRATED LE FANTASTIQUE CONTENT -->
+        <!-- ============================================================ -->
+
+        <div class="content-section">
+            <h2>📚 Thèmes au Programme</h2>
+            
+            <!-- Navigation tabs for themes -->
+            <div class="nav-tabs">
+                <button class="nav-tab" onclick="showTab('theme-fantastique')">Le Fantastique</button>
+            </div>
+
+            <!-- Theme 1: Dans ma maison -->
+            
+
+            <!-- Theme 2: Invitation au voyage -->
+            
+            <!-- Theme 3: Le Fantastique (NEW CONTENT) -->
+            <div id="theme-fantastique" class="tab-content">
+                <h3>🌙 Le Fantastique</h3>
+                
+                <!-- Definition Section -->
+                <div class="grammar-section">
+                    <h4>📖 Définition du Fantastique</h4>
+                    <div class="formula">
+                        « Le fantastique, c'est l'hésitation éprouvée par un être qui ne connaît que les lois naturelles, face à un événement en apparence surnaturel. »
+                        <br><em>— Tzvetan Todorov, Introduction à la littérature fantastique (1970)</em>
+                    </div>
+                    
+                    <p style="margin-top: 15px;">Le fantastique repose sur une <strong>incertitude fondamentale</strong> : le personnage (et le lecteur) hésite entre une explication rationnelle et une explication surnaturelle des événements.</p>
+
+                    <h5 style="margin-top: 20px; color: #667eea;">Caractéristiques principales :</h5>
+                    <div class="vocab-grid">
+                        <div class="vocab-item">
+                            <strong>🎭 Hésitation</strong>
+                            <p>Entre réel et irréel, raison et folie</p>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>😰 Inquiétude</strong>
+                            <p>Atmosphère angoissante et troublante</p>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>🌍 Cadre réaliste</strong>
+                            <p>Ancrage dans un monde familier</p>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>👻 Irruption surnaturelle</strong>
+                            <p>Événement inexplicable qui perturbe l'ordre établi</p>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>🤔 Doute persistant</strong>
+                            <p>Absence de résolution définitive</p>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>🎨 Ambiguïté</strong>
+                            <p>Plusieurs interprétations possibles</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fantastique vs Merveilleux -->
+                <div class="section-divider"></div>
+                <h4>⚡ Fantastique vs Merveilleux</h4>
+                <p>Deux genres souvent confondus mais fondamentalement différents :</p>
+                
+                <div class="compare-grid">
+                    <div class="compare-card" style="border-color: #dc3545; background: #fff5f5;">
+                        <h4 style="color: #dc3545;">⚡ Le Fantastique</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li>✦ Hésitation entre réel et surnaturel</li>
+                            <li>✦ Atmosphère angoissante et troublante</li>
+                            <li>✦ Monde réaliste perturbé</li>
+                            <li>✦ Doute et incertitude permanents</li>
+                            <li>✦ Peur et inquiétude</li>
+                        </ul>
+                        <div class="example" style="margin-top: 15px;">
+                            <strong>Exemples :</strong> Le Horla (Maupassant), Véra (Villiers de l'Isle-Adam), La Métamorphose (Kafka)
+                        </div>
+                    </div>
+
+                    <div class="compare-card" style="border-color: #17a2b8; background: #f0f9ff;">
+                        <h4 style="color: #17a2b8;">✨ Le Merveilleux</h4>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li>✦ Acceptation du surnaturel</li>
+                            <li>✦ Atmosphère féérique et enchantée</li>
+                            <li>✦ Monde imaginaire cohérent</li>
+                            <li>✦ Pas de remise en question</li>
+                            <li>✦ Émerveillement et rêve</li>
+                        </ul>
+                        <div class="example" style="margin-top: 15px;">
+                            <strong>Exemples :</strong> Contes de Perrault, Alice au pays des merveilles, Le Seigneur des Anneaux
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Registres -->
+                <div class="section-divider"></div>
+                <h4>🎭 Les Registres Littéraires</h4>
+                
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <strong>Réaliste</strong>
+                        <p>Représentation fidèle de la réalité</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Tragique</strong>
+                        <p>Destin inéluctable, fatalité</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Pathétique</strong>
+                        <p>Suscite la pitié et l'émotion</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Comique</strong>
+                        <p>Provoque le rire</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Lyrique</strong>
+                        <p>Expression des sentiments personnels</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Épique</strong>
+                        <p>Héros extraordinaires, exploits grandioses</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Fantastique</strong>
+                        <p>Hésitation entre réel et surnaturel</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Merveilleux</strong>
+                        <p>Acceptation du surnaturel</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Satirique</strong>
+                        <p>Critique moqueuse de la société</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Polémique</strong>
+                        <p>Défense d'une opinion, débat</p>
+                    </div>
+                </div>
+
+                <!-- Œuvres Majeures -->
+                <div class="section-divider"></div>
+                <h4>📚 Œuvres Fantastiques Majeures</h4>
+                
+                <div class="timeline-item">
+                    <h4>👻 Le Horla - Guy de Maupassant (1887)</h4>
+                    <p><strong>Thème :</strong> Un homme sombre dans la folie en sentant une présence invisible qui le domine progressivement.</p>
+                    <div class="example">
+                        « Il est venu, celui que redoutaient les premiers hommes, celui qu'exorcisaient les prêtres inquiets [...] Il est venu, le - le - comment se nomme-t-il - le - il me semble qu'il me crie son nom [...] oui... il le crie... J'écoute... je ne peux pas... répète... le... Horla... J'ai entendu... le Horla... c'est lui... le Horla... il est venu !... »
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>💀 Véra - Villiers de l'Isle-Adam (1874)</h4>
+                    <p><strong>Thème :</strong> Un comte refuse la mort de sa femme Véra et continue à vivre avec elle comme si elle était présente.</p>
+                    <div class="warning">
+                        Ambiguïté fondamentale : folie du comte ou véritable retour de Véra ?
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>🪲 La Métamorphose - Franz Kafka (1915)</h4>
+                    <p><strong>Thème :</strong> Gregor Samsa se réveille transformé en insecte monstrueux, sans explication rationnelle.</p>
+                    <div class="example">
+                        « En se réveillant un matin après des rêves agités, Gregor Samsa se retrouva, dans son lit, métamorphosé en un monstrueux insecte. »
+                    </div>
+                </div>
+
+                <!-- Cinema Section -->
+                <div class="section-divider"></div>
+                <h4>🎬 Le Fantastique au Cinéma</h4>
+                
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <strong>📅 1922 - Nosferatu</strong>
+                        <p>F.W. Murnau - Expressionnisme allemand, vampire terrifiant</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>📅 1960 - Psychose</strong>
+                        <p>Alfred Hitchcock - Suspense psychologique, horreur réaliste</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>📅 1973 - L'Exorciste</strong>
+                        <p>William Friedkin - Possession démoniaque</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>📅 1980 - Shining</strong>
+                        <p>Stanley Kubrick - Hôtel hanté, folie progressive</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>📅 1999 - Sixième Sens</strong>
+                        <p>M. Night Shyamalan - "I see dead people" - twist final</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>📅 2001 - Le Voyage de Chihiro</strong>
+                        <p>Hayao Miyazaki - Fantastique japonais, monde des esprits</p>
+                    </div>
+                </div>
+
+                <!-- Examen Tips -->
+                <div class="section-divider"></div>
+                <h4>✍️ Méthodologie pour l'Écriture Personnelle</h4>
+                
+                <div class="grammar-section">
+                    <h5 style="color: #764ba2; margin-bottom: 15px;">Structure de la dissertation</h5>
+                    
+                    <div class="timeline-item" style="border-color: #ffc107;">
+                        <h4 style="color: #ffc107;">1️⃣ Introduction</h4>
+                        <ul>
+                            <li>Définir les termes clés</li>
+                            <li>Amener la problématique clairement</li>
+                            <li>Annoncer le plan en 2 parties</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item" style="border-color: #17a2b8;">
+                        <h4 style="color: #17a2b8;">2️⃣ Développement</h4>
+                        <ul>
+                            <li>2 exemples littéraires minimum</li>
+                            <li>Thèse + antithèse + nuance</li>
+                            <li>Arguments structurés et illustrés</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item" style="border-color: #28a745;">
+                        <h4 style="color: #28a745;">3️⃣ Conclusion</h4>
+                        <ul>
+                            <li>Répondre à la question posée</li>
+                            <li>Ouvrir sur une perspective plus large</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning">
+                        ⚠️ <strong>Important :</strong> On n'a pas le droit de citer le corpus dans l'écriture personnelle !
+                    </div>
+                </div>
+
+                <!-- Sujets d'Examen -->
+                <div class="section-divider"></div>
+                <h4>📝 Sujets d'Examen Types</h4>
+
+                <div class="grammar-section">
+                    <h5>Sujet 1 : Le progrès scientifique</h5>
+                    <div class="formula">
+                        Le progrès scientifique est-il toujours synonyme de progrès pour l'Humanité ?
+                    </div>
+                    
+                    <div class="compare-grid" style="margin-top: 20px;">
+                        <div class="compare-card" style="border-color: #ffc107;">
+                            <h4 style="color: #ffc107;">Introduction</h4>
+                            <p>Le progrès pour la science est un processus évolutif orienté vers un terme idéal technique, alors que le progrès pour l'humanité est une évolution pour le confort et la connaissance.</p>
+                        </div>
+                        <div class="compare-card" style="border-color: #17a2b8;">
+                            <h4 style="color: #17a2b8;">Développement</h4>
+                            <p><strong>✅ Bénéfices :</strong> l'écriture, les grandes découvertes scientifiques, la médecine…</p>
+                            <p><strong>⚠️ Part d'ombre :</strong> la bombe nucléaire (Oppenheimer) — outil de dissuasion mais aussi de destruction.</p>
+                        </div>
+                        <div class="compare-card" style="border-color: #28a745;">
+                            <h4 style="color: #28a745;">Conclusion</h4>
+                            <p>Le progrès scientifique est synonyme de progrès pour l'humanité, <strong>mais cela dépend de l'utilisation qu'on en fait</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grammar-section" style="margin-top: 20px;">
+                    <h5>Sujet 2 : La modification génétique</h5>
+                    <div class="formula">
+                        Neuralink · Modification génétique : faut-il tout guérir au risque de tout transformer ?
+                    </div>
+                    
+                    <div class="info-box">
+                        <strong>Enjeu :</strong> La modification génétique est avant tout un outil médical révolutionnaire. Elle permet de corriger des gènes défectueux (ex. : mucoviscidose) et d'offrir une vie normale à des patients condamnés.
+                    </div>
+                    
+                    <div class="warning">
+                        <strong>Question morale :</strong> Où s'arrête la guérison ? Où commence la transformation de l'être humain ? Enjeux éthiques et sociétaux fondamentaux.
+                    </div>
+                </div>
+
+                <!-- Auteurs Clés -->
+                <div class="section-divider"></div>
+                <h4>🔑 Auteurs & Références Clés</h4>
+                
+                <div class="vocab-grid">
+                    <div class="vocab-item">
+                        <strong>Victor Hugo (1802-1885)</strong>
+                        <p>Poète, romancier, homme politique. Pour la paix, la liberté, contre la peine de mort</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Descartes (1596-1650)</strong>
+                        <p>« Je pense donc je suis »</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Voltaire</strong>
+                        <p>Contre les intolérances, pour l'abolition de l'esclavage</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Diderot & D'Alembert</strong>
+                        <p>L'Encyclopédie</p>
+                    </div>
+                    <div class="vocab-item">
+                        <strong>Les Lumières</strong>
+                        <p>Raison, lutte contre préjugés et intolérances</p>
+                    </div>
+                </div>
+
+                <!-- Exposé Oral -->
+                <div class="section-divider"></div>
+                <h4>🎤 Exposé Oral : La Voiture à Combustion</h4>
+                
+                <p>Une invention majeure du XIX<sup>e</sup> siècle qui a transformé notre monde — son histoire, son fonctionnement et ses limites.</p>
+
+                <div class="timeline-item">
+                    <h4>🚗 1885 - Karl Benz — L'inventeur</h4>
+                    <p>L'ingénieur allemand Karl Benz crée son prototype et dépose le brevet de la <em>Patent-Motorwagen</em> en 1886. Véhicule à 3 roues, moteur monocylindre, vitesse d'environ 16 km/h.</p>
+                    <div class="example">
+                        <strong>Anecdote :</strong> C'est sa femme, Bertha Benz, qui a prouvé la fiabilité de l'engin en réalisant le premier trajet historique.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>⛽ 1897 - Rudolf Diesel — Le diesel</h4>
+                    <p>Inventé par Rudolf Diesel. Meilleur rendement, consomme moins. Rendu populaire pour les camions et les longs trajets.</p>
+                    <div class="vocab-grid">
+                        <div class="vocab-item">
+                            <strong>Essence</strong>
+                            <p>Moteurs légers et silencieux</p>
+                        </div>
+                        <div class="vocab-item">
+                            <strong>Diesel</strong>
+                            <p>Meilleur rendement énergétique</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h4>🏭 1908 - Henry Ford — La Ford Model T</h4>
+                    <p>Grâce à la production de masse standardisée, la voiture devient accessible à la classe moyenne et non plus seulement aux élites. Révolution industrielle et sociale.</p>
+                </div>
+
+                <h5 style="margin-top: 30px; margin-bottom: 20px; color: #667eea;">⚙️ Le Cycle à 4 Temps</h5>
+                <div class="compare-grid">
+                    <div class="archetype-card">
+                        <div class="icon">1️⃣</div>
+                        <h5>Admission</h5>
+                        <p>Le mélange air/carburant entre dans le cylindre.</p>
+                    </div>
+                    <div class="archetype-card">
+                        <div class="icon">2️⃣</div>
+                        <h5>Compression</h5>
+                        <p>Le piston remonte et presse le mélange.</p>
+                    </div>
+                    <div class="archetype-card">
+                        <div class="icon">3️⃣</div>
+                        <h5>Combustion</h5>
+                        <p>L'explosion pousse le piston vers le bas — création de puissance.</p>
+                    </div>
+                    <div class="archetype-card">
+                        <div class="icon">4️⃣</div>
+                        <h5>Échappement</h5>
+                        <p>Les gaz brûlés sont expulsés.</p>
+                    </div>
+                </div>
+
+                <div class="compare-grid" style="margin-top: 30px;">
+                    <div class="compare-card" style="border-color: #dc3545; background: #fff5f5;">
+                        <h4 style="color: #dc3545;">⚠️ Limites actuelles</h4>
+                        <ul>
+                            <li>Rejet de CO² → réchauffement climatique</li>
+                            <li>Particules fines → risques pour la santé</li>
+                            <li>Dépendance au pétrole (ressource limitée)</li>
+                            <li>Tensions géopolitiques liées au pétrole</li>
+                            <li>Bruit, embouteillages et stress en ville</li>
+                        </ul>
+                    </div>
+                    <div class="compare-card" style="border-color: #28a745; background: #f0fff4;">
+                        <h4 style="color: #28a745;">🔋 L'avenir — Les alternatives</h4>
+                        <ul>
+                            <li><strong>Hybride</strong> — thermique + électrique</li>
+                            <li><strong>Électrique</strong> — zéro émission en roulant</li>
+                            <li>Progrès nécessaire sur le recyclage des batteries</li>
+                            <li>Amélioration de l'autonomie</li>
+                            <li>Impact culturel, artistique et social</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-box" style="margin-top: 20px;">
+                    <strong>💡 Accroche pour l'exposé oral :</strong> Plus qu'une simple machine, la voiture à combustion a révolutionné les transports, le commerce et influence même l'art et la culture. C'est l'une des inventions majeures du XIX<sup>e</sup> siècle.
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- END: INTEGRATED LE FANTASTIQUE CONTENT -->
+        <!-- ============================================================ -->
+
         <div class="content-section">
             <h2>📖 Vue d'ensemble</h2>
             <p>La <strong>Culture Générale et Expression</strong> développe votre capacité à analyser, synthétiser et argumenter sur des thèmes de société contemporains.</p>
@@ -51,9 +644,7 @@
                 <li>Enrichir sa culture générale</li>
                 <li>Améliorer son expression écrite</li>
             </ul>
-            <h3>📚 Thèmes au programme</h3>
-            <p><span class="important">Thème 1 :</span> "Dans ma maison" - Exploration de l'habitat et de ses représentations</p>
-            <p><span class="important">Thème 2 :</span> "Invitation au voyage" - Le voyage comme expérience</p>
+
             <h3>⚠️ Points d'attention</h3>
             <p>L'<span class="exam">examen final</span> comprend une synthèse de documents (3h) et une écriture personnelle (1h). Le <span class="coefficient">coefficient 2</span> exige une préparation sérieuse.</p>
         </div>
@@ -61,26 +652,35 @@
             <h2>📁 Ressources</h2>
             <div class="resources-list">
                 <div class="resource-item"><h4>📚 Corpus de documents</h4><p>Textes, images, vidéos par thème</p><a href="#">📥 Télécharger</a></div>
-                <div class="resource-item"><h4>✍️ Méthodologie</h4><p>Techniques de synthèse et d'argumentation</p><a href="#">📖 Consulter</a></div>
+                <div class="resource-item"><h4>✏️ Méthodologie</h4><p>Techniques de synthèse et d'argumentation</p><a href="#">📖 Consulter</a></div>
                 <div class="resource-item"><h4>📝 Annales</h4><p>Sujets avec corrigés détaillés</p><a href="#">🎯 S'entraîner</a></div>
             </div>
         </div>
-        <div class="content-section">
-            <h2>📊 Évaluation</h2>
-            <ul>
-                <li>Devoirs écrits : 40%</li>
-                <li><span class="exam">Examen final</span> (4h) : 60%</li>
-            </ul>
-            <div class="mt-2">
-                <span class="badge badge-accent">EXAMEN 4H</span>
-                <span class="badge badge-primary">Coefficient 2</span>
-                <span class="badge badge-info">2h/semaine</span>
-            </div>
-        </div>
+        
+        
     </main>
     <footer>
         <p>&copy; 2025 BTS SIO 2025-2027 - Lillian LACHIZE</p>
         <p><a href="https://www.linkedin.com/in/lillian-lachize/" target="_blank">Me retrouver sur LinkedIn</a></p>
     </footer>
+
+    <script>
+        function showTab(tabName) {
+            // Masquer tous les contenus
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Désactiver tous les boutons
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            // Activer le contenu et le bouton sélectionnés
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+
+            // Scroll vers le haut du contenu
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 </body>
 </html>
