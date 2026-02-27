@@ -333,7 +333,7 @@ table.calculatrice td:hover {
 }
 
 .btn {
-    background-color: var(--primary-color) ;
+    background-color: var(--primary-color);
     color: var(--text-color);
     border: var(--secondary-color);
     padding: 12px 30px;
@@ -343,15 +343,46 @@ table.calculatrice td:hover {
     cursor: pointer;
     text-transform: uppercase;
     transition: all 0.3s ease;
-    box-shadow:  0 0 15px var(--secondary-color);
+    box-shadow: 0 0 15px var(--secondary-color);
+    /* Responsive de base */
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    white-space: nowrap;
+    text-align: center;
 }
 
 .btn:hover {
     background-color: var(--primary-color);
     color: var(--enemy-color);
     transform: scale(1.1);
-    box-shadow:  0 0 15px var(--enemy-color);
-    text-decoration:none;
+    box-shadow: 0 0 15px var(--enemy-color);
+    text-decoration: none;
+}
+
+/* --- RESPONSIVE .btn --- */
+
+/* Tablette (max 768px) */
+@media (max-width: 768px) {
+    .btn {
+        padding: 10px 22px;
+        font-size: 1rem;
+    }
+}
+
+/* Mobile (max 480px) */
+@media (max-width: 480px) {
+    .btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        width: 100%;
+        white-space: normal;
+        border-radius: 30px;
+    }
+
+    .btn:hover {
+        transform: scale(1.03); /* effet réduit sur mobile */
+    }
 }
 
 .info-tour {
