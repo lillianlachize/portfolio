@@ -235,24 +235,35 @@
         </section>
 
     </div> 
-    <section class="section" style="text-align: center; position: relative;">
+        <section class="section-gaming" class="section">
             <h2>🧟 Projet TP : Forest Survival</h2>
-            <p style="margin-bottom: 20px;">Un jeu de survie développé initialement en Python, porté sur le Web.<p><a href="script/Forest Survival.zip" download="Forest Survival.zip">Télécharger le jeu en python</a></p>
+            <p style="margin-bottom: 20px;">
+                Un jeu de survie développé initialement en Python, porté sur le Web.
+                <a href="script/Forest Survival.zip" download="Forest Survival.zip">Télécharger le jeu en python</a>
+            </p>
             
-            <div class="game-container" style="position: relative; display: inline-block;">
-                <canvas id="gameCanvas" width="800" height="600" style="max-width: 100%; height: auto;"></canvas>
-                
+            <div id="gameContainer">
+                <canvas id="gameCanvas" width="800" height="600"></canvas>
                 <div id="ui-layer">
-                    <h1 id="ui-title">FOREST SURVIVAL</h1>
-                    <p id="ui-subtitle">Survivrez-vous aux zombies ?</p>
-                    <button id="ui-btn" class="btnjeu">JOUER</button>
-                    <p style="margin-top: 15px; font-size: 0.9rem; color: #ccc;">Utilisez les flèches ou ZQSD pour bouger</p>
+                    <div id="ui-title">FOREST SURVIVAL</div>
+                    <div id="ui-subtitle">Survivez à l'apocalypse zombie!</div>
+                    <div class="level-buttons">
+                        <button class="level-btn" id="levelBtn1">Niveau 1</button>
+                        <button class="level-btn" id="levelBtn2">Niveau 2</button>
+                        <button class="level-btn" id="levelBtn3">Niveau 3</button>
+                    </div>
+                    <!-- Changement ici : ID "ui-desc" au lieu de "ui-subtitle" -->
+                    <div id="ui-desc" style="font-size: 16px; margin-bottom: 20px; color: #aaa;">
+                        Collectez toutes les rations pour survivre. Évitez les zombies ou trouvez une arme!
+                    </div>
+                    <button id="ui-btn">Jouer</button>
                 </div>
             </div>
         </section>
         
 
         <script src="script/script.js"></script>
+        <script src="script/forest survival.js"></script>
   
 
     </div>
