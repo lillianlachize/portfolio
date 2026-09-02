@@ -16,7 +16,7 @@ Pour développer, j'utilise principalement **Sublime Text**, **Google** et toute
 
 * 🔍 **Développement informatique :** Toujours à la recherche d'informations et d'expérimentations pour m'améliorer et repousser mes limites techniques.
 * 🌱 **Développement personnel :** En quête constante d'évolution. Je suis convaincu que toute critique constructive est un moteur pour progresser.
-* 🥋 **Développement sportif :** Je m'entraîne avec rigueur pour l'obtention de ma **ceinture noire** et de mes diplômes d'enseignement (**AFA / DAF / DIF**). Je prévois également une formation de la **FFK** pour l'enseignement du karaté adapté aux personnes en situation de handicap.
+* 🥋 **Développement sportif :** Je m'entraîne avec rigueur pour l'obtention de ma **ceinture noire** et de mes diplômes d'enseignement (**AFA / DAF / DIF**).
 
 ---
 
