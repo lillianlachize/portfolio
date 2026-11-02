@@ -1,4 +1,4 @@
-# Hello, moi c'est Lillian Lachize !
+# Bonjours, moi c'est Lillian Lachize !
 
 ## "Curiosité insatiable, codeur passionné."
 
